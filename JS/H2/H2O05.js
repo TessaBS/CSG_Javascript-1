@@ -18,21 +18,32 @@ function setup() {
 }
 
 function draw() {
-  
-  tekenRaster();
+  for(var n=0; n<aantalRijenRaster, n++){
+
+    for(var m=0; m<aantalKolommenRaster, m++){
+      tekenRaster(n,m)
+ 
+    }
+  }
+
+
 }
 
-function tekenRaster() {
+function tekenRaster(a,b) {
+
   push();
   noFill();
   stroke('grey');
-  /*
-  Maak hieronder een dubbele herhaling om een raster te maken.
-  HINT: je kunt terugkijken naar het raster dat je in H1 hebt gemaakt.
-  Maak gebruik van de variabelen die bovenaan zijn gedeclareerd.
-  */
-  
-      rect(4*celGrootte,2*celGrootte,celGrootte,celGrootte);
-
+  rect(a*celGrootte,b*celGrootte,celGrootte,celGrootte);
   pop();
+
+}
+
+for (var rij = 0;rij < 450;rij += 50) {
+  for (var kolom = 0;kolom < 450;kolom += 50) {
+    // R = random(0,255);
+    
+    fill(R,G,B);
+    rect(kolom,rij,50,50);
+  }
 }
