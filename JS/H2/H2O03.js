@@ -13,7 +13,12 @@ function setup() {
 function draw() {
   background('grey');
   image(strand,strandX,0);
-  // image(strand,strandX + strand.width,0);  
-
-  strandX--;
+  image(strand,strandX + strand.width,0);  
+  if(strandX = -(strand.with+strand.with)){
+    strandX = 0;
+  }
+  else{
+    strandX--;
+  }
+  
 }
