@@ -1,5 +1,5 @@
 var animatie = [];
-var aantalBeeldjes = 6;
+var aantalBeeldjes = 3;
 var nummer = 0;
 
 function preload() {

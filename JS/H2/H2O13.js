@@ -13,6 +13,11 @@ var yJos = 300;
 function preload() {
   brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
   frame = loadImage("images/sprites/Jos100px/Jos_0.png");
+  for(var a=0; a<aantalBeeldjes; a++){
+    nieuw_beeldje= loadImage("images/sprites/Jos100px/Jos_" + a + ".png");
+    animatie.push(nieuw_beeldje);
+
+  }
 }
 
 function setup() {
@@ -42,7 +47,7 @@ function draw() {
   xJos = constrain(xJos,0,width - celGrootte);
   yJos = constrain(yJos,0,height - celGrootte);
   
-  image(frame,xJos,yJos);
+  image(animatie[nummer],xJos,yJos);
 }
 
 function tekenRaster() {
