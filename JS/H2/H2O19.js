@@ -1,6 +1,27 @@
-var aantalRijenRaster = 6;
-var aantalKolommenRaster = 9;
-var celGrootte;
+var raster = {
+  aantalRijen : 6 ,
+  aantalKolommen : 9,
+  celGrootte: null,
+  
+
+  berekenCelGrootte() {
+    this.celGrootte =
+    width/this.aantalKolommen;
+    },
+
+
+  teken() {
+    push();
+    noFill();
+    stroke('grey');
+    for (var rij = 0;rij < this.aantalRijen;rij++) {
+      for (var kolom = 0;kolom < this.aantalKolommen;kolom++) {
+        rect(kolom*this.celGrootte,rij*this.celGrootte,this.celGrootte,this.celGrootte);
+      }
+    }
+    pop();
+  }
+}
 
 var animatie = [];
 var aantalBeeldjes = 6;
@@ -21,12 +42,12 @@ function setup() {
   canvas = createCanvas(900,600);
   canvas.parent('processing');
   frameRate(10);
-  celGrootte = width / aantalKolommenRaster;
+  raster.berekenCelGrootte();
 }
 
 function draw() {
   background(brug);
-  tekenRaster();
+  raster.teken();
 
   if (keyIsDown(LEFT_ARROW)) {
     xJos -= celGrootte;
@@ -49,16 +70,4 @@ function draw() {
   yJos = constrain(yJos,0,height - celGrootte);
   
   image(animatie[nummer],xJos,yJos,celGrootte,celGrootte);
-}
-
-function tekenRaster() {
-  push();
-  noFill();
-  stroke('grey');
-  for (var rij = 0;rij < aantalRijenRaster;rij++) {
-    for (var kolom = 0;kolom < aantalKolommenRaster;kolom++) {
-      rect(kolom*celGrootte,rij*celGrootte,celGrootte,celGrootte);
-    }
-  }
-  pop();
 }
