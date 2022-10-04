@@ -4,21 +4,24 @@ var bal = {
   x: null,
   y: 0,
   snelheidX: 8,
-  snelheidY: 5,
-  demping: 1.0,
+  snelheidY: 0,
+  versnelling: 0.2,
+  demping: 0.9,
   
   beweeg() {
-    
+    this.snelheidY += this.versnelling
+
     this.x += this.snelheidX;
     this.y += this.snelheidY;
     
     if (this.x <= this.straal || this.x >= canvas.width - this.straal) {
       this.snelheidX *= -this.demping;
     }
-    
-    if (this.y <= this.straal || this.y >= canvas.height - this.straal) {
+
+    if (this.y >= canvas.height-this.straal) {
       this.snelheidY *= -this.demping;
       this.snelheidX *= this.demping;
+      this.y = canvas.height - this.straal;
     }
   },
   
