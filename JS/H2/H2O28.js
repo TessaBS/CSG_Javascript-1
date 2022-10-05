@@ -50,7 +50,12 @@ var jos = {
   },
 
   wordtGeraakt(vijand) {
-    return false;
+    if (this.x == vijand.x && this.y == vijand.y){
+      return true;
+    }
+    else{
+      return false;
+    }
   },
 
   toon() {
@@ -62,7 +67,7 @@ var alice = {
   x: 700,
   y: 200,
   sprite: null,
-  stapGrootte: 0,
+  stapGrootte: null,
 
   beweeg() {
     this.x += floor(random(-1,2))*this.stapGrootte;
@@ -99,11 +104,15 @@ function setup() {
 
 function draw() {
   background(brug);
+
   raster.teken();
+
   jos.beweeg();
   jos.toon();
+
   alice.toon();
   alice.beweeg();
+
   if (jos.wordtGeraakt(alice)) {
     noLoop();
   }
