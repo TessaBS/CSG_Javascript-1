@@ -62,7 +62,7 @@ var alice = {
   x: 700,
   y: 200,
   sprite: null,
-  stapGrootte: null,
+  stapGrootte: 0,
 
   beweeg() {
     this.x += floor(random(-1,2))*this.stapGrootte;
@@ -103,7 +103,7 @@ function draw() {
   jos.beweeg();
   jos.toon();
   alice.toon();
-
+  alice.beweeg();
   if (jos.wordtGeraakt(alice)) {
     noLoop();
   }
