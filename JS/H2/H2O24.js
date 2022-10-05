@@ -7,12 +7,14 @@ var dobbelSteen = {
   R: null,
   G: null,
   B: null,
+  totaal: null,
   
   gooi() {
     this.ogen = floor(random(0,6)) + 1;
     this.R = round(random(0,255));
     this.G = round(random(0,255));
-    this.B = round(random(0,255));    
+    this.B = round(random(0,255)); 
+    this.totaal += this.ogen;   
   },
   
   teken() {
@@ -40,7 +42,7 @@ function setup() {
   colorMode(RGB,255,255,255,1);
   noStroke();
   textFont("Georgia");
-  textSize(80);  
+  textSize(40);  
   frameRate(10);
   dobbelSteen.gooi();
 }
@@ -51,4 +53,5 @@ function draw() {
     dobbelSteen.gooi();
   }
   dobbelSteen.teken();
+  text("Het totaal=" + dobbelSteen.totaal, 10,300);
 }
