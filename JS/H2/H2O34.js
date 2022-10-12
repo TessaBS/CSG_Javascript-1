@@ -144,4 +144,8 @@ function draw() {
     text("Je hebt gewonnen!",30,300);
     noLoop();
   }
+
+  if (bob.x == alice.x && bob.y == alice.y){
+    bob.beweeg();
+  }
 }

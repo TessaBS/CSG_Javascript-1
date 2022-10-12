@@ -1,17 +1,20 @@
-var raster = {
-  aantalRijen: 6,
-  aantalKolommen: 9,
-  celGrootte: null,
-  
+class Raster {
+  constructor() {
+    this.aantalRijen = 6;
+    this.aantalKolommen = 9;
+    this.celGrootte = null;  
+  }
+
   berekenCelGrootte() {
     this.celGrootte = canvas.width/this.aantalKolommen;
-  },
+  }
+
   teken() {
     push();
     noFill();
     stroke('grey');
-    for (rij=0;rij<this.aantalRijen;rij++) {
-      for (kolom=0;kolom<this.aantalKolommen;kolom++) {
+    for (var rij=0;rij<this.aantalRijen;rij++) {
+      for (var kolom=0;kolom<this.aantalKolommen;kolom++) {
         rect(kolom*this.celGrootte,rij*this.celGrootte,this.celGrootte,this.celGrootte);
       }
     }
@@ -100,8 +103,10 @@ function setup() {
   frameRate(10);
   textFont("Verdana");
   textSize(90);
+
+  raster = new Raster();
   raster.berekenCelGrootte();
-  
+
   eve = new Jos();
   eve.stapGrootte = 1*raster.celGrootte;
   for (var b = 0;b < 6;b++) {
@@ -113,6 +118,10 @@ function setup() {
   alice.stapGrootte = 1*eve.stapGrootte;
   alice.sprite = loadImage("images/sprites/Alice100px/Alice.png");
   
+
+  bob = new Vijand(500,300);
+  bob.stapGrootte = alice.stapGrootte;
+  bob.sprite = loadImage("images/sprites/Bob100px/Bob.png");
 }
 
 function draw() {
@@ -120,10 +129,16 @@ function draw() {
   raster.teken();
   eve.beweeg();
   alice.beweeg();
+  bob.beweeg();
+
   eve.toon();
   alice.toon();
-  
+  bob.toon();
+
   if (eve.wordtGeraakt(alice)) {
+    noLoop();
+  }
+  if (eve.wordtGeraakt(alice) || eve.wordtGeraakt(bob)) {
     noLoop();
   }
   
@@ -133,4 +148,6 @@ function draw() {
     text("Je hebt gewonnen!",30,300);
     noLoop();
   }
+
+
 }

@@ -128,6 +128,15 @@ function draw() {
   background(brug);
   raster.teken();
   
+  if (eve.aanDeBeurt) {
+    eve.beweeg();
+   }
+   else {
+    alice.beweeg();
+    bob.beweeg();
+    eve.aanDeBeurt = true;
+   }
+
   if (alice.x == bob.x && alice == bob.y) {
     bob.beweeg();
   }
