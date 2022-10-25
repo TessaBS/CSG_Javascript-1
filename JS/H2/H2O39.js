@@ -7,10 +7,12 @@ class Knikker {
     this.snelheidX = random(1,10);
     this.snelheidY = random(1,10);
     this.kleur = kl;
+    this.s = 0;
   }
   
   gaNaarMuis(muisX,muisY) {
-
+    this.x = this.x + (muisX - this.x) * 0.05;
+    this.y = this.y + (muisY - this.y) * 0.05;
   }  
 
   beweeg() {

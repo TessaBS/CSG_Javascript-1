@@ -91,6 +91,10 @@ function setup() {
     eve.animatie.push(frameEve);
   }
   
+  for (var a = 0; a < 10 ; a++){
+    bommenArray.push(new Bom);
+  }
+
   alice = new Vijand(700,200);
   alice.stapGrootte = 1*eve.stapGrootte;
   alice.sprite = loadImage("images/sprites/Alice100px/Alice.png");
@@ -104,6 +108,10 @@ function draw() {
   background(brug);
   raster.teken();
   bom1.toon();
+
+  for(var c = 0; c < bommenArray.length; c ++){
+    bommenArray[c].toon();
+  }
 
   if (eve.aanDeBeurt) {
     eve.beweeg();
