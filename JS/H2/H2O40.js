@@ -56,6 +56,11 @@ class Jos {
   }
   
   staatOp(bommenLijst) {
+  for(var b = 0; b < bommenLijst.length; b++){
+    if(bommenLijst[b].x == this.x && bommenLijst[b].y == this.y){
+      this.staOpBom = true;
+    }
+  }
 
     return this.staOpBom;
   }  
@@ -66,7 +71,7 @@ class Jos {
 }
 
 function preload() {
-  brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
+  onderwater = loadImage("images/backgrounds/onderwater.png");
   bomPlaatje = loadImage("images/sprites/bom_100px.png");
 }
 
@@ -79,10 +84,9 @@ function setup() {
   textFont("Verdana");
   textSize(90);
   
-  raster = new Raster(6,9);
+  raster = new Raster(12,18);
   
   raster.berekenCelGrootte();
-  bom1 = new Bom();
   
   eve = new Jos();
   eve.stapGrootte=1*raster.celGrootte;
@@ -91,7 +95,7 @@ function setup() {
     eve.animatie.push(frameEve);
   }
   
-  for (var a = 0; a < 10 ; a++){
+  for (var a = 0; a < 60 ; a++){
     bommenArray.push(new Bom);
   }
 
@@ -105,9 +109,7 @@ function setup() {
 }
 
 function draw() {
-  background(brug);
-  raster.teken();
-  bom1.toon();
+  background(onderwater);
 
   for(var c = 0; c < bommenArray.length; c ++){
     bommenArray[c].toon();
