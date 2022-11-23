@@ -1,6 +1,6 @@
 function preload() {
   achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
-  poppetje = loadImage("mijnGame/images/player.png");
+  // poppetje = loadImage("mijnGame/images/imposter.png");
 }
 
 function setup() {
