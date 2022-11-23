@@ -28,15 +28,15 @@ class Schermen {
     }
     
     maakBegin(){
-      push(),
-        background(252, 204, 243),
+      push();
+        background(252, 204, 243);
         text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
         'Hierbij kom je obstakels tegen, als je een obstakel raakt ben je af en moet je opnieuw beginnen. ' +
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
         'Als je de overkant en voldoende muntjes hebt gehaald, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000),
-      pop(),
-    }
-}
+      pop();
+   }
+  }
 
 
 // /*  **********************************************************
@@ -91,19 +91,19 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  //canvas.parent('processing');
-  //frameRate(10);
-  textFont("Monospace");
-  textSize(40);
-  textAlign(CENTER,CENTER);
-  background(252, 204, 243);
-  //speler = new Speler(5,celGrootte);
-  // spel = new Spel();
+    createCanvas(windowWidth, windowHeight);
+    //canvas.parent('processing');
+    //frameRate(10);
+    textFont("Monospace");
+    textSize(40);
+    textAlign(CENTER,CENTER);
+    background(252, 204, 243);
+    //speler = new Speler(5,celGrootte);
+    // spel = new Spel();
 
-  // raster = new Raster(12,18);
-  // raster.berekenCelGrootte();
-  schermen.maakBegin();
+    // raster = new Raster(12,18);
+    // raster.berekenCelGrootte();
+
 }
 
 function draw() {
