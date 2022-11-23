@@ -27,7 +27,7 @@ class Schermen {
       this.windowWidth = 3000;
     }
     
-    maakBegin() {
+    maakBegin(){
       push(),
         background(252, 204, 243),
         text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
@@ -36,7 +36,8 @@ class Schermen {
         'Als je de overkant en voldoende muntjes hebt gehaald, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000),
       pop(),
     }
-  }
+}
+
 
 // /*  **********************************************************
 //     **                BEGIN klasse Speler                   **
@@ -90,23 +91,23 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    //canvas.parent('processing');
-    //frameRate(10);
-    textFont("Monospace");
-    textSize(40);
-    textAlign(CENTER,CENTER);
-    background(252, 204, 243);
-    //speler = new Speler(5,celGrootte);
-    // spel = new Spel();
+  createCanvas(windowWidth, windowHeight);
+  //canvas.parent('processing');
+  //frameRate(10);
+  textFont("Monospace");
+  textSize(40);
+  textAlign(CENTER,CENTER);
+  background(252, 204, 243);
+  //speler = new Speler(5,celGrootte);
+  // spel = new Spel();
 
-    // raster = new Raster(12,18);
-    // raster.berekenCelGrootte();
-
+  // raster = new Raster(12,18);
+  // raster.berekenCelGrootte();
+  schermen.maakBegin();
 }
 
 function draw() {
-    schermen.maakBegin();
+
 //     image(strand,strandX,0);
 //   image(strand,strandX + strand.width,0);
 //   strandX--;
