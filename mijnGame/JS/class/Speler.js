@@ -1,12 +1,12 @@
 /*  **********************************************************
     **                BEGIN klasse Speler                   **
     ********************************************************** */
-    class Speler {
-        constructor(x,celGrootte) {
-          this.x = x;
-          this.y = null;
-          this.stap = celGrootte;
-        }
+class Speler {
+    constructor(x,y,celGrootte) {
+        this.x = x;
+        this.y = y;
+        this.stap = celGrootte;
+    }
         
     beweeg() {
         if (keyIsDown(RIGHT_ARROW)) {
@@ -31,10 +31,11 @@
 
     teken() {
         push();
-        image(poppetje,0,0);
+        ellipse(this.x,this.y,50);
+        // image(poppetje,0,0);
         pop();
     }
-    }
+}
       
 /*  **********************************************************
     **    EINDE klasse Speler      BEGIN klasse Platform    **

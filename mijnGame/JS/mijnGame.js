@@ -21,7 +21,7 @@ function setup() {
 
 function draw() {
   scherm.maakBegin();
-
+  
   // image(strand,strandX,0);
   // image(strand,strandX + strand.width,0);
   // strandX--;
@@ -30,20 +30,20 @@ function draw() {
   // }
 }
 
-// function keyPressed() {
-//   if (keyCode == ENTER) {
-//     function keyTyped() {
-//         if (!spel.actief && !spel.levelGehaald) {
-//           maakBegin();
-//           spel.actief = true;
-//         }
-//         if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
-//           maakBegin();
-//         }
-//         if ((spel.afgelopen)) {
-//           maakBegin();
-//         }  
-//       }
-//     startSpel();
-//     }
-// }
+function keyPressed() {
+  if (keyCode == ENTER) {
+    function keyTyped() {
+        if (!spel.actief && !spel.levelGehaald) {
+          scherm.maakBegin();
+          spel.actief = true;
+        }
+        if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
+        
+        }
+        if ((spel.afgelopen)) {
+          maakBegin();
+        }  
+      }
+    scherm.maakSpel();
+    }
+}

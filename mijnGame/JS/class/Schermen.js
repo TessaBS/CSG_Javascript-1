@@ -1,6 +1,7 @@
 class Schermen {
     constructor(){
       this.windowWidth = 3000;
+      this.canvas = null;
     }
       
     maakBegin(){
@@ -11,5 +12,10 @@ class Schermen {
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
         'Als je de overkant en voldoende muntjes hebt gehaald, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000),
       pop();
-     }
     }
+    
+    maakSpel(){
+     
+    }
+
+}
