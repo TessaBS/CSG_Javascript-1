@@ -1,7 +1,7 @@
 function preload() {
-  achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
-  // poppetje = loadImage("mijnGame/images/imposter.png");
-  bom = loadImage('images/sprites/Alice100px/Alice.png');
+  achtergrondmuziek = loadSound(sounds/bensound-dance.mp3);
+  poppetje = loadImage(mijnGame/images/imposter.png);
+  bom = loadImage(images/sprites/Alice100px/Alice.png);
 }
 
 function setup() {
@@ -12,14 +12,14 @@ function setup() {
   textSize(40);
   textAlign(CENTER,CENTER);
   background(252,204,243);
-  //speler = new Speler(5,celGrootte);
+  speler = new Speler(5,celGrootte);
   // spel = new Spel();
   
   // raster = new Raster(12,18);
   // raster.berekenCelGrootte();
   scherm = new Schermen();
   raster = new Raster();
-  // bom = new Bommen();
+  bom = new Bommen();
 }
 
 function draw() {

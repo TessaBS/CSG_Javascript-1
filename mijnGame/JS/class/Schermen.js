@@ -16,7 +16,7 @@ class Schermen {
     
     maakSpel(){
       raster.teken();
-      
+      image(bom,this.x,this.y,raster.celGrootte,raster.celGrootte);
     }
 
 }
