@@ -23,9 +23,7 @@ function setup() {
 }
 
 function draw() {
-
   scherm.maakBegin();
-
   
   // image(strand,strandX,0);
   // image(strand,strandX + strand.width,0);
