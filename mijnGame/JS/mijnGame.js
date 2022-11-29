@@ -24,14 +24,14 @@ function setup() {
 
 function draw() {
   scherm.maakBegin();
-  scherm.maakSpel();
+
 }
   
 
 function keyPressed() {
   if (keyCode == ENTER) {
       if (!spel.actief && !spel.levelGehaald) {
-        scherm.maakBegin();
+        scherm.maakSpel();
         spel.actief = true;
       }
       if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
@@ -40,7 +40,5 @@ function keyPressed() {
       if ((spel.afgelopen)) {
         scherm.maakEinde();
       }  
-
-    scherm.maakSpel();
     }
 }
