@@ -17,12 +17,13 @@ class Schermen {
     maakSpel(){
       raster.teken();
       image(bom,this.x,this.y,raster.celGrootte,raster.celGrootte);
+      background('yellow');
     }
     
     maakEinde(){
       push();
       background(252, 204, 243);
       text('Hoera, je hebt gewonnen!',(windowWidth-1000)/2,100,1000);
-    pop();
+      pop();
     }
 }

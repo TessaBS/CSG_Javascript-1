@@ -24,6 +24,7 @@ function setup() {
 
 function draw() {
   scherm.maakBegin();
+  scherm.maakSpel();
 }
   
 
