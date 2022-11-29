@@ -31,7 +31,7 @@ function keyPressed() {
   if (keyCode == ENTER) {
       if (!spel.actief && !spel.levelGehaald) {
         scherm.maakBegin();
-
+        spel.actief = true;
       }
       if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
 
@@ -41,6 +41,5 @@ function keyPressed() {
       }  
 
     scherm.maakSpel();
-    spel.actief = true;
     }
 }
