@@ -5,7 +5,7 @@ class Spel{
       }
 
     actief(){
-    
+
     }
 
     levelGehaald(){

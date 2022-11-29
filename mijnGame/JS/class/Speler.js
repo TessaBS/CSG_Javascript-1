@@ -2,10 +2,10 @@
     **                BEGIN klasse Speler                   **
     ********************************************************** */
 class Speler {
-    constructor(x,y,celGrootte) {
-        this.x = x;
-        this.y = y;
-        this.stap = celGrootte;
+    constructor() {
+        this.x = 2*raster.celGrootte;
+        this.y = 5*raster.celGrootte;
+        this.stap = raster.celGrootte;
     }
         
     beweeg() {
