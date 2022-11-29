@@ -18,7 +18,7 @@ function setup() {
   // raster.berekenCelGrootte();
   scherm = new Schermen();
   raster = new Raster();
-  bom = new Bommen();
+  // bom = new Bommen();
 }
 
 function draw() {
