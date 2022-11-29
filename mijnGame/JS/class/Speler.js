@@ -31,8 +31,7 @@ class Speler {
 
     teken() {
         push();
-        ellipse(this.x,this.y,50);
-        // image(poppetje,0,0);
+        image(speler,this.x,this.y,raster.celGrootte,raster.celGrootte);
         pop();
     }
 }
