@@ -5,12 +5,13 @@ class Spel{
       }
 
     actief(){
-
+    
     }
+
     levelGehaald(){
 
     }
-    
+
     afgelopen(){
 
     }
