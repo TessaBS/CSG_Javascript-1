@@ -35,18 +35,18 @@ function draw() {
 
 function keyPressed() {
   if (keyCode == ENTER) {
-    function keyTyped() {
-        if (!spel.actief && !spel.levelGehaald) {
-          scherm.maakBegin();
-          spel.actief = true;
-        }
-        if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
+      if (!spel.actief && !spel.levelGehaald) {
+        scherm.maakBegin();
 
-        }
-        if ((spel.afgelopen)) {
-          scherm.maakBegin();
-        }  
       }
+      if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
+
+      }
+      if ((spel.afgelopen)) {
+        scherm.maakEinde();
+      }  
+
     scherm.maakSpel();
+    spel.actief = true;
     }
 }
