@@ -5,6 +5,6 @@ class Bom {
     }
     
     toon() {
-      image(beloning,this.x,this.y,raster.celGrootte,raster.celGrootte);
+      image(bom,this.x,this.y,raster.celGrootte,raster.celGrootte);
     }
   }
