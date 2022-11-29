@@ -12,11 +12,11 @@ function setup() {
   textSize(40);
   textAlign(CENTER,CENTER);
   background(252,204,243);
-  speler = new Speler(5,celGrootte);
+  // speler = new Speler(5,celGrootte);
   // spel = new Spel();
   
-  // raster = new Raster(12,18);
-  // raster.berekenCelGrootte();
+  raster = new Raster(12,18);
+  raster.berekenCelGrootte();
   scherm = new Schermen();
   raster = new Raster();
   bom = new Bommen();
