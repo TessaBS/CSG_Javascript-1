@@ -13,7 +13,7 @@ function setup() {
   textAlign(CENTER,CENTER);
   background(252,204,243);
   // speler = new Speler();
-  // spel = new Spel();
+  spel = new Spel();
   
   raster = new Raster(12,18);
   raster.berekenCelGrootte();
