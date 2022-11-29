@@ -15,7 +15,8 @@ class Schermen {
     }
     
     maakSpel(){
-     
+      raster.teken();
+      
     }
 
 }

@@ -12,7 +12,7 @@ class Raster {
     teken() {
       push();
       noFill();
-      stroke('grey');
+      stroke('black');
       for (var rij = 0;rij<this.aantalRijen;rij++) {
         for (var kolom = 0;kolom<this.aantalKolommen;kolom++) {
           rect(kolom*this.celGrootte,rij*this.celGrootte,this.celGrootte,this.celGrootte);
