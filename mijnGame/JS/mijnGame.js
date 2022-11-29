@@ -22,10 +22,8 @@ function setup() {
 }
 
 function draw() {
-  if(!spel.actief && !spel.levelGehaald && !spel.afgelopen){
-    scherm.maakBegin();
-  }
 
+  scherm.maakBegin();
 
   
   // image(strand,strandX,0);
