@@ -12,7 +12,7 @@
       this.levelGehaald = null;
       this.afgelopen = null;
       this.gewonnen = null;
-      this.speler = new Speler();
+      this.speler = new Speler(this.raster.celGrootte);
     }
     
     nieuwSpel() {
@@ -90,6 +90,7 @@
               this.tekenScorebord();
               this.raster.teken();
               this.speler.teken();
+              this.speler.beweeg();
           }
       }
     }

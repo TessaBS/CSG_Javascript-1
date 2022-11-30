@@ -12,7 +12,7 @@
     textFont("Monospace");
     textSize(30);
     textAlign(CENTER,CENTER);  
-    frameRate(50);
+    frameRate(15);
     spel = new Levels();
     spel.nieuwSpel();
     // bom = new Bom();
@@ -20,13 +20,6 @@
     // bom.push(new Bom());
     //   }
     speler = new Speler();
-    raster = new Raster();
-    level = new Levels();
-
-    // speler.stapGrootte = raster.celGrootte;
-    // speler.beginx = raster.celGrootte / 2;
-    // speler.beginy = raster.celGrootte * 3;
-
   }
   
   function draw() {
@@ -34,7 +27,7 @@
     // for(n=0;n < level.level * 10;n++) {
     //   bom[n].teken();
     // }
-
+    speler.beweeg();
   }
   
   function mousePressed() {
