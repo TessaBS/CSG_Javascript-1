@@ -23,9 +23,9 @@
     raster = new Raster();
     level = new Levels();
 
-    speler.stapGrootte = raster.celGrootte;
-    speler.beginx = raster.celGrootte / 2;
-    speler.beginy = raster.celGrootte * 3;
+    // speler.stapGrootte = raster.celGrootte;
+    // speler.beginx = raster.celGrootte / 2;
+    // speler.beginy = raster.celGrootte * 3;
 
   }
   

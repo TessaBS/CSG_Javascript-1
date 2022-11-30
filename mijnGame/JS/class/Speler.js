@@ -2,9 +2,9 @@ class Speler {
     constructor() {
         this.raster = new Raster();
         this.y = null;
-        this.stapGrootte = null;
-        this.beginx = null;
-        this.beginy = null;
+        this.stapGrootte = raster.celGrootte;
+        this.beginx = raster.celGrootte / 2;
+        this.beginy = raster.celGrootte * 3;
     }
 
     beweeg() {
