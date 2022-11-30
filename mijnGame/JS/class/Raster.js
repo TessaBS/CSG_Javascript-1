@@ -1,12 +1,18 @@
 class Raster {
-    constructor(r,k) {
-      this.aantalRijen = r;
-      this.aantalKolommen = k;
-      this.celGrootte = null;
+    constructor() {
+      this.aantalRijen = null;
+      this.aantalKolommen = null;
+      this.celGrootte = 100;
     }
     
     berekenCelGrootte() {
       this.celGrootte = canvas.width / this.aantalKolommen;
+    }
+
+    genereer() {
+      this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
+      this.aanralRijen = floor(window.height / this.celGrootte) +1;
+
     }
     
     teken() {
