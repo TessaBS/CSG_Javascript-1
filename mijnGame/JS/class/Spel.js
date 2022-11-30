@@ -32,12 +32,13 @@
     tekenScorebord() {
       push();
       background(252, 204, 243);
-      fill(0,0,0,.8);
-      noStroke();
+      // fill(0,0,0,.8);
+      // noStroke();
+
+      // var marge = 100;
+      // rect(marge,marge,canvas.width - 2 * marge,canvas.height - 2 * marge);
       textSize(30);
-      var marge = 100;
-      rect(marge,marge,canvas.width - 2 * marge,canvas.height - 2 * marge);
-      fill(255);
+      fill(0);
       text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",marge,marge,canvas.width - 2 * marge,canvas.height - 2 * marge);   
       pop();
     }
