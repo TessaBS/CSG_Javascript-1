@@ -32,14 +32,9 @@
     tekenScorebord() {
       push();
       background(252, 204, 243);
-      // fill(0,0,0,.8);
-      // noStroke();
-
-      // var marge = 100;
-      // rect(marge,marge,canvas.width - 2 * marge,canvas.height - 2 * marge);
       textSize(30);
       fill(0);
-      text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",marge,marge,canvas.width - 2 * marge,canvas.height - 2 * marge);   
+      text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",(windowWidth-1000)/2,100,1000);   
       pop();
     }
     
@@ -51,10 +46,12 @@
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
         'Als je de overkant en voldoende muntjes hebt gehaald, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
       pop();
+
     }
   
     levelScherm() {
       push();
+      background(252, 204, 243);
       fill('black');
       text('Gefeliciteerd!\nJe hebt level '+this.level+' gehaald!\n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',0,0,canvas.width,canvas.height / 2);
       pop();
@@ -66,6 +63,7 @@
         tekst = 'Gefeliciteerd!';
       }
       push();
+      background(252, 204, 243);
       fill(0);
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',0,0,canvas.width,canvas.height);
       pop();
@@ -87,6 +85,7 @@
           }
           else {
               this.tekenScorebord();
+              this.raster.teken();
 
           }
       }

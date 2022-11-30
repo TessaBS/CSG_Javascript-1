@@ -11,12 +11,14 @@ class Raster {
 
     genereer() {
       this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
-      this.aanralRijen = floor(window.height / this.celGrootte) +1;
+      this.aantalRijen = floor(window.height / this.celGrootte) +1;
 
     }
     
     teken() {
       push();
+      fill('red');
+      ellipse(100,100,75);
       noFill();
       stroke('black');
       for (var rij = 0;rij<this.aantalRijen;rij++) {

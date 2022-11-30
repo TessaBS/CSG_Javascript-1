@@ -1,5 +1,7 @@
   function preload() {
     //achtergrond = loadImage("images/backgrounds/boom_mist.jpg");
+    //speler = loadImage(mijnGame/images/imposter.png);
+    //bom = loadImage(mijnGame/images/bom.png);
   }
   
   function setup() {
