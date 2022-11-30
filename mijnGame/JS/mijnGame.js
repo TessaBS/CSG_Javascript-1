@@ -19,7 +19,7 @@
     // for (var b = 0; b < 10; b++) {
     // bom.push(new Bom());
     //   }
-    speler = new Speler();
+
   }
   
   function draw() {
@@ -27,7 +27,7 @@
     // for(n=0;n < level.level * 10;n++) {
     //   bom[n].teken();
     // }
-    speler.beweeg();
+
   }
   
   function mousePressed() {

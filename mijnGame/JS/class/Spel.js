@@ -13,6 +13,8 @@
       this.afgelopen = null;
       this.gewonnen = null;
       this.speler = new Speler(this.raster.celGrootte);
+      this.snelheid = 10;
+      this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
     
     nieuwSpel() {
@@ -28,7 +30,7 @@
     nieuwLevel() {
       this.level++;
       this.levelGehaald = false;
-
+      this.snelheid += 10;
     }
   
     tekenScorebord() {
@@ -91,6 +93,7 @@
               this.raster.teken();
               this.speler.teken();
               this.speler.beweeg();
+              this.bom.toon();
           }
       }
     }

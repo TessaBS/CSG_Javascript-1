@@ -14,7 +14,7 @@ class Speler {
             this.y += this.stapGrootte;
         }
     
-        this.y = constrain(this.y,0,window.height - this.stapGrootte);
+        this.y = constrain(this.y,0,windowHeight - this.stapGrootte);
     
         if (this.y == 0) {
             spel.Levelgehaald = true;
