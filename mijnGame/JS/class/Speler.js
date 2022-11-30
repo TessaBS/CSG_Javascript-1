@@ -2,24 +2,21 @@ class Speler {
     constructor() {
         this.raster = new Raster();
         this.y = null;
-        this.stap = null;
-    }
-    
-    stappen() {
-        // this.y = raster.celGrootte;
-        // this.stap = raster.celGrootte;
+        this.stapGrootte = null;
+        this.beginx = null;
+        this.beginy = null;
     }
 
     beweeg() {
         // if (keyIsDown(UP_ARROW)) {
-        //     this.y -= this.stap;
+        //     this.y -= this.stapGrootte;
         // }
 
         // if (keyIsDown(DOWN_ARROW)) {
-        //     this.y += this.stap;
+        //     this.y += this.stapGrootte;
         // }
     
-        // this.y = constrain(this.y,0,canvas.height-raster.celGrootte);
+        // this.y = constrain(this.y,0,canvas.height-stapGrootte);
     
         // if (this.y == 0) {
         //     spel.Levelgehaald = true;
@@ -29,7 +26,8 @@ class Speler {
     teken() {
         push();
         fill('pink');
-        ellipse(0,(raster.aantalRijen / 2) *celGrootte,celGrootte);
+        ellipse(this.beginx,this.beginy,this.stapGrootte);
+        // ellipse(100,100,100);
         pop();
     }
 }

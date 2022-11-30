@@ -22,13 +22,13 @@
       this.afgelopen = false;
       this.raster.genereer();
       this.nieuwLevel();
-      this.speler.stappen();
-      // this.speler.
+
     }
   
     nieuwLevel() {
       this.level++;
       this.levelGehaald = false;
+
     }
   
     tekenScorebord() {
@@ -37,7 +37,7 @@
       textSize(30);
       fill(0);
       text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",(windowWidth-1000)/2,100,1000);   
-
+      
       pop();
 
     }
@@ -89,7 +89,7 @@
           else {
               this.tekenScorebord();
               this.raster.teken();
-
+              this.speler.teken();
           }
       }
     }

@@ -17,8 +17,16 @@
     spel.nieuwSpel();
     // bom = new Bom();
     // for (var b = 0; b < 10; b++) {
-      // bom.push(new Bom());
+    // bom.push(new Bom());
     //   }
+    speler = new Speler();
+    raster = new Raster();
+    level = new Levels();
+
+    speler.stapGrootte = raster.celGrootte;
+    speler.beginx = raster.celGrootte / 2;
+    speler.beginy = raster.celGrootte * 3;
+
   }
   
   function draw() {
@@ -26,6 +34,7 @@
     // for(n=0;n < level.level * 10;n++) {
     //   bom[n].teken();
     // }
+
   }
   
   function mousePressed() {
