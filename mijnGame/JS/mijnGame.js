@@ -1,7 +1,7 @@
   function preload() {
     //achtergrond = loadImage("images/backgrounds/boom_mist.jpg");
-    //speler = loadImage(mijnGame/images/imposter.png);
-    //bom = loadImage(mijnGame/images/bom.png);
+    //speler = loadImage("mijnGame/images/imposter.png");
+    //bom = loadImage("mijnGame/images/bom.png");
   }
   
   function setup() {
@@ -10,15 +10,22 @@
     //canvas.parent('processing');
     colorMode(RGB,255,255,255,1);
     textFont("Monospace");
-    textSize(44);
+    textSize(30);
     textAlign(CENTER,CENTER);  
     frameRate(50);
     spel = new Levels();
     spel.nieuwSpel();
+    // bom = new Bom();
+    // for (var b = 0; b < 10; b++) {
+      // bom.push(new Bom());
+    //   }
   }
   
   function draw() {
     spel.teken();
+    // for(n=0;n < level.level * 10;n++) {
+    //   bom[n].teken();
+    // }
   }
   
   function mousePressed() {

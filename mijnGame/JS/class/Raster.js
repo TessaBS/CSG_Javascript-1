@@ -5,9 +5,9 @@ class Raster {
       this.celGrootte = 100;
     }
     
-    berekenCelGrootte() {
-      this.celGrootte = canvas.width / this.aantalKolommen;
-    }
+    // berekenCelGrootte() {
+    //   this.celGrootte = canvas.width / this.aantalKolommen;
+    // }
 
     genereer() {
       this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
@@ -17,8 +17,6 @@ class Raster {
     
     teken() {
       push();
-      fill('red');
-      ellipse(100,100,75);
       noFill();
       stroke('black');
       for (var rij = 0;rij<this.aantalRijen;rij++) {

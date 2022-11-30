@@ -12,7 +12,7 @@
       this.levelGehaald = null;
       this.afgelopen = null;
       this.gewonnen = null;
-
+      this.speler = new Speler();
     }
     
     nieuwSpel() {
@@ -22,6 +22,8 @@
       this.afgelopen = false;
       this.raster.genereer();
       this.nieuwLevel();
+      this.speler.stappen();
+      // this.speler.
     }
   
     nieuwLevel() {
@@ -35,16 +37,18 @@
       textSize(30);
       fill(0);
       text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",(windowWidth-1000)/2,100,1000);   
+
       pop();
+
     }
     
     beginScherm() {
       push();
         background(252, 204, 243);
         text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
-        'Hierbij kom je obstakels tegen, als je een obstakel raakt ben je af en moet je opnieuw beginnen. ' +
+        'Hierbij kom je bommen tegen, als je een bom raakt ben je af en moet je opnieuw beginnen. ' +
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
-        'Als je de overkant en voldoende muntjes hebt gehaald, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
+        'Als je de overkant haalt, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
       pop();
 
     }
@@ -53,7 +57,7 @@
       push();
       background(252, 204, 243);
       fill('black');
-      text('Gefeliciteerd!\nJe hebt level '+this.level+' gehaald!\n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',0,0,canvas.width,canvas.height / 2);
+      text('Gefeliciteerd!\nJe hebt level '+this.level+' gehaald!\n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
     }   
   
@@ -65,12 +69,11 @@
       push();
       background(252, 204, 243);
       fill(0);
-      text(tekst + '\n\nDruk SPATIE voor nieuw spel.',0,0,canvas.width,canvas.height);
+      text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();
     }    
     
     teken() {
-      //background(achtergrond);
       if (!this.actief) {
           if (this.afgelopen) {
               this.eindScherm();
