@@ -12,11 +12,19 @@
       this.levelGehaald = null;
       this.afgelopen = null;
       this.gewonnen = null;
-      this.speler = new Speler(this.raster.celGrootte);
+      this.hoogte = null;
       this.snelheid = 10;
+      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
+
+
       this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
     
+    genereerHoogte(){
+      this.hoogte = this.raster.aantalRijen * this.raster.celGrootte;
+    }
+
+
     nieuwSpel() {
       this.level = 0;
       this.actief = false;
@@ -93,6 +101,7 @@
               this.raster.teken();
               this.speler.teken();
               this.speler.beweeg();
+              this.genereerHoogte();
               this.bom.toon();
           }
       }

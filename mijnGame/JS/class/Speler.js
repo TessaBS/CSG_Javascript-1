@@ -1,8 +1,9 @@
 class Speler {
-    constructor(stap) {
+    constructor(stap,hoogte) {
         this.stapGrootte = stap;
         this.x = 0;
         this.y = this.stapGrootte * 3;
+        this.hoogte = hoogte;
     }
 
     beweeg() {
@@ -14,7 +15,7 @@ class Speler {
             this.y += this.stapGrootte;
         }
     
-        this.y = constrain(this.y,0,windowHeight - this.stapGrootte);
+        this.y = constrain(this.y,0,this.hoogte);
     
         if (this.y == 0) {
             spel.Levelgehaald = true;
