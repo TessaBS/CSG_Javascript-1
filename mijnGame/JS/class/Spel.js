@@ -15,9 +15,10 @@
       this.snelheid = 10;
       // this.height = this.windowHeight;
       this.height = hoogte;
-      this.speler = new Speler(this.raster.celGrootte);
+      // this.speler.hoogte = windowHeight;
+      this.speler = new Speler(this.raster.celGrootte,this.height);
 
-      this.speler.hoogte = windowHeight;
+
       // this.speler.hoogte = 5;
       // this.speler.stapGrootte = this.raster.celGrootte;
 

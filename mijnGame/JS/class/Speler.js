@@ -1,9 +1,9 @@
 class Speler {
-    constructor(stapGrootte) {
+    constructor(stapGrootte,hoogte) {
         this.stapGrootte = stapGrootte;
         this.x = 0;
         this.y = this.stapGrootte * 3;
-        this.hoogte = null;
+        this.hoogte = hoogte;
     }
 
     beweeg() {
