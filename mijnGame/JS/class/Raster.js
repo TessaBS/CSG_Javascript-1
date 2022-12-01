@@ -1,20 +1,22 @@
 class Raster {
     constructor() {
-      this.aantalRijen = null;
+      this.aantalRijen = 4;
       this.aantalKolommen = null;
-      this.celGrootte = 100;
+      this.celGrootte = null;
     }
     
-    // berekenCelGrootte() {
-    //   this.celGrootte = canvas.width / this.aantalKolommen;
+    // genereer() {
+    //   this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
+    //   this.aantalRijen = floor(window.height / this.celGrootte) +1;
+
     // }
-
-    genereer() {
-      this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
-      this.aantalRijen = floor(window.height / this.celGrootte) +1;
-
-    }
     
+    genereer(){
+      this.celGrootte = window.height / this.aantalRijen;
+      this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
+    }
+
+
     teken() {
       push();
       noFill();

@@ -14,16 +14,11 @@
       this.gewonnen = null;
       this.hoogte = null;
       this.snelheid = 10;
-      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
-
+      // this.speler = new Speler(this.raster.celGrootte,this.hoogte);
+      this.speler = null;
 
       this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
-    
-    genereerHoogte(){
-      this.hoogte = this.raster.aantalRijen * this.raster.celGrootte;
-    }
-
 
     nieuwSpel() {
       this.level = 0;
@@ -39,6 +34,8 @@
       this.level++;
       this.levelGehaald = false;
       this.snelheid += 10;
+      this.hoogte = canvas.windowHeigth;
+      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
     }
   
     tekenScorebord() {
@@ -101,7 +98,6 @@
               this.raster.teken();
               this.speler.teken();
               this.speler.beweeg();
-              this.genereerHoogte();
               this.bom.toon();
           }
       }
