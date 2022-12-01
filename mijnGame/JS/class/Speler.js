@@ -1,9 +1,9 @@
 class Speler {
-    constructor(stapGrootte,hoogte) {
-        this.stapGrootte = stapGrootte;
+    constructor(g,h) {
+        this.stapGrootte = g;
         this.x = 0;
         this.y = this.stapGrootte * 3;
-        this.hoogte = hoogte;
+        this.hoogte = h;
     }
 
     beweeg() {
@@ -15,7 +15,7 @@ class Speler {
             this.y += this.stapGrootte;
         }
     
-        this.y = constrain(this.y,0,this.hoogte);
+        this.y = constrain(this.y,0,this.hoogte - this.stapGrootte);
     
         if (this.y == 0) {
             spel.Levelgehaald = true;
@@ -26,7 +26,6 @@ class Speler {
         push();
         fill('pink');
         rect(this.x,this.y,this.stapGrootte);
-        // ellipse(100,100,100);
         pop();
     }
 }

@@ -13,14 +13,9 @@
       this.afgelopen = null;
       this.gewonnen = null;
       this.snelheid = 10;
-      // this.height = this.windowHeight;
       this.height = hoogte;
-      // this.speler.hoogte = windowHeight;
+      this.raster.genereer();
       this.speler = new Speler(this.raster.celGrootte,this.height);
-
-
-      // this.speler.hoogte = 5;
-      // this.speler.stapGrootte = this.raster.celGrootte;
 
       this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
@@ -30,9 +25,7 @@
       this.actief = false;
       this.gewonnen = false;
       this.afgelopen = false;
-      this.raster.genereer();
       this.nieuwLevel();
-
     }
   
     nieuwLevel() {
@@ -40,7 +33,6 @@
       this.levelGehaald = false;
       this.snelheid += 10;
       this.hoogte = canvas.windowHeigth;
-      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
     }
   
     tekenScorebord() {

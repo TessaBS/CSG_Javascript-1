@@ -6,7 +6,7 @@
   
   function setup() {
     //canvas = createCanvas(900,600);
-    spel = new Levels(windowHeight);
+
     createCanvas(windowWidth,windowHeight);
     //canvas.parent('processing');
     colorMode(RGB,255,255,255,1);
@@ -14,7 +14,7 @@
     textSize(30);
     textAlign(CENTER,CENTER);  
     frameRate(15);
-
+    spel = new Levels(windowHeight); 
     spel.nieuwSpel();
     // bom = new Bom();
     // for (var b = 0; b < 10; b++) {
