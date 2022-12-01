@@ -4,7 +4,7 @@
 
 
     class Levels {
-      constructor() {
+      constructor(hoogte) {
       this.raster = new Raster();
       this.level = null;
       this.maxLevel = 3;
@@ -12,10 +12,14 @@
       this.levelGehaald = null;
       this.afgelopen = null;
       this.gewonnen = null;
-      this.hoogte = null;
       this.snelheid = 10;
-      // this.speler = new Speler(this.raster.celGrootte,this.hoogte);
-      this.speler = null;
+      // this.height = this.windowHeight;
+      this.height = hoogte;
+      this.speler = new Speler(this.raster.celGrootte);
+
+      this.speler.hoogte = windowHeight;
+      // this.speler.hoogte = 5;
+      // this.speler.stapGrootte = this.raster.celGrootte;
 
       this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
