@@ -4,6 +4,8 @@
     //bom = loadImage("mijnGame/images/bom.png");
   }
   
+  var bommenArray = [];
+
   function setup() {
     //canvas = createCanvas(900,600);
 
@@ -16,10 +18,10 @@
     frameRate(15);
     spel = new Levels(windowHeight); 
     spel.nieuwSpel();
-    // bom = new Bom();
-    // for (var b = 0; b < 10; b++) {
-    // bom.push(new Bom());
-    //   }
+    bom = new Bom();
+    for (var b = 0; b < this.spel.level * 5; b++) {
+    bommenArray.push(new Bom());
+    }
 
   }
   
@@ -28,7 +30,9 @@
     // for(n=0;n < spel.level * 10;n++) {
     //   bom[n].teken();
     // }
-
+    for(var c = 0; c < bommenArray.length; c ++){
+      bommenArray[c].toon();
+    }
   }
   
   function mousePressed() {

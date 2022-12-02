@@ -21,7 +21,9 @@
         this.raster.genereer();
         this.speler = new Speler(this.raster.celGrootte,this.height);
 
-        this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
+        this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level);
+    
+        this.staOpBom = false;
     }
 
     nieuwSpel() {

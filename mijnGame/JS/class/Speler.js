@@ -4,6 +4,7 @@ class Speler {
         this.x = 0;
         this.y = this.stapGrootte * 3;
         this.hoogte = h;
+
     }
 
     beweeg() {
