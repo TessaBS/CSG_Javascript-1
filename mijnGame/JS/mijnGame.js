@@ -20,16 +20,13 @@
     spel.nieuwSpel();
     bom = new Bom();
     for (var b = 0; b < this.spel.level * 5; b++) {
-    bommenArray.push(new Bom());
+      bommenArray.push(new Bom());
     }
 
   }
   
   function draw() {
     spel.teken();
-    // for(n=0;n < spel.level * 10;n++) {
-    //   bom[n].teken();
-    // }
     for(var c = 0; c < bommenArray.length; c ++){
       bommenArray[c].toon();
     }

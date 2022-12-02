@@ -1,7 +1,6 @@
 class Bom {
     constructor(x,y,grootte,snelheid,level) {
       this.x = floor(random(1,x))*grootte;
-
       this.y = floor(random(1,y))*grootte - grootte;
       this.grootte = grootte;
       this.snelheid = snelheid;
