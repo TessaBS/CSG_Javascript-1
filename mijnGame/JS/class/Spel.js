@@ -5,19 +5,23 @@
 
     class Levels {
       constructor(hoogte) {
-      this.raster = new Raster();
-      this.level = null;
-      this.maxLevel = 3;
-      this.actief = null;
-      this.levelGehaald = null;
-      this.afgelopen = null;
-      this.gewonnen = null;
-      this.snelheid = 10;
-      this.height = hoogte;
-      this.raster.genereer();
-      this.speler = new Speler(this.raster.celGrootte,this.height);
+        this.r = 252;
+        this.g = 204;
+        this.b = 243;
 
-      this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
+        this.raster = new Raster();
+        this.level = null;
+        this.maxLevel = 3;
+        this.actief = null;
+        this.levelGehaald = null;
+        this.afgelopen = null;
+        this.gewonnen = null;
+        this.snelheid = 10;
+        this.height = hoogte;
+        this.raster.genereer();
+        this.speler = new Speler(this.raster.celGrootte,this.height);
+
+        this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid);
     }
 
     nieuwSpel() {
@@ -37,7 +41,7 @@
   
     tekenScorebord() {
       push();
-      background(252, 204, 243);
+      background(this.r,this.g,this.b);
       textSize(30);
       fill(0);
       text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",(windowWidth-1000)/2,100,1000);   
@@ -48,7 +52,7 @@
     
     beginScherm() {
       push();
-        background(252, 204, 243);
+        background(this.r,this.g,this.b);
         text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
         'Hierbij kom je bommen tegen, als je een bom raakt ben je af en moet je opnieuw beginnen. ' +
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
@@ -59,7 +63,7 @@
   
     levelScherm() {
       push();
-      background(252, 204, 243);
+      background(this.r,this.g,this.b);
       fill('black');
       text('Gefeliciteerd!\nJe hebt level '+this.level+' gehaald!\n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -71,7 +75,7 @@
         tekst = 'Gefeliciteerd!';
       }
       push();
-      background(252, 204, 243);
+      background(this.r,this.g,this.b);
       fill(0);
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();

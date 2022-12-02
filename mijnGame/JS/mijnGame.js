@@ -25,7 +25,7 @@
   
   function draw() {
     spel.teken();
-    // for(n=0;n < level.level * 10;n++) {
+    // for(n=0;n < spel.level * 10;n++) {
     //   bom[n].teken();
     // }
 
