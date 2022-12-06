@@ -15,7 +15,7 @@
     textFont("Monospace");
     textSize(30);
     textAlign(CENTER,CENTER);  
-    frameRate(2);
+    frameRate(10);
     spel = new Levels(windowHeight); 
     spel.nieuwSpel();
 
@@ -24,6 +24,9 @@
   
   function draw() {
     spel.teken();
+    if (speler.x = Bom.x) {
+      spel.afgelopen();
+    }
   }
   
   function mousePressed() {

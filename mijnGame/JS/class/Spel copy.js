@@ -18,7 +18,10 @@
         this.gewonnen = null;
         this.snelheid = 0.01;
         this.height = hoogte;
+
+
         this.raster.genereer();
+
         this.speler = new Speler(this.raster.celGrootte,this.height);
         this.maxLevel = 3;
         this.aantalBommen = null;
@@ -99,10 +102,12 @@
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();
     }    
-    
-    
   
-
+    geraakt(){
+      if (speler.x = bom.x) {
+        this.afgelopen == true;
+      }
+    }
 
     teken() {
       if (!this.actief) {

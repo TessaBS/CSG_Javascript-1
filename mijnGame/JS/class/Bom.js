@@ -16,9 +16,9 @@ class Bom {
     }
 
     beweeg(){
-      this.x -= this.grootte;
+      this.x -= this.grootte * this.snelheid;
 
-      this.x = constrain(this.x,0 - this.grootte,windowWidth * this.level);
+      this.x = constrain(this.x,0 - this.grootte,windowWidth * 2);
       this.y = constrain(this.y,0,windowHeight - this.grootte);
     }
   }
