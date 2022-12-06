@@ -16,15 +16,19 @@
         this.levelGehaald = null;
         this.afgelopen = null;
         this.gewonnen = null;
-        this.snelheid = 10;
+        this.snelheid = 2;
         this.height = hoogte;
         this.raster.genereer();
         this.speler = new Speler(this.raster.celGrootte,this.height);
         this.maxLevel = 3;
         // this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level);
-        this.aantalBommen = this.level * 5;
+        this.aantalBommen = null;
         this.staOpBom = false;
         this.bommenArray = [];
+
+        // this.timerTijd = settings[0];
+        // this.afnameTijd = settings[1];
+        // this.timer = new Timer(canvas.height,0,20,canvas.height,'silver','lightgray','silver','silver',true,false);
 
     }
 
@@ -34,9 +38,9 @@
       this.gewonnen = false;
       this.afgelopen = false;
       this.nieuwLevel();
-
+      this.aantalBommen = this.level * 5;
       for (var b = 0; b < this.aantalBommen; b++) {
-        bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
+        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
       }
     }
   
@@ -54,6 +58,7 @@
       this.levelGehaald = false;
       this.snelheid += 10;
       this.hoogte = canvas.windowHeigth;
+        //this.timer.start();
 
   }
       
@@ -120,8 +125,8 @@
               this.speler.beweeg();
               // this.bom.toon();
               for(var c = 0; c < this.bommenArray.length; c ++){
-                bommenArray[c].toon();
-                bommenArray[c].beweeg();
+                this.bommenArray[c].toon();
+                this.bommenArray[c].beweeg();
               }
           }
       }

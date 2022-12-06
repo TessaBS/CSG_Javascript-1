@@ -5,7 +5,7 @@ class Bom {
       this.grootte = grootte;
       this.snelheid = snelheid;
       this.level = level;
-      this.beeldBom = windowWidth * this.level;
+      
     }
     
     toon() {
@@ -16,17 +16,18 @@ class Bom {
     }
 
     beweeg(){
-      this.y -= this.stapGrootte * this.snelheid;
-      this.x -= this.stapGrootte * this.snelheid;
+      this.y -= this.grootte * this.snelheid;
+      this.x -= this.grootte * this.snelheid;
 
-      this.x = constrain(this.x,0,this.beeldBom);
+      this.x = constrain(this.x,0,windowWidth * this.level);
       this.y = constrain(this.y,0,windowHeight - this.grootte);
     }
-    beweeg() {
-      this.x += floor(random(-1,2))*this.stapGrootte;
-      this.y += floor(random(-1,2))*this.stapGrootte;
+
+    // beweeg() {
+    //   this.x += floor(random(-1,2))*this.stapGrootte;
+    //   this.y += floor(random(-1,2))*this.stapGrootte;
   
-      this.x = constrain(this.x,0,canvas.width - raster.celGrootte);
-      this.y = constrain(this.y,0,canvas.height - raster.celGrootte);
-    }
+    //   this.x = constrain(this.x,0,windowWidth - raster.celGrootte);
+    //   this.y = constrain(this.y,0,windowHeight - raster.celGrootte);
+    // }
   }

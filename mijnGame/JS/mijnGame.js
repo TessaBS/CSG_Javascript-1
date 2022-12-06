@@ -15,7 +15,7 @@
     textFont("Monospace");
     textSize(30);
     textAlign(CENTER,CENTER);  
-    frameRate(15);
+    frameRate(2);
     spel = new Levels(windowHeight); 
     spel.nieuwSpel();
 
