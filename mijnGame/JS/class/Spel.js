@@ -38,10 +38,7 @@
       this.gewonnen = false;
       this.afgelopen = false;
       this.nieuwLevel();
-      this.aantalBommen = this.level * 5;
-      for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
-      }
+
     }
   
     nieuwLevel() {
@@ -58,8 +55,10 @@
       this.levelGehaald = false;
       this.snelheid += 10;
       this.hoogte = canvas.windowHeigth;
-        //this.timer.start();
-
+      this.aantalBommen = this.level * 5;
+      for (var b = 0; b < this.aantalBommen; b++) {
+        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
+      }
   }
       
   
