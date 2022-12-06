@@ -23,8 +23,9 @@
   }
   
   function draw() {
-    spel.teken();
     spel.update();
+    spel.teken();
+
     // if (speler.x = Bom.x) {
     //   spel.afgelopen();
     // }

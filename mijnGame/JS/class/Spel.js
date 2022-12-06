@@ -46,7 +46,7 @@
     // }
     // else {
     //     this.levelGehaald = false;
-  // }
+    // }
       this.level++;
       this.levelGehaald = false;
       this.snelheid += 0.025;
@@ -80,8 +80,8 @@
     
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
-        if (this.bommenArray[d].x == this.speler.x) {
-          this.afgelopen = true;
+        if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte) {
+          this.actief = false;
         }
       }
     }
