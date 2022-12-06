@@ -121,6 +121,7 @@
               // this.bom.toon();
               for(var c = 0; c < this.bommenArray.length; c ++){
                 bommenArray[c].toon();
+                bommenArray[c].beweeg();
               }
           }
       }

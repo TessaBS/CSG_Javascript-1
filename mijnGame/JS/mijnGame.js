@@ -24,7 +24,6 @@
   
   function draw() {
     spel.teken();
-
   }
   
   function mousePressed() {
