@@ -24,9 +24,10 @@
   
   function draw() {
     spel.teken();
-    if (speler.x = Bom.x) {
-      spel.afgelopen();
-    }
+    spel.update();
+    // if (speler.x = Bom.x) {
+    //   spel.afgelopen();
+    // }
   }
   
   function mousePressed() {

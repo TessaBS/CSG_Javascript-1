@@ -55,6 +55,15 @@
       for (var b = 0; b < this.aantalBommen; b++) {
         this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
       }
+      
+
+
+      
+      // for (var b = 0;b < bommenLijst.length;b++) {
+      //   if (bommenLijst[b].x == this.x && bommenLijst[b].y == this.y) {
+      //     this.staOpBom = true;
+      //   }
+      // }
   }
       
   
@@ -69,6 +78,14 @@
 
     }
     
+    update() {
+      for(var d = 0; d < this.bommenArray.length; d++){
+        if (this.bommenArray[d].x == this.speler.x) {
+          this.afgelopen = true;
+        }
+      }
+    }
+
     beginScherm() {
       push();
         background(this.r,this.g,this.b);
@@ -99,9 +116,6 @@
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();
     }    
-    
-    
-  
 
 
     teken() {
