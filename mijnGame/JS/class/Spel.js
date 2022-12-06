@@ -44,9 +44,17 @@
   
     nieuwLevel() {
       this.level++;
-      this.levelGehaald = false;
-      this.snelheid += 10;
-      this.hoogte = canvas.windowHeigth;
+      if (this.level>this.maxLevel) {
+        this.afgelopen = true;
+        this.gewonnen = true;
+        this.actief = false;
+    }
+    else {
+        this.levelGehaald = false;
+      // this.level++;
+      // this.levelGehaald = false;
+      // this.snelheid += 10;
+      // this.hoogte = canvas.windowHeigth;
     }
   
     tekenScorebord() {
