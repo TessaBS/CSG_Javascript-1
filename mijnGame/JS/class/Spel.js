@@ -6,7 +6,7 @@
     class Levels {
       constructor(hoogte) {
         this.r = 252;
-        this.g = 204;
+        this.g = 202;
         this.b = 243;
 
         this.raster = new Raster();
@@ -21,13 +21,10 @@
         this.raster.genereer();
         this.speler = new Speler(this.raster.celGrootte,this.height);
         this.maxLevel = 3;
-
         // this.bom = new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level);
         this.aantalBommen = this.level * 5;
         this.staOpBom = false;
         this.bommenArray = [];
-        this.b = null;
-        this.c = null;
 
     }
 
@@ -38,25 +35,26 @@
       this.afgelopen = false;
       this.nieuwLevel();
 
-      for (this.b = 0; b < this.aantalBommen; b++) {
+      for (var b = 0; b < this.aantalBommen; b++) {
         bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
       }
     }
   
     nieuwLevel() {
+    //   this.level++;
+    //   if (this.level) {
+    //     this.afgelopen = true;
+    //     this.gewonnen = true;
+    //     this.actief = false;
+    // }
+    // else {
+    //     this.levelGehaald = false;
+  // }
       this.level++;
-      if (this.level) {
-        this.afgelopen = true;
-        this.gewonnen = true;
-        this.actief = false;
-    }
-    else {
-        this.levelGehaald = false;
-      // this.level++;
-      // this.levelGehaald = false;
-      // this.snelheid += 10;
-      // this.hoogte = canvas.windowHeigth;
-    }
+      this.levelGehaald = false;
+      this.snelheid += 10;
+      this.hoogte = canvas.windowHeigth;
+
   }
       
   
@@ -120,7 +118,7 @@
               this.raster.teken();
               this.speler.teken();
               this.speler.beweeg();
-              this.bom.toon();
+              // this.bom.toon();
               for(var c = 0; c < this.bommenArray.length; c ++){
                 bommenArray[c].toon();
               }
