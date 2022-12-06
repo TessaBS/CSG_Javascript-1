@@ -45,7 +45,7 @@
   
     nieuwLevel() {
       this.level++;
-      if (this.level>this.maxLevel) {
+      if (this.level) {
         this.afgelopen = true;
         this.gewonnen = true;
         this.actief = false;
