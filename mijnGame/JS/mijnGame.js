@@ -4,7 +4,7 @@
     //bom = loadImage("mijnGame/images/bom.png");
   }
   
-  var bommenArray = [];
+
 
   function setup() {
     //canvas = createCanvas(900,600);
@@ -18,18 +18,13 @@
     frameRate(15);
     spel = new Levels(windowHeight); 
     spel.nieuwSpel();
-    bom = new Bom();
-    for (var b = 0; b < this.spel.level * 5; b++) {
-      bommenArray.push(new Bom());
-    }
+
 
   }
   
   function draw() {
     spel.teken();
-    for(var c = 0; c < bommenArray.length; c ++){
-      bommenArray[c].toon();
-    }
+
   }
   
   function mousePressed() {
