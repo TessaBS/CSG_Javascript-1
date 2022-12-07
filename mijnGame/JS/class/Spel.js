@@ -14,6 +14,7 @@
         this.maxLevel = 3;
         this.actief = null;
         this.levelGehaald = null;
+        this.geraakt = null;
         this.afgelopen = null;
         this.gewonnen = null;
         this.snelheid = 0.01;
@@ -33,6 +34,7 @@
       this.actief = false;
       this.gewonnen = false;
       this.afgelopen = false;
+      this.geraakt = false;
       this.nieuwLevel();
 
     }
@@ -66,6 +68,7 @@
       // }
   }
       
+    
   
     tekenScorebord() {
       push();
@@ -81,9 +84,9 @@
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte) {
-          this.actief = false;
+          this.geraaktScherm();
+          this.geraakt = true;
         }
-        
       }
     }
 
@@ -91,7 +94,7 @@
       push();
         background(this.r,this.g,this.b);
         text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
-        'Hierbij kom je bommen tegen, als je een bom raakt ben je af en moet je opnieuw beginnen. ' +
+        'Hierbij kom je bommen tegen, als je een bom raakt ben je af en moet je helemaal opnieuw beginnen. ' +
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
         'Als je de overkant haalt, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -106,6 +109,14 @@
       pop();
     }   
   
+    geraaktScherm(){
+      push();
+      background(this.r,this.g,this.b);
+      fill('black');
+      text('Helaas. \nJe bent af!\n\nDruk spatie om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
+      pop();
+    }
+
     eindScherm() {
       var tekst = 'Je hebt het gehaald.';
       if (this.gewonnen) {

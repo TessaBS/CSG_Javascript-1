@@ -47,7 +47,7 @@
       // level gehaald tijdens het spel
       spel.nieuwLevel();
     }
-    if ((spel.afgelopen) && keyCode == 32) {
+    if ((spel.afgelopen || spel.geraakt) && keyCode == 32) {
       // einde spel
       spel.nieuwSpel();
     }  
