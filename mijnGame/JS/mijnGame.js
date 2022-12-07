@@ -7,10 +7,7 @@
 
 
   function setup() {
-    //canvas = createCanvas(900,600);
-
     createCanvas(windowWidth,windowHeight);
-    //canvas.parent('processing');
     colorMode(RGB,255,255,255,1);
     textFont("Monospace");
     textSize(30);
@@ -30,13 +27,11 @@
   function mousePressed() {
     if (spel.actief) {
       spel.levelGehaald = true;
-
     }
     if (spel.level>=spel.maxLevel) {
       spel.afgelopen = true;
       spel.gewonnen = true;
       spel.actief = false;
-      spel.geraakt = false;
     }  
   }
   

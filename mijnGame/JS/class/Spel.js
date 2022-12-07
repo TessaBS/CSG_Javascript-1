@@ -28,18 +28,33 @@
         this.staOpBom = false;
         this.bommenArray = null;
 
+        this.aantalBeloningen = null;
+        this.staOpBeloning = null;
+        this.beloningenArray = null;
+        this.punten = null;
+
         this.speler = null;
   
     }
 
     nieuwSpel() {
       this.level = 0;
+
       this.actief = false;
       this.gewonnen = false;
       this.afgelopen = false;
-      this.staOpBom = false;
+
+
       this.snelheid = 7.5;
+
+      this.staOpBom = false;
       this.bommenArray = [];
+
+      this.staOpBeloning = false;
+      this.beloningenArray = [];
+
+      this.beloning = null;
+      this.punten = 0;
       this.nieuwLevel();
 
     }
@@ -47,25 +62,34 @@
     nieuwLevel() {
       this.level++;
       this.levelGehaald = false;
-      this.snelheid += 2.5;
       this.hoogte = canvas.windowHeigth;
+      this.snelheid += 2.5;
+
       this.aantalBommen = this.level * 5;
+
+      this.aantalBeloningen = this.level * 3;
+
       this.speler = new Speler(this.raster.celGrootte,this.height);
 
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
-
+        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid));
       }
+
+      for (var bl = 0; bl < this.aantalBeloningen; bl++) {
+        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid));
+      }
+ 
   }
       
-    
-  
     tekenScorebord() {
       push();
       background(this.r,this.g,this.b);
       textSize(30);
+      fill(137, 148, 217);
+      rect(windowWidth - this.raster.celGrootte * 2,0,this.raster.celGrootte * 2,this.raster.celGrootte);
       fill(0);
-      text(" Dit is Level "+this.level+"\nHet spel is actief.\n\nKlik om het level te \"halen\".",(windowWidth-1000)/2,100,1000);   
+      textSize(25);
+      text("Dit is Level "+this.level+ "\nJe hebt " + this.punten + " punten.",windowWidth - this.raster.celGrootte * 2,this.raster.celGrootte / 4,this.raster.celGrootte * 2);   
       
       pop();
 
@@ -77,19 +101,26 @@
           this.staOpBom = true;
         }
       }
-      for(var e = 0; e < this.bommenArray.length; e++){
-        if (this.bommenArray[e].x == 0) {
-          this.levelGehaald = true;
 
+      for(var dl = 0; dl < this.beloningenArray.length; dl++){
+        if (this.beloningenArray[dl].x <= this.speler.x + this.speler.stapGrootte && this.beloningenArray[dl].x >= 0 && this.beloningenArray[dl].y <= this.speler.y + this.speler.stapGrootte && this.beloningenArray[dl].y >= this.speler.y ) {
+          this.punten++;
         }
       }
+
+      // for(var e = 0; e < this.bommenArray.length; e++){
+      //   if (this.bommenArray[e].x == 0) {
+      //     this.levelGehaald = true;
+
+      //   }
+      // }
     }
 
     beginScherm() {
       push();
         background(this.r,this.g,this.b);
-        text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen, door middel van het gebruik van de pijltjestoetsen. ' +
-        'Hierbij kom je bommen tegen, als je een bom raakt ben je af en moet je helemaal opnieuw beginnen. ' +
+        text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
+        'Tijdens het spel kom je bommen tegen, als je een bom raakt ben je af en moet je helemaal opnieuw beginnen. ' +
         'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
         'Als je de overkant haalt, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -147,6 +178,12 @@
               for(var c = 0; c < this.bommenArray.length; c ++){
                 this.bommenArray[c].toon();
                 this.bommenArray[c].beweeg();
+              }
+
+
+              for(var cl = 0; cl < this.beloningenArray.length; cl ++){
+                this.beloningenArray[cl].toon();
+                this.beloningenArray[cl].beweeg();
               }
           }
                     
