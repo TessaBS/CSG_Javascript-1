@@ -24,7 +24,7 @@
         this.maxLevel = 3;
         this.aantalBommen = null;
         this.staOpBom = false;
-        this.bommenArray = [];
+        this.bommenArray = null;
 
   
     }
@@ -35,6 +35,7 @@
       this.gewonnen = false;
       this.afgelopen = false;
       this.geraakt = false;
+      this.bommenArray = [];
       this.nieuwLevel();
 
     }
