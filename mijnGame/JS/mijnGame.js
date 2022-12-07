@@ -30,7 +30,7 @@
   function mousePressed() {
     if (spel.actief) {
       spel.levelGehaald = true;
-      spel.geraakt = false;
+
     }
     if (spel.level>=spel.maxLevel) {
       spel.afgelopen = true;
@@ -49,7 +49,7 @@
       // level gehaald tijdens het spel
       spel.nieuwLevel();
     }
-    if ((spel.afgelopen || spel.geraakt) && keyCode == 32) {
+    if ((spel.afgelopen || spel.staOpBom) && keyCode == 32) {
       // einde spel, alle levels gehaald
       spel.nieuwSpel();
 

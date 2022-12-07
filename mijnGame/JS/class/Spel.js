@@ -9,23 +9,26 @@
         this.g = 202;
         this.b = 243;
 
-        this.raster = new Raster();
+
         this.level = null;
         this.maxLevel = 3;
         this.actief = null;
         this.levelGehaald = null;
-        this.geraakt = null;
+
         this.afgelopen = null;
         this.gewonnen = null;
-        this.snelheid = 0.01;
+
+        this.snelheid = null;
+
+        this.raster = new Raster();
         this.height = hoogte;
         this.raster.genereer();
-        this.speler = new Speler(this.raster.celGrootte,this.height);
-        this.maxLevel = 3;
+
         this.aantalBommen = null;
         this.staOpBom = false;
         this.bommenArray = null;
 
+        this.speler = null;
   
     }
 
@@ -34,7 +37,8 @@
       this.actief = false;
       this.gewonnen = false;
       this.afgelopen = false;
-      this.geraakt = false;
+      this.staOpBom = false;
+      this.snelheid = 7.5;
       this.bommenArray = [];
       this.nieuwLevel();
 
@@ -43,20 +47,15 @@
     nieuwLevel() {
       this.level++;
       this.levelGehaald = false;
-      this.snelheid += 0.025;
+      this.snelheid += 2.5;
       this.hoogte = canvas.windowHeigth;
       this.aantalBommen = this.level * 5;
+      this.speler = new Speler(this.raster.celGrootte,this.height);
+
       for (var b = 0; b < this.aantalBommen; b++) {
         this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
-      }
-      
 
-      
-      // for (var b = 0;b < bommenLijst.length;b++) {
-      //   if (bommenLijst[b].x == this.x && bommenLijst[b].y == this.y) {
-      //     this.staOpBom = true;
-      //   }
-      // }
+      }
   }
       
     
@@ -75,14 +74,15 @@
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte && this.bommenArray[d].x >= 0 && this.bommenArray[d].y <= this.speler.y + this.speler.stapGrootte && this.bommenArray[d].y >= this.speler.y ) {
-          this.geraakt = true;
+          this.staOpBom = true;
         }
       }
-      // for(var e = 0; e < this.bommenArray.length; e++){
-      //   if (this.bommenArray[e].x == 0) {
-      //     this.levelGehaald = true;
-      //   }
-      // }
+      for(var e = 0; e < this.bommenArray.length; e++){
+        if (this.bommenArray[e].x == 0) {
+          this.levelGehaald = true;
+
+        }
+      }
     }
 
     beginScherm() {
@@ -150,7 +150,7 @@
               }
           }
                     
-          if(this.geraakt) {
+          if(this.staOpBom) {
             this.geraaktScherm();
           }
       }
