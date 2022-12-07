@@ -40,15 +40,6 @@
     }
   
     nieuwLevel() {
-    //   this.level++;
-    //   if (this.level) {
-    //     this.afgelopen = true;
-    //     this.gewonnen = true;
-    //     this.actief = false;
-    // }
-    // else {
-    //     this.levelGehaald = false;
-    // }
       this.level++;
       this.levelGehaald = false;
       this.snelheid += 0.025;
@@ -58,7 +49,6 @@
         this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.level));
       }
       
-
 
       
       // for (var b = 0;b < bommenLijst.length;b++) {
@@ -83,11 +73,15 @@
     
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
-        if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte) {
-          this.geraaktScherm();
+        if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte && this.bommenArray[d].x >= 0 && this.bommenArray[d].y <= this.speler.y + this.speler.stapGrootte && this.bommenArray[d].y >= this.speler.y ) {
           this.geraakt = true;
         }
       }
+      // for(var e = 0; e < this.bommenArray.length; e++){
+      //   if (this.bommenArray[e].x == 0) {
+      //     this.levelGehaald = true;
+      //   }
+      // }
     }
 
     beginScherm() {
@@ -153,6 +147,10 @@
                 this.bommenArray[c].toon();
                 this.bommenArray[c].beweeg();
               }
+          }
+                    
+          if(this.geraakt) {
+            this.geraaktScherm();
           }
       }
     }

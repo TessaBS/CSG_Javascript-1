@@ -30,11 +30,13 @@
   function mousePressed() {
     if (spel.actief) {
       spel.levelGehaald = true;
+      spel.geraakt = false;
     }
     if (spel.level>=spel.maxLevel) {
       spel.afgelopen = true;
       spel.gewonnen = true;
       spel.actief = false;
+      spel.geraakt = false;
     }  
   }
   
@@ -48,8 +50,9 @@
       spel.nieuwLevel();
     }
     if ((spel.afgelopen || spel.geraakt) && keyCode == 32) {
-      // einde spel
+      // einde spel, alle levels gehaald
       spel.nieuwSpel();
+
     }  
   }
   
