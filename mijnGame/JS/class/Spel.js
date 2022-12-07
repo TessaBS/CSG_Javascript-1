@@ -83,6 +83,7 @@
         if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte) {
           this.actief = false;
         }
+        
       }
     }
 
