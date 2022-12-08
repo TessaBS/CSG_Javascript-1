@@ -1,8 +1,9 @@
 class Raster {
-    constructor() {
+    constructor(hoogte) {
       this.aantalRijen = 4;
       this.aantalKolommen = null;
       this.celGrootte = null;
+      this.hoogte = hoogte;
     }
     
     // genereer() {
@@ -12,8 +13,8 @@ class Raster {
     // }
     
     genereer(){
-      this.celGrootte = window.height / this.aantalRijen;
-      this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
+      this.celGrootte = this.hoogte / this.aantalRijen;
+      this.aantalKolommen = floor(windowWidth/ this.celGrootte) +1;
     }
 
 

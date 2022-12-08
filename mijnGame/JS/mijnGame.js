@@ -11,9 +11,9 @@
     colorMode(RGB,255,255,255,1);
     textFont("Monospace");
     textSize(30);
-    textAlign(CENTER,CENTER);  
+    textAlign(CENTER);  
     frameRate(10);
-    spel = new Levels(windowHeight); 
+    spel = new Levels(); 
     spel.nieuwSpel();
 
 
@@ -24,16 +24,16 @@
     spel.teken();
   }
   
-  function mousePressed() {
-    if (spel.actief) {
-      spel.levelGehaald = true;
-    }
-    if (spel.level>=spel.maxLevel) {
-      spel.afgelopen = true;
-      spel.gewonnen = true;
-      spel.actief = false;
-    }  
-  }
+  // function mousePressed() {
+  //   if (spel.actief) {
+  //     spel.levelGehaald = true;
+  //   }
+  //   if (spel.level>=spel.maxLevel) {
+  //     spel.afgelopen = true;
+  //     spel.gewonnen = true;
+  //     spel.actief = false;
+  //   }  
+  // }
   
   function keyTyped() {
     if (!spel.actief && !spel.levelGehaald) {

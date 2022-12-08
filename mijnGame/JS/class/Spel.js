@@ -4,11 +4,12 @@
 
 
     class Levels {
-      constructor(hoogte) {
+      constructor() {
         this.r = 252;
         this.g = 202;
         this.b = 243;
 
+        this.hoogte = windowHeight - 100;
 
         this.level = null;
         this.maxLevel = 3;
@@ -20,8 +21,8 @@
 
         this.snelheid = null;
 
-        this.raster = new Raster();
-        this.height = hoogte;
+        this.raster = new Raster(this.hoogte);
+
         this.raster.genereer();
 
         this.aantalBommen = null;
@@ -62,21 +63,20 @@
     nieuwLevel() {
       this.level++;
       this.levelGehaald = false;
-      this.hoogte = canvas.windowHeigth;
       this.snelheid += 2.5;
 
-      this.aantalBommen = this.level * 5;
+      this.aantalBommen = this.level * 6;
 
-      this.aantalBeloningen = this.level * 3;
+      this.aantalBeloningen = this.level * 5;
 
-      this.speler = new Speler(this.raster.celGrootte,this.height);
+      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
 
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid));
+        this.bommenArray.push(new Bom(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte));
       }
 
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid));
+        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray.x,this.bommenArray.y));
       }
  
   }
@@ -86,10 +86,11 @@
       background(this.r,this.g,this.b);
       textSize(30);
       fill(137, 148, 217);
-      rect(windowWidth - this.raster.celGrootte * 2,0,this.raster.celGrootte * 2,this.raster.celGrootte);
+      rect(0,this.hoogte,windowWidth,100);
       fill(0);
       textSize(25);
-      text("Dit is Level "+this.level+ "\nJe hebt " + this.punten + " punten.",windowWidth - this.raster.celGrootte * 2,this.raster.celGrootte / 4,this.raster.celGrootte * 2);   
+      textStyle(BOLD);
+      text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten.',0,this.hoogte + 10,windowWidth);   
       
       pop();
 
@@ -97,23 +98,30 @@
     
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
-        if (this.bommenArray[d].x <= this.speler.x + this.speler.stapGrootte && this.bommenArray[d].x >= 0 && this.bommenArray[d].y <= this.speler.y + this.speler.stapGrootte && this.bommenArray[d].y >= this.speler.y ) {
+        if (this.bommenArray[d].x <= (this.speler.x + this.speler.stapGrootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.stapGrootte) && this.bommenArray[d].y >= this.speler.y ) {
           this.staOpBom = true;
         }
       }
 
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
-        if (this.beloningenArray[dl].x <= this.speler.x + this.speler.stapGrootte && this.beloningenArray[dl].x >= 0 && this.beloningenArray[dl].y <= this.speler.y + this.speler.stapGrootte && this.beloningenArray[dl].y >= this.speler.y ) {
+        if (this.beloningenArray[dl].x <= (this.speler.x + this.speler.stapGrootte) && this.beloningenArray[dl].x > (this.speler.x - this.beloningenArray[dl].grootte) && this.beloningenArray[dl].y < (this.speler.y + this.speler.stapGrootte) && this.beloningenArray[dl].y >= this.speler.y ) {
           this.punten++;
         }
       }
 
-      // for(var e = 0; e < this.bommenArray.length; e++){
-      //   if (this.bommenArray[e].x == 0) {
-      //     this.levelGehaald = true;
+      for(var e = 0; e < this.bommenArray.length; e++){
+        if (this.bommenArray[e].x == 0) {
+          this.levelGehaald = true;
+        }
+      }
 
-      //   }
-      // }
+      if (spel.level>=spel.maxLevel) {
+        spel.afgelopen = true;
+        spel.gewonnen = true;
+        spel.actief = false;
+      } 
+
+
     }
 
     beginScherm() {
@@ -131,7 +139,7 @@
       push();
       background(this.r,this.g,this.b);
       fill('black');
-      text('Gefeliciteerd!\nJe hebt level '+this.level+' gehaald!\n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
+      text('Gefeliciteerd!\n\nJe hebt level '+this.level+' gehaald! \nJe hebt ' +this.punten + ' punten gehaald. \n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
     }   
   
@@ -175,16 +183,16 @@
               this.speler.teken();
               this.speler.beweeg();
 
+              for(var cl = 0; cl < this.beloningenArray.length; cl ++){
+                this.beloningenArray[cl].toon();
+                this.beloningenArray[cl].beweeg();
+              }
+
               for(var c = 0; c < this.bommenArray.length; c ++){
                 this.bommenArray[c].toon();
                 this.bommenArray[c].beweeg();
               }
 
-
-              for(var cl = 0; cl < this.beloningenArray.length; cl ++){
-                this.beloningenArray[cl].toon();
-                this.beloningenArray[cl].beweeg();
-              }
           }
                     
           if(this.staOpBom) {

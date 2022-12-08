@@ -2,7 +2,7 @@ class Speler {
     constructor(g,h) {
         this.stapGrootte = g;
         this.x = 0;
-        this.y = this.stapGrootte * 3;
+        this.y = this.stapGrootte;
         this.hoogte = h;
 
     }
