@@ -73,7 +73,7 @@
       this.staOpBeloning = false;
       this.beloningenArray = [];
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenX,this.bommenY,this.bommenArray.length));
+        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte));
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte);
@@ -97,16 +97,16 @@
 
     }
     
-    update() {
+    spelerStaOpBom(){
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y ) {
           this.staOpBom = true;
           this.afgelopen = true;
         }
-        this.bommenX.push(this.bommenArray[d].x);
-        this.bommenY.push(this.bommenArray[d].y);
       }
+    }
 
+    update() {
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
         if (this.beloningenArray[dl].x <= (this.speler.x + this.speler.grootte) && this.beloningenArray[dl].x > (this.speler.x - this.beloningenArray[dl].grootte) && this.beloningenArray[dl].y < (this.speler.y + this.speler.grootte) && this.beloningenArray[dl].y >= this.speler.y ) {
           this.punten++;

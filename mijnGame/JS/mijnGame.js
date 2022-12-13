@@ -23,6 +23,7 @@
   
   function draw() {
     spel.update();
+    spel.spelerStaOpBom();
     spel.teken();
   }
   
@@ -64,5 +65,9 @@
 
 
 
-      // hoe kun je je eigen geluid toevoegen? 
+      // herinnering Nori: p5js.org <-- kijken naar "stop" https://p5js.org/reference/#/libraries/p5.sound
+      // regels 130,131
+      // het geluid voor als je af bent mag maar 1 keer worden afgespeeld
+      // begin geluid moet weer terug
+      // geluiden: https://pixabay.com/sound-effects/search/game/
     
