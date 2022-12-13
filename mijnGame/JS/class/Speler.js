@@ -5,9 +5,6 @@ class Speler {
         this.plek = (this.stapGrootte - this.grootte) * 0.5;
         this.x = this.plek;
         this.y = this.plek;
-        // this.grootte = this.stapGrootte;
-        // this.x = 0;
-        // this.y = 0;
         this.hoogte = h;
 
     }

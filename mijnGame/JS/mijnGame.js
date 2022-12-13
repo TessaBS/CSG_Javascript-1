@@ -24,7 +24,9 @@
   function draw() {
     spel.update();
     spel.spelerStaOpBom();
+    spel.spelerStaOpBeloning();
     spel.teken();
+
   }
   
   // function mousePressed() {

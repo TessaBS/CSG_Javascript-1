@@ -12,7 +12,7 @@
         this.hoogte = windowHeight - 100;
 
         this.level = null;
-        this.maxLevel = 3;
+        this.maxLevel = 4;
         this.actief = null;
         this.levelGehaald = null;
 
@@ -47,10 +47,7 @@
       this.gewonnen = false;
       this.afgelopen = false;
 
-
       this.snelheid = 7.5;
-
-
       this.nieuwLevel();
 
     }
@@ -106,13 +103,21 @@
       }
     }
 
-    update() {
+    spelerStaOpBeloning(){
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
-        if (this.beloningenArray[dl].x <= (this.speler.x + this.speler.grootte) && this.beloningenArray[dl].x > (this.speler.x - this.beloningenArray[dl].grootte) && this.beloningenArray[dl].y < (this.speler.y + this.speler.grootte) && this.beloningenArray[dl].y >= this.speler.y ) {
+        if (this.beloningenArray[dl].x < this.speler.x + this.snelheid && this.beloningenArray[dl].x >= this.speler.x  && this.speler.y == this.beloningenArray[dl].y){
           this.punten++;
-        }
-      }
 
+          this.beloningenArray[dl].r = 105;
+          this.beloningenArray[dl].g = 245;
+          this.beloningenArray[dl].b = 98;
+          this.beloningenArray[dl].doorzichtig = 0.5;
+        }
+
+      }
+    }
+
+    update() {
       this.levelGehaald = true;
       for(var e = 0; e < this.bommenArray.length; e++){
         if (this.bommenArray[e].x > 0) {
@@ -121,7 +126,7 @@
         }
       }
 
-      if (spel.level>=spel.maxLevel) {
+      if (spel.level>spel.maxLevel) {
         spel.afgelopen = true;
         spel.gewonnen = true;
         spel.actief = false;
@@ -129,7 +134,6 @@
 
       if (this.afgelopen && spelafgelopen.isPlaying() == false) {
         spelafgelopen.play();
-        
       }
 
     }

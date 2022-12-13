@@ -5,10 +5,15 @@ class Beloning {
       this.hoogte = hoogte;
       this.grootte = this.stapGrootte * (3/4);
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
-      this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
+      this.x = floor(random(2,x)) * this.stapGrootte + this.plek;
       this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;
       this.bommenLijst = bommenlijst;
       this.beloningStaOpBom(x,y);
+
+      this.r = 137;
+      this.g = 148;
+      this.b = 217;
+      this.doorzichtig = 0.5;
     }
     
     beloningStaOpBom(x,y){
@@ -23,7 +28,7 @@ class Beloning {
 
     toon() {
       push();
-      fill(137,148,217);
+      fill(this.r,this.g,this.b,this.doorzichtig);
       rect(this.x,this.y,this.grootte);
 
       pop();
