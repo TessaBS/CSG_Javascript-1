@@ -1,9 +1,9 @@
 class Beloning {
-    constructor(x,y,sg,snelheid,hoogte,bommenlijst) {
+    constructor(x,y,sg,snelheid,hoogte,bommenlijst,g) {
       this.stapGrootte = sg;
       this.snelheid = snelheid;
       this.hoogte = hoogte;
-      this.grootte = this.stapGrootte * (3/4);
+      this.grootte = this.stapGrootte * (g);
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
       this.x = floor(random(2,x)) * this.stapGrootte + this.plek;
       this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;

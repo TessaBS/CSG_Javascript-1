@@ -10,9 +10,10 @@
         this.b = 243;
 
         this.hoogte = windowHeight - 100;
+        this.grootte = null;
 
         this.level = null;
-        this.maxLevel = 4;
+        this.maxLevel = 3;
         this.actief = null;
         this.levelGehaald = null;
 
@@ -48,6 +49,7 @@
       this.afgelopen = false;
 
       this.snelheid = 7.5;
+      this.grootte = 0.65;
       this.nieuwLevel();
 
     }
@@ -56,6 +58,7 @@
       this.level++;
       this.levelGehaald = false;
       this.snelheid += 2.5;
+      this.grootte += 0.05;
 
       this.aantalBommen = this.level * 6;
       this.staOpBom = false;
@@ -63,17 +66,17 @@
       this.bommenX = [];
       this.bommenY = [];
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte));
+        this.bommenArray.push(new Bom(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
       }
 
       this.aantalBeloningen = this.level * 5;
       this.staOpBeloning = false;
       this.beloningenArray = [];
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray));
+        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
       }
 
-      this.speler = new Speler(this.raster.celGrootte,this.hoogte);
+      this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
 
       this.beloning = null;
       this.punten = 0;
@@ -119,8 +122,8 @@
 
     update() {
       this.levelGehaald = true;
-      for(var e = 0; e < this.bommenArray.length; e++){
-        if (this.bommenArray[e].x > 0) {
+      for(var e = 0; e < this.beloningenArray.length; e++){
+        if (this.beloningenArray[e].x > 0 - this.beloningenArray[e].grootte + this.beloningenArray[e].plek) {
           this.levelGehaald = false;
           // spelafgelopen.loop();
         }
