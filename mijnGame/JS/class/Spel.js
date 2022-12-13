@@ -73,7 +73,7 @@
       this.staOpBeloning = false;
       this.beloningenArray = [];
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte));
+        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray));
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte);

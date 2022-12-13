@@ -1,5 +1,5 @@
 class Beloning {
-    constructor(x,y,sg,snelheid,hoogte) {
+    constructor(x,y,sg,snelheid,hoogte,bommenlijst) {
       this.stapGrootte = sg;
       this.snelheid = snelheid;
       this.hoogte = hoogte;
@@ -7,18 +7,17 @@ class Beloning {
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
       this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
       this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;
-
+      this.bommenLijst = bommenlijst;
+      this.beloningStaOpBom(x,y);
     }
     
-    beloningStaOpBom(){
-      // for(var d = 0; d < this.bommenLijst; d++){
-      //   if(this.x == this.bomX[d]){
-      //     this.x = floor(random(1,x))*grootte;
-      //   }
-      //   if(this.y == this.bomY[d]){
-      //     this.y = floor(random(1,y))*grootte - grootte;
-      //   }
-      // }
+    beloningStaOpBom(x,y){
+      for(var d = 0; d < this.bommenLijst.length; d++){
+        if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y){
+          this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
+          this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;    
+        }
+      }
     }
 
 

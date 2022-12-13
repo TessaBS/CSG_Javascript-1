@@ -5,6 +5,7 @@ class Bom {
       this.hoogte = hoogte;
       this.grootte = this.stapGrootte * (3/4);
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
+
       this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
       this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;
     }
