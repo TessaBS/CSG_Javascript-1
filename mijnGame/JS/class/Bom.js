@@ -1,10 +1,15 @@
 class Bom {
-    constructor(x,y,grootte,snelheid,hoogte) {
-      this.x = floor(random(1,x))*grootte;
-      this.y = floor(random(1,y))*grootte - grootte;
-      this.grootte = grootte;
+    constructor(x,y,sg,snelheid,hoogte) {
+;
+      this.stapGrootte = sg;
+      // this.x = floor(random(1,x))*this.stapGrootte;
+      this.y = floor(random(1,y))*this.stapGrootte - this.stapGrootte;
       this.snelheid = snelheid;
       this.hoogte = hoogte;
+      this.grootte = this.stapGrootte * (3/4);
+      this.plek = (this.stapGrootte - this.grootte) * 0.5;
+      this.x = floor(random(1,x))*this.plek;
+      // this.y = floor(random(1,y))*((this.stapGrootte - this.grootte) * 0.5) - this.grootte;
       
     }
     
@@ -18,7 +23,7 @@ class Bom {
     beweeg(){
       this.x -= this.snelheid;
 
-      this.x = constrain(this.x,0 - (2 * this.grootte),windowWidth * 2);
-      this.y = constrain(this.y,0,this.hoogte - this.grootte);
+      this.x = constrain(this.x,0 - (2 * this.stapGrootte),windowWidth * 2);
+      this.y = constrain(this.y,0,this.hoogte - this.stapGrootte);
     }
   }

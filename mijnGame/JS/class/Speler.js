@@ -1,8 +1,12 @@
 class Speler {
     constructor(g,h) {
         this.stapGrootte = g;
-        this.x = 0;
-        this.y = this.stapGrootte;
+        this.grootte = this.stapGrootte * (3/4);
+        this.x = (this.stapGrootte - this.grootte) * (1/2);
+        this.y = (this.stapGrootte - this.grootte) * (1/2);
+        // this.grootte = this.stapGrootte;
+        // this.x = 0;
+        // this.y = 0;
         this.hoogte = h;
 
     }
@@ -26,7 +30,7 @@ class Speler {
     teken() {
         push();
         fill('pink');
-        rect(this.x,this.y,this.stapGrootte);
+        rect(this.x,this.y,this.grootte);
         pop();
     }
 }

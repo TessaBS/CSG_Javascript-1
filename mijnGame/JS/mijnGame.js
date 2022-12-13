@@ -2,6 +2,8 @@
     //achtergrond = loadImage("images/backgrounds/boom_mist.jpg");
     //speler = loadImage("mijnGame/images/imposter.png");
     //bom = loadImage("mijnGame/images/bom.png");
+    achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
+    //spel.afgelopen = loadSound("");
   }
   
 
@@ -39,6 +41,7 @@
     if (!spel.actief && !spel.levelGehaald) {
       // begin spel
       spel.actief = true;
+      achtergrondmuziek.loop();
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       // level gehaald tijdens het spel
@@ -54,3 +57,9 @@
   /*  **********************************************************
       **               EINDE hoofdprogramma                   **
       ********************************************************** */
+
+
+
+
+      // hoe kun je je eigen geluid toevoegen? 
+      

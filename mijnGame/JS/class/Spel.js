@@ -98,20 +98,21 @@
     
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
-        if (this.bommenArray[d].x <= (this.speler.x + this.speler.stapGrootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.stapGrootte) && this.bommenArray[d].y >= this.speler.y ) {
+        if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y ) {
           this.staOpBom = true;
         }
       }
 
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
-        if (this.beloningenArray[dl].x <= (this.speler.x + this.speler.stapGrootte) && this.beloningenArray[dl].x > (this.speler.x - this.beloningenArray[dl].grootte) && this.beloningenArray[dl].y < (this.speler.y + this.speler.stapGrootte) && this.beloningenArray[dl].y >= this.speler.y ) {
+        if (this.beloningenArray[dl].x <= (this.speler.x + this.speler.grootte) && this.beloningenArray[dl].x > (this.speler.x - this.beloningenArray[dl].grootte) && this.beloningenArray[dl].y < (this.speler.y + this.speler.grootte) && this.beloningenArray[dl].y >= this.speler.y ) {
           this.punten++;
         }
       }
 
+      this.levelGehaald = true;
       for(var e = 0; e < this.bommenArray.length; e++){
-        if (this.bommenArray[e].x == 0) {
-          this.levelGehaald = true;
+        if (this.bommenArray[e].x > 0) {
+          this.levelGehaald = false;
         }
       }
 
