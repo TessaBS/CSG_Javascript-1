@@ -3,7 +3,7 @@
     //speler = loadImage("mijnGame/images/imposter.png");
     //bom = loadImage("mijnGame/images/bom.png");
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
-    //spel.afgelopen = loadSound("");
+    spelafgelopen = loadSound("sounds/afgelopen.mp3");
   }
   
 
@@ -41,17 +41,20 @@
     if (!spel.actief && !spel.levelGehaald) {
       // begin spel
       spel.actief = true;
-      achtergrondmuziek.loop();
+      //achtergrondmuziek.loop();
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       // level gehaald tijdens het spel
       spel.nieuwLevel();
     }
-    if ((spel.afgelopen || spel.staOpBom) && keyCode == 32) {
+    if (spel.afgelopen ) {
       // einde spel, alle levels gehaald
       spel.nieuwSpel();
+      //achtergrondmuziek.stop();
+      // spelafgelopen.loop();
 
     }  
+  
   }
   
   /*  **********************************************************
@@ -62,4 +65,4 @@
 
 
       // hoe kun je je eigen geluid toevoegen? 
-      
+    

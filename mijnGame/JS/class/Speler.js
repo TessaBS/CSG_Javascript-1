@@ -2,8 +2,9 @@ class Speler {
     constructor(g,h) {
         this.stapGrootte = g;
         this.grootte = this.stapGrootte * (3/4);
-        this.x = (this.stapGrootte - this.grootte) * (1/2);
-        this.y = (this.stapGrootte - this.grootte) * (1/2);
+        this.plek = (this.stapGrootte - this.grootte) * 0.5;
+        this.x = this.plek;
+        this.y = this.plek;
         // this.grootte = this.stapGrootte;
         // this.x = 0;
         // this.y = 0;
@@ -20,7 +21,7 @@ class Speler {
             this.y += this.stapGrootte;
         }
     
-        this.y = constrain(this.y,0,this.hoogte - this.stapGrootte);
+        this.y = constrain(this.y,0 + this.plek,this.hoogte - this.stapGrootte + this.plek);
     
         if (this.y == 0) {
             spel.Levelgehaald = true;

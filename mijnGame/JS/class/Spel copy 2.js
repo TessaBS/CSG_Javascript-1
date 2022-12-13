@@ -100,7 +100,6 @@
     update() {
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y ) {
-          this.staOpBom = true;
           this.afgelopen = true;
         }
         this.bommenX.push(this.bommenArray[d].x);
@@ -126,9 +125,7 @@
         spel.gewonnen = true;
         spel.actief = false;
       } 
-
-      if (this.afgelopen && spelafgelopen.isPlaying() == false) {
-        spelafgelopen.play();
+      if (this.afgelopen) {
         
       }
 
