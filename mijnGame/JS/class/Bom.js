@@ -11,25 +11,6 @@ class Bom {
       this.y = this.ynr * this.stapGrootte + this.plek;
       this.breedte = x;
     }
-
-    vierInKolom(){
-      // for(var d = 0; d < this.bommenLijst.length; d++){
-      //   // if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y){
-      //   //   if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y + this.stapGrootte){
-      //   //     if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y + (this.stapGrootte * 2)){
-      //         if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y + (this.stapGrootte * 3)){
-      //           this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
-      //           this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;    
-      //   //       }
-      //   //     }
-      //   //  }
-      //   // }
-      //   if(this.x == this.bommenLijst[d].x --> vier keer){
-      //     this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
-      //     this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;  
-      //   }
-      // }
-  }
     
     toon() {
       push();

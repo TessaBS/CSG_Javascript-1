@@ -128,19 +128,33 @@
     
 
     bomStaOpBom(){
-      var stab = false;
-      for(var s = 0; s < this.aantalBommen; s++){
-        this.staBomX[this.bommenArray[s].xnr] ++; 
-      }
-      for(var n = 0; n < this.staBomX.length; n++){
-        this.staBomY[this.bommenArray[n].ynr] ++;
-      }
-      for (var v = 0;v < this.check.length; v++) {
-        if (this.staBomY[v] >= 2) {
-          stab = true;
-        }
-      }
-      return stab;
+      // var stab = false;
+      // for(var s = 0; s < this.aantalBommen; s++){
+      //   this.staBomX[this.bommenArray[s].xnr] ++; 
+      // }
+      // for(var n = 0; n < this.staBomX.length; n++){
+      //   this.staBomY[this.bommenArray[n].ynr] ++;
+      // }
+      // for (var v = 0;v < this.check.length; v++) {
+      //   if (this.staBomY[v] >= 2) {
+      //     stab = true;
+      //   }
+      // }
+      // return stab;
+
+
+      // for(var m=0; m <= this.check.length; m++){
+      //   this.bomY.push(new this.bomY(m) = [])
+      //   for(var w = o; w <= this.check[m]; w++){
+      //     this.bomY(m) = 0;
+      //   }
+      //   for(p = 0; p <= this.check[m]; p++){
+      //     this.bomY(m)[this.bommenArray (--> this.bommenArray.x = m).y] ++;
+      //   }
+      // }
+      // --> Hier maak ik een lijst bomY, met lijsten bomY(m) => lijst die bij een bepaalde x-waarde van bommen hoort.
+      // En dan per lijst wordt 1 toegevoegd als de x van bom gelijk is aan nummer van de lijst.
+      // Dan kun je een if maken met als het getal groter is dan 1 --> nieuw bommen wordt gemaakt. 
     }
 
     beloningStaOpBeloning(){
