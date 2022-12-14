@@ -4,9 +4,14 @@ class Beloning {
       this.snelheid = snelheid;
       this.hoogte = hoogte;
       this.grootte = this.stapGrootte * (g);
+      this.breedte = x;
+
+
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
       this.x = floor(random(2,x)) * this.stapGrootte + this.plek;
       this.y = floor(random(1,y)) * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;
+      
+
       this.bommenLijst = bommenlijst;
       this.beloningStaOpBom(x,y);
 
@@ -37,7 +42,7 @@ class Beloning {
     beweeg(){
       this.x -= this.snelheid;
 
-      this.x = constrain(this.x,0 - (2 * this.stapGrootte),windowWidth * 2);
+      this.x = constrain(this.x,0 - (2 * this.stapGrootte),this.breedte * this.stapGrootte);
       this.y = constrain(this.y,0,this.hoogte - this.stapGrootte);
     }
   }

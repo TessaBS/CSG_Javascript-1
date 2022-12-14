@@ -41,19 +41,21 @@
   // }
   
   function keyTyped() {
-    if (!spel.actief && !spel.levelGehaald) {
+    if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
       spel.actief = true;
-      //achtergrondmuziek.loop();
+      achtergrondmuziek.play();
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       // level gehaald tijdens het spel
+      achtergrondmuziek.pause();
       spel.nieuwLevel();
+      // achtergrondmuziek.play();
     }
     if (spel.afgelopen ) {
       // einde spel, alle levels gehaald
+      // achtergrondmuziek.pause();
       spel.nieuwSpel();
-      //achtergrondmuziek.stop();
       // spelafgelopen.loop();
 
     }  

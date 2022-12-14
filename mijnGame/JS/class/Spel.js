@@ -23,14 +23,13 @@
         this.snelheid = null;
 
         this.raster = new Raster(this.hoogte);
-
         this.raster.genereer();
+        this.breedte = windowWidth * (this.level * 0.5) / this.raster.celGrootte;
 
         this.aantalBommen = null;
         this.staOpBom = false;
         this.bommenArray = null;
-        this.bommenX = null;
-        this.bommenY = null;
+        this.check = null;
 
         this.aantalBeloningen = null;
         this.staOpBeloning = null;
@@ -63,17 +62,14 @@
       this.aantalBommen = this.level * 6;
       this.staOpBom = false;
       this.bommenArray = [];
-      this.bommenX = [];
-      this.bommenY = [];
-      for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
-      }
+      this.check = [];
+      this.genereerBommen();
 
       this.aantalBeloningen = this.level * 5;
       this.staOpBeloning = false;
       this.beloningenArray = [];
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.raster.aantalKolommen + (this.level * 2),this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
+        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte,this.level));
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
@@ -81,7 +77,23 @@
       this.beloning = null;
       this.punten = 0;
   }
-      
+    
+    genereerBommen(){
+      for (var b = 0; b < this.aantalBommen; b++) {
+        this.bommenArray.push(new Bom((windowWidth * (this.level * 0.5)) / this.raster.celGrootte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.level));
+        // controleerBommen();
+      }
+      for(var cl = 0; cl < windowWidth * (this.level * 0.5) / this.raster.celGrootte; cl++){
+        this.check[cl] == 0;
+      }
+    }
+
+    controleerBommen(){
+      for(var k = 0; k < ){
+
+      }
+    }
+
     tekenScorebord() {
       push();
       background(this.r,this.g,this.b);
@@ -137,6 +149,7 @@
 
       if (this.afgelopen && spelafgelopen.isPlaying() == false) {
         spelafgelopen.play();
+        
       }
 
     }
@@ -144,9 +157,9 @@
     beginScherm() {
       push();
         background(this.r,this.g,this.b);
-        text('Klik op Enter om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
+        text('Klik op ENTER om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
         'Tijdens het spel kom je bommen tegen, als je een bom raakt ben je af en moet je helemaal opnieuw beginnen. ' +
-        'Je kunt ook een kleine of grote beloning krijgen door deze aan te raken. ' + 
+        'Je kunt ook een beloning krijgen door deze te raken. ' + 
         'Als je de overkant haalt, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
       pop();
 
