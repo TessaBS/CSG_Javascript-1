@@ -24,7 +24,7 @@
 
         this.raster = new Raster(this.hoogte);
         this.raster.genereer();
-        this.breedte = windowWidth * (this.level * 0.5) / this.raster.celGrootte;
+        this.breedte = null;
 
         this.aantalBommen = null;
         this.staOpBom = false;
@@ -50,7 +50,7 @@
       this.snelheid = 7.5;
       this.grootte = 0.65;
       this.nieuwLevel();
-
+      
     }
   
     nieuwLevel() {
@@ -58,6 +58,8 @@
       this.levelGehaald = false;
       this.snelheid += 2.5;
       this.grootte += 0.05;
+      this.breedte = windowWidth * (this.level * 0.5) / this.raster.celGrootte;
+
 
       this.aantalBommen = this.level * 6;
       this.staOpBom = false;
@@ -80,17 +82,17 @@
     
     genereerBommen(){
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom((windowWidth * (this.level * 0.5)) / this.raster.celGrootte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.level));
+        this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.level));
         // controleerBommen();
       }
-      for(var cl = 0; cl < windowWidth * (this.level * 0.5) / this.raster.celGrootte; cl++){
+      for(var cl = 0; cl < this.breedte; cl++){
         this.check[cl] == 0;
       }
     }
 
     controleerBommen(){
-      for(var k = 0; k < ){
-
+      for(var k = 0; k < this.breedte; k++){
+        
       }
     }
 
