@@ -30,6 +30,8 @@
         this.staOpBom = false;
         this.bommenArray = null;
         this.check = null;
+        this.staBomX = null;
+        this.staBomY = null;
 
         this.aantalBeloningen = null;
         this.staOpBeloning = null;
@@ -65,6 +67,8 @@
       this.staOpBom = false;
       this.bommenArray = [];
       this.check = [];
+      this.staBomX = [];
+      this.staBomY = [];
       this.genereerBommen();
 
       this.aantalBeloningen = this.level * 5;
@@ -87,7 +91,11 @@
       for(var cl = 0; cl < this.breedte; cl++){
         this.check[cl] = 0;
       }
-      if (this.controleerBommen()) {
+      for(var r = 0; r < this.aantalBommen; r++){
+        this.staBomX[r] = this.bommenArray[r].x;
+        this.staBomY[r] = this.bommenArray[r].y;
+      }
+      if (this.controleerBommen() || this.bomStaOpBom() || this.beloningStaOpBeloning()) {
         // this.genereerBommen();
       }
     }
@@ -102,9 +110,23 @@
           antwoord = true;
         }
       }
-
-  
       return antwoord;
+    }
+    
+
+    bomStaOpBom(){
+      // var stab = false;
+      // for (var s = 0; s < this.staBom.length; s++) {
+      //   if (this.staBom[s] == ) {
+      //     stab = true;
+      //   }
+      // }
+      // return stab;
+    }
+
+    beloningStaOpBeloning(){
+      // var stabl = false;
+
     }
 
     tekenScorebord() {

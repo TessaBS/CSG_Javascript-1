@@ -1,9 +1,10 @@
   function preload() {
-    //achtergrond = loadImage("images/backgrounds/boom_mist.jpg");
-    //speler = loadImage("mijnGame/images/imposter.png");
-    //bom = loadImage("mijnGame/images/bom.png");
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
     spelafgelopen = loadSound("sounds/afgelopen.mp3");
+    // groen = loadImage("mijnGame/images/groen.png");
+    // blauw = loadImage("mijnGame/images/blauw.png");
+    // rood = loadImage("mijnGame/images/rood.png");
+    // geel = loadImage("mijnGame/images/geel.png"); 
   }
   
 
