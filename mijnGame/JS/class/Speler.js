@@ -1,7 +1,7 @@
 class Speler {
     constructor(sg,h,g) {
         this.stapGrootte = sg;
-        this.grootte = this.stapGrootte * (g);
+        this.grootte = this.stapGrootte * g;
         this.plek = (this.stapGrootte - this.grootte) * 0.5;
         this.x = this.plek;
         this.y = this.plek;

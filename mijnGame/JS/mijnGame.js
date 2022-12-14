@@ -1,3 +1,8 @@
+// var groen;
+// var blauw;
+// var rood;
+// var geel;
+
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
     spelafgelopen = loadSound("sounds/afgelopen.mp3");
@@ -6,7 +11,6 @@
     // rood = loadImage("mijnGame/images/rood.png");
     // geel = loadImage("mijnGame/images/geel.png"); 
   }
-  
 
 
   function setup() {
@@ -16,10 +20,9 @@
     textSize(30);
     textAlign(CENTER);  
     frameRate(10);
+
     spel = new Levels(); 
     spel.nieuwSpel();
-
-
   }
   
   function draw() {
@@ -31,14 +34,20 @@
   }
   
   // function mousePressed() {
-  //   if (spel.actief) {
-  //     spel.levelGehaald = true;
+  //   if(!this.actief && !this.afgelopen){
+  //     if(mouseX <=  spel.gr.x && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
+
+  //     }
+  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
+
+  //     }
+  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
+
+  //     }
+  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
+
+  //     }
   //   }
-  //   if (spel.level>=spel.maxLevel) {
-  //     spel.afgelopen = true;
-  //     spel.gewonnen = true;
-  //     spel.actief = false;
-  //   }  
   // }
   
   function keyTyped() {
