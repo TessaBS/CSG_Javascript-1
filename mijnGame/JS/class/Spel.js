@@ -123,19 +123,19 @@
     
 
     bomStaOpBom(){
-      var stab = false;
-      for(var s = 0; s < this.aantalBommen; s++){
-        this.staBomX[this.bommenArray[s].xnr] ++; 
-      }
-      for(var n = 0; n < this.staBomX.length; n++){
-        this.staBomY[this.bommenArray[n].ynr] ++;
-      }
-      for (var v = 0;v < this.check.length; v++) {
-        if (this.staBomY[v] >= 2) {
-          stab = true;
-        }
-      }
-      return stab;
+      // var stab = false;
+      // for(var s = 0; s < this.aantalBommen; s++){
+      //   this.staBomX[this.bommenArray[s].xnr] ++; 
+      // }
+      // for(var n = 0; n < this.staBomX.length; n++){
+      //   this.staBomY[this.bommenArray[n].ynr] ++;
+      // }
+      // for (var v = 0;v < this.check.length; v++) {
+      //   if (this.staBomY[v] >= 2) {
+      //     stab = true;
+      //   }
+      // }
+      // return stab;
     }
 
     beloningStaOpBeloning(){
