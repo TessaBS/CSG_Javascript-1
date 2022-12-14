@@ -119,7 +119,7 @@
         this.check[this.bommenArray[k].xnr] ++; 
       }
       for (var q = 0;q < this.check.length; q++) {
-        if (this.check[q] >=2) {
+        if (this.check[q] >=4) {
           antwoord = true;
         }
       }
