@@ -58,7 +58,7 @@
       this.levelGehaald = false;
       this.snelheid += 2.5;
       this.grootte += 0.05;
-      this.breedte = windowWidth * (this.level * 0.5) / this.raster.celGrootte;
+      this.breedte = windowWidth * (this.level * 1.5) / this.raster.celGrootte;
 
 
       this.aantalBommen = this.level * 6;
@@ -83,17 +83,28 @@
     genereerBommen(){
       for (var b = 0; b < this.aantalBommen; b++) {
         this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.level));
-        // controleerBommen();
       }
       for(var cl = 0; cl < this.breedte; cl++){
-        this.check[cl] == 0;
+        this.check[cl] = 0;
+      }
+      if (this.controleerBommen()) {
+        // this.genereerBommen();
       }
     }
 
     controleerBommen(){
-      for(var k = 0; k < this.breedte; k++){
-        
+      var antwoord = false;
+      for(var k = 0; k < this.aantalBommen; k++){
+        this.check[this.bommenArray[k].xnr] ++; 
       }
+      for (var q = 0;q < this.check.length; q++) {
+        if (this.check[q] >=2) {
+          antwoord = true;
+        }
+      }
+
+  
+      return antwoord;
     }
 
     tekenScorebord() {
