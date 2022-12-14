@@ -1,7 +1,7 @@
-// var groen;
-// var blauw;
-// var rood;
-// var geel;
+var groen;
+var blauw;
+var rood;
+var geel;
 
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");

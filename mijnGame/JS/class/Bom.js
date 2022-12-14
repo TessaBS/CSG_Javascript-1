@@ -8,7 +8,7 @@ class Bom {
       this.xnr = floor(random(2,x));
       this.x = this.xnr * this.stapGrootte + this.plek;
       this.ynr = floor(random(1,y));
-      this.y = this.ynr * this.stapGrootte - (this.grootte + 2 * this.plek) + this.plek;
+      this.y = this.ynr * this.stapGrootte + this.plek;
       this.breedte = x;
     }
 
@@ -42,6 +42,6 @@ class Bom {
       this.x -= this.snelheid;
 
       this.x = constrain(this.x,0 - (2 * this.stapGrootte),this.breedte * this.stapGrootte);
-      this.y = constrain(this.y,0,this.hoogte - this.stapGrootte);
+      this.y = constrain(this.y,0,this.hoogte - this.stapGrootte + this.plek);
     }
 }

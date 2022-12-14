@@ -64,6 +64,7 @@
   
     nieuwLevel() {
       this.level++;
+      this.punten = 0;
       this.levelGehaald = false;
       this.snelheid += 2.5;
       this.grootte += 0.05;
@@ -74,6 +75,10 @@
       this.staOpBom = false;
 
       this.genereerBommen();
+      
+      if (this.controleerBommen() || this.bomStaOpBom() || this.beloningStaOpBeloning()) {
+        this.genereerBommen();
+      }
 
       this.aantalBeloningen = this.level * 5;
       this.staOpBeloning = false;
@@ -85,6 +90,8 @@
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
 
       this.beloning = null;
+      this.spelerStaOpBeloning();
+      this.spelerStaOpBom();
   }
     
     genereerBommen(){
@@ -103,9 +110,7 @@
         this.staBomX[r] = this.bommenArray[r].x;
         this.staBomY[r] = this.bommenArray[r].y;
       }
-      if (this.controleerBommen() || this.bomStaOpBom() || this.beloningStaOpBeloning()) {
-        // this.genereerBommen();
-      }
+
     }
 
     controleerBommen(){
@@ -123,19 +128,19 @@
     
 
     bomStaOpBom(){
-      // var stab = false;
-      // for(var s = 0; s < this.aantalBommen; s++){
-      //   this.staBomX[this.bommenArray[s].xnr] ++; 
-      // }
-      // for(var n = 0; n < this.staBomX.length; n++){
-      //   this.staBomY[this.bommenArray[n].ynr] ++;
-      // }
-      // for (var v = 0;v < this.check.length; v++) {
-      //   if (this.staBomY[v] >= 2) {
-      //     stab = true;
-      //   }
-      // }
-      // return stab;
+      var stab = false;
+      for(var s = 0; s < this.aantalBommen; s++){
+        this.staBomX[this.bommenArray[s].xnr] ++; 
+      }
+      for(var n = 0; n < this.staBomX.length; n++){
+        this.staBomY[this.bommenArray[n].ynr] ++;
+      }
+      for (var v = 0;v < this.check.length; v++) {
+        if (this.staBomY[v] >= 2) {
+          stab = true;
+        }
+      }
+      return stab;
     }
 
     beloningStaOpBeloning(){
@@ -152,7 +157,7 @@
       fill(0);
       textSize(25);
       textStyle(BOLD);
-      text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten.',0,this.hoogte + 10,windowWidth);   
+      text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten gehaald.',0,this.hoogte + 10,windowWidth);   
       
       pop();
 
