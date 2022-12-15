@@ -7,7 +7,7 @@ class Bom {
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
       this.xnr = floor(random(2,x));
       this.x = this.xnr * this.stapGrootte + this.plek;
-      this.ynr = floor(random(1,y));
+      this.ynr = floor(random(0,y));
       this.y = this.ynr * this.stapGrootte + this.plek;
       this.breedte = x;
     }

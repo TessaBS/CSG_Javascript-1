@@ -9,7 +9,7 @@ class Beloning {
 
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
       this.x = floor(random(2,x)) * this.stapGrootte + this.plek;
-      this.y = floor(random(1,y)) * this.stapGrootte + this.plek;
+      this.y = floor(random(0,y)) * this.stapGrootte + this.plek;
       
 
       this.bommenLijst = bommenlijst;

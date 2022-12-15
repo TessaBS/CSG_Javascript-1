@@ -30,8 +30,6 @@
         this.staOpBom = false;
         this.bommenArray = null;
         this.check = null;
-        this.staBomX = null;
-        this.staBomY = null;
 
         this.aantalBeloningen = null;
         this.staOpBeloning = null;
@@ -40,7 +38,7 @@
         this.puntenArray = null;
 
         this.speler = null;
-
+        this.puntenArray = null;
         // this.groen = gr;
         // this.blauw = bl;
         // this.rood = ro;
@@ -60,6 +58,7 @@
       this.nieuwLevel();
       
       this.punten = 0;
+      this.puntenArray = [];
     }
   
     nieuwLevel() {
@@ -68,7 +67,7 @@
       this.levelGehaald = false;
       this.snelheid += 2.5;
       this.grootte += 0.05;
-      this.breedte = windowWidth * (this.level * 1.5) / this.raster.celGrootte;
+      this.breedte = windowWidth * (this.level * 1.25) / this.raster.celGrootte;
 
 
       this.aantalBommen = this.level * 6;
@@ -76,7 +75,7 @@
 
       this.genereerBommen();
       
-      if (this.controleerBommen() || this.bomStaOpBom() || this.beloningStaOpBeloning()) {
+      if (this.controleerBommen() ) {
         this.genereerBommen();
       }
 
@@ -84,7 +83,13 @@
       this.staOpBeloning = false;
       this.beloningenArray = [];
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte,this.level));
+        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
+        for(var blo = 0; blo < this.beloningenArray.length; blo++){
+          if(this.beloningenArray[bl].x == this.beloningenArray[blo] && this.beloningenArray[bl].y == this.beloningenArray[blo].y){
+            this.beloningenArray[bl].xnr = floor(random(2,this.breedte));
+            this.beloningenArray[bl].ynr = floor(random(1,this.raster.aantalRijen));
+          }
+        }
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
@@ -97,20 +102,19 @@
     genereerBommen(){
       this.bommenArray = [];
       this.check = [];
-      this.staBomX = [];
-      this.staBomY = [];
 
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.level));
+        this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
+        for(var bo = 0; bo < this.bommenArray.length; bo++){
+          if(this.bommenArray[b].x == this.bommenArray[bo] && this.bommenArray[b].y == this.bommenArray[bo].y){
+            this.bommenArray[b].xnr = floor(random(2,this.breedte));
+            this.bommenArray[b].ynr = floor(random(1,this.raster.aantalRijen));
+          }
+        }
       }
       for(var cl = 0; cl < this.breedte; cl++){
         this.check[cl] = 0;
       }
-      for(var r = 0; r < this.aantalBommen; r++){
-        this.staBomX[r] = this.bommenArray[r].x;
-        this.staBomY[r] = this.bommenArray[r].y;
-      }
-
     }
 
     controleerBommen(){
@@ -126,42 +130,6 @@
       return antwoord;
     }
     
-
-    bomStaOpBom(){
-      // var stab = false;
-      // for(var s = 0; s < this.aantalBommen; s++){
-      //   this.staBomX[this.bommenArray[s].xnr] ++; 
-      // }
-      // for(var n = 0; n < this.staBomX.length; n++){
-      //   this.staBomY[this.bommenArray[n].ynr] ++;
-      // }
-      // for (var v = 0;v < this.check.length; v++) {
-      //   if (this.staBomY[v] >= 2) {
-      //     stab = true;
-      //   }
-      // }
-      // return stab;
-
-
-      // for(var m=0; m <= this.check.length; m++){
-      //   this.bomY.push(new this.bomY(m) = [])
-      //   for(var w = o; w <= this.check[m]; w++){
-      //     this.bomY(m) = 0;
-      //   }
-      //   for(p = 0; p <= this.check[m]; p++){
-      //     this.bomY(m)[this.bommenArray (--> this.bommenArray.x = m).y] ++;
-      //   }
-      // }
-      // --> Hier maak ik een lijst bomY, met lijsten bomY(m) => lijst die bij een bepaalde x-waarde van bommen hoort.
-      // En dan per lijst wordt 1 toegevoegd als de x van bom gelijk is aan nummer van de lijst.
-      // Dan kun je een if maken met als het getal groter is dan 1 --> nieuw bommen wordt gemaakt. 
-    }
-
-    beloningStaOpBeloning(){
-      // var stabl = false;
-
-    }
-
     tekenScorebord() {
       push();
       background(this.r,this.g,this.b);
@@ -275,6 +243,7 @@
       }
       else {
           if (this.levelGehaald) {
+              // this.puntenArray.push(this.punten);
               this.levelScherm();
           }
           else {
