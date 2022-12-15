@@ -6,10 +6,10 @@ var geel;
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
     spelafgelopen = loadSound("sounds/afgelopen.mp3");
-    groen = loadImage("mijnGame/images/groen.png");
-    blauw = loadImage("mijnGame/images/blauw.png");
-    rood = loadImage("mijnGame/images/rood.png");
-    geel = loadImage("mijnGame/images/geel.png"); 
+    // groen = loadImage("mijnGame/images/groen.png");
+    // blauw = loadImage("mijnGame/images/blauw.png");
+    // rood = loadImage("mijnGame/images/rood.png");
+    // geel = loadImage("mijnGame/images/geel.png"); 
   }
 
 

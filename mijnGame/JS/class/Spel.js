@@ -11,20 +11,15 @@
 
         this.hoogte = windowHeight - 100;
         this.grootte = null;
+        this.snelheid = null;
+        this.breedte = null;
 
         this.level = null;
         this.maxLevel = 3;
         this.actief = null;
         this.levelGehaald = null;
-
         this.afgelopen = null;
         this.gewonnen = null;
-
-        this.snelheid = null;
-
-        this.raster = new Raster(this.hoogte);
-        this.raster.genereer();
-        this.breedte = null;
 
         this.aantalBommen = null;
         this.staOpBom = false;
@@ -39,6 +34,7 @@
 
         this.speler = null;
         this.puntenArray = null;
+        this.raster = null;
         // this.groen = gr;
         // this.blauw = bl;
         // this.rood = ro;
@@ -62,6 +58,9 @@
     }
   
     nieuwLevel() {
+      this.raster = new Raster(this.hoogte);
+      this.raster.genereer();
+
       this.level++;
       this.punten = 0;
       this.levelGehaald = false;
@@ -248,7 +247,7 @@
           }
           else {
               this.tekenScorebord();
-              this.raster.teken();
+              // this.raster.teken();
               this.speler.teken();
               this.speler.beweeg();
 
