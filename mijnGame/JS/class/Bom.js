@@ -5,11 +5,21 @@ class Bom {
       this.hoogte = hoogte;
       this.grootte = this.stapGrootte * (g);
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
-      this.xnr = floor(random(2,x));
+      this.xnr = null;
+      this.x = null;
+      this.ynr = null;
+      this.y = null;
+      this.breedte = x; // maximale x-waarde van een bom
+      this.xMax = x;
+      this.yMax = y;
+      this.kiesPlek();
+    }
+
+    kiesPlek() {
+      this.xnr = floor(random(2,this.xMax));
       this.x = this.xnr * this.stapGrootte + this.plek;
-      this.ynr = floor(random(0,y));
+      this.ynr = floor(random(0,this.yMax));
       this.y = this.ynr * this.stapGrootte + this.plek;
-      this.breedte = x;
     }
     
     toon() {

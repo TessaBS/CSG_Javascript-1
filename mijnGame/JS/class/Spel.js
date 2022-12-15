@@ -101,19 +101,30 @@
     genereerBommen(){
       this.bommenArray = [];
       this.check = [];
+      var tweeOpeenPlek = false;
 
       for (var b = 0; b < this.aantalBommen; b++) {
         this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
-        for(var bo = 0; bo < this.bommenArray.length; bo++){
-          if(this.bommenArray[b].x == this.bommenArray[bo] && this.bommenArray[b].y == this.bommenArray[bo].y){
-            this.bommenArray[b].xnr = floor(random(2,this.breedte));
-            this.bommenArray[b].ynr = floor(random(1,this.raster.aantalRijen));
-          }
+        tweeOpeenPlek =  this.checkPlek(b);
+        while (tweeOpeenPlek) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
+          this.bommenArray[b].kiesPlek();
+          tweeOpeenPlek =  this.checkPlek(b);
+          console.log('nieuwe plek gekozen');
         }
       }
       for(var cl = 0; cl < this.breedte; cl++){
         this.check[cl] = 0;
       }
+    }
+
+    checkPlek(b) {
+      var antwoord = false;
+      for(var bo = 0; bo < this.bommenArray.length - 1; bo++){
+        if(this.bommenArray[b].x == this.bommenArray[bo].x && this.bommenArray[b].y == this.bommenArray[bo].y){
+          antwoord = true;         
+        }
+      }
+      return antwoord;    
     }
 
     controleerBommen(){
