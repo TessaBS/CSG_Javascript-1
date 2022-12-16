@@ -1,5 +1,6 @@
 class Bom {
-    constructor(x,y,sg,snelheid,hoogte,g) {
+    constructor(x,y,sg,snelheid,hoogte,g,b) {
+      this.bliksem = b;
       this.stapGrootte = sg;
       this.snelheid = snelheid;
       this.hoogte = hoogte;
@@ -25,7 +26,8 @@ class Bom {
     toon() {
       push();
       fill('black');
-      rect(this.x,this.y,this.grootte);
+      image(this.bliksem,this.x,this.y,this.grootte,this.grootte);
+      // rect(this.x,this.y,this.grootte);
       pop();
     }
 

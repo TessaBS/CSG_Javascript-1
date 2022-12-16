@@ -1,12 +1,16 @@
 class Speler {
-    constructor(sg,h,g) {
+    constructor(sg,h,g,kleuren) {
         this.stapGrootte = sg;
         this.grootte = this.stapGrootte * g;
         this.plek = (this.stapGrootte - this.grootte) * 0.5;
         this.x = this.plek;
         this.y = this.plek;
         this.hoogte = h;
+        this.kleurenArray = kleuren;
 
+        this.kleurNr = null;
+        this.kleurSpeler = null;
+        this.spelerKiezen();
     }
 
     beweeg() {
@@ -24,10 +28,16 @@ class Speler {
             spel.Levelgehaald = true;
         }
     }
+    
+    spelerKiezen(){
+        this.kleurNr = round(random(0,this.kleurenArray.length));
+    }
 
     teken() {
         push();
-        fill('pink');
+        noStroke();
+        // image(this.kleurenArray[this.kleurNr],this.x,this.y,this.grootte,this.grootte);
+        fill(230,186,186);
         rect(this.x,this.y,this.grootte);
         pop();
     }

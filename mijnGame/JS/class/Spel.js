@@ -4,7 +4,7 @@
 
 
     class Levels {
-      constructor() {
+      constructor(gr,bl,ro,ge,bgr,bbl,bor,a,b) {
         this.r = 252;
         this.g = 202;
         this.b = 243;
@@ -29,17 +29,19 @@
         this.aantalBeloningen = null;
         this.staOpBeloning = null;
         this.beloningenArray = null;
+        this.beloningKiezen = null;
+
         this.punten = null;
         this.puntenArray = null;
 
         this.speler = null;
         this.puntenArray = null;
         this.raster = null;
-        // this.groen = gr;
-        // this.blauw = bl;
-        // this.rood = ro;
-        // this.geel = ge;
-  
+
+        this.kleurenArray = [gr,bl,ro,ge];
+        this.plaatjesBeloningenArray = [bgr,bbl,bor];
+        this.achtergrond = a;
+        this.bliksem = b;  
     }
 
     nieuwSpel() {
@@ -75,11 +77,8 @@
         this.genereerBommen();
       }
 
+      this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte,this.kleurenArray);
 
-
-      this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
-
-      // this.beloning = null;
       this.spelerStaOpBeloning();
       this.spelerStaOpBom();
   }
@@ -91,8 +90,9 @@
       this.staOpBom = false;
 
       var tweeOpeenPlek = false;
+
       for (var b = 0; b < this.aantalBommen; b++) {
-        this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
+        this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.bliksem));
         tweeOpeenPlek =  this.checkPlekBom(b);
         while (tweeOpeenPlek) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
           this.bommenArray[b].kiesPlek();
@@ -136,7 +136,7 @@
 
       var tweeOpeenPlekB = false;
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
+        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte,this.plaatjesBeloningenArray));
         tweeOpeenPlekB =  this.checkPlekBeloning(bl);
         while (tweeOpeenPlekB) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
           this.beloningenArray[bl].kiesPlek();
@@ -218,13 +218,14 @@
     beginScherm() {
       push();
         background(this.r,this.g,this.b);
-        text('Klik op ENTER om het spel te starten. \n'+'Je moet proberen om naar de overkant te komen. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
-        'Tijdens het spel kom je bommen tegen, als je een bom raakt ben je af en moet je helemaal opnieuw beginnen. ' +
-        'Je kunt ook een beloning krijgen door deze te raken. ' + 
-        'Als je de overkant haalt, ga je door naar het volgende level.',(windowWidth-1000)/2,100,1000);
-        
-
-      
+        push();
+        textSize(40);
+        textStyle(BOLD);
+        textFont('Georgia');
+        text('LEKKER',(windowWidth-1000)/2,50,1000);
+        pop();
+        text('Je moet proberen om geen bliksem te raken, want dan ga je af. Je kan punten krijgen door een snoepje volledig aan te raken. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
+        'Als alle snoepjes voorbij zijn gegaan, heb je het level gehaald en ga je door naar het volgende level.' + '\nKlik op ENTER om het spel te starten.',(windowWidth-1000)/2,100,1000);
       pop();
     }
   
@@ -240,7 +241,7 @@
       push();
       background(this.r,this.g,this.b);
       fill('black');
-      text('Helaas. \nJe bent af!\n\nDruk spatie om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
+      text('Helaas. \nJe bent af!\n\nKlik op ENTER om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
       pop();
     }
 

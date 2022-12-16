@@ -1,7 +1,7 @@
-var groen;
-var blauw;
-var rood;
-var geel;
+var groen,blauw,rood,geel;
+var beloningGr,beloningBl,beloningOr;
+var achtergrond;
+var bliksem;
 
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
@@ -10,6 +10,11 @@ var geel;
     blauw = loadImage("images/blauw.png");
     rood = loadImage("images/rood.png");
     geel = loadImage("images/geel.png"); 
+    beloningGr = loadImage("images/beloningGroen.png");
+    beloningBl = loadImage("images/beloningBlauw.png");
+    beloningOr = loadImage("images/beloningOranje.png");
+    achtergrond = loadImage("images/achtergrond.png");
+    bliksem = loadImage("images/bliksem.png");
   }
 
 
@@ -21,7 +26,7 @@ var geel;
     textAlign(CENTER);  
     frameRate(10);
 
-    spel = new Levels(); 
+    spel = new Levels(groen,blauw,rood,geel,beloningGr,beloningBl,beloningOr,achtergrond,bliksem); 
     spel.nieuwSpel();
   }
   
@@ -33,23 +38,7 @@ var geel;
 
   }
   
-  // function mousePressed() {
-  //   if(!this.actief && !this.afgelopen){
-  //     if(mouseX <=  spel.gr.x && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
-
-  //     }
-  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
-
-  //     }
-  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
-
-  //     }
-  //     if(mouseX <=  ... && mouseX >= ... && mouseY <= ... && mouseY>= ... ){
-
-  //     }
-  //   }
-  // }
-  
+ 
   function keyTyped() {
     if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
