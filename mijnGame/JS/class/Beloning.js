@@ -6,11 +6,7 @@ class Beloning {
       this.grootte = this.stapGrootte * (g);
       this.breedte = x;
 
-
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
-      this.x = floor(random(2,x)) * this.stapGrootte + this.plek;
-      this.y = floor(random(0,y)) * this.stapGrootte + this.plek;
-      
 
       this.bommenLijst = bommenlijst;
       this.beloningStaOpBom(x,y);
@@ -19,7 +15,23 @@ class Beloning {
       this.g = 148;
       this.b = 217;
       this.doorzichtig = 0.5;
+
+      this.xnr = null;
+      this.x = null;
+      this.ynr = null;
+      this.y = null;
+
+      this.xMax = x;
+      this.yMax = y;
+      this.kiesPlek();
     }
+
+  kiesPlek() {
+    this.xnr = floor(random(2,this.xMax));
+    this.x = this.xnr * this.stapGrootte + this.plek;
+    this.ynr = floor(random(0,this.yMax));
+    this.y = this.ynr * this.stapGrootte + this.plek;
+  }
     
     beloningStaOpBom(x,y){
       for(var d = 0; d < this.bommenLijst.length; d++){

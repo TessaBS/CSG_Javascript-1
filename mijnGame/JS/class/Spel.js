@@ -68,32 +68,18 @@
       this.grootte += 0.05;
       this.breedte = windowWidth * (this.level * 1.25) / this.raster.celGrootte;
 
-
-      this.aantalBommen = this.level * 6;
-      this.staOpBom = false;
-
       this.genereerBommen();
-      
-      if (this.controleerBommen() ) {
+      this.genereerBeloningen();
+
+      while(this.controleerBommen()) {
         this.genereerBommen();
       }
 
-      this.aantalBeloningen = this.level * 5;
-      this.staOpBeloning = false;
-      this.beloningenArray = [];
-      for (var bl = 0; bl < this.aantalBeloningen; bl++) {
-        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
-        for(var blo = 0; blo < this.beloningenArray.length; blo++){
-          if(this.beloningenArray[bl].x == this.beloningenArray[blo] && this.beloningenArray[bl].y == this.beloningenArray[blo].y){
-            this.beloningenArray[bl].xnr = floor(random(2,this.breedte));
-            this.beloningenArray[bl].ynr = floor(random(1,this.raster.aantalRijen));
-          }
-        }
-      }
+
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte);
 
-      this.beloning = null;
+      // this.beloning = null;
       this.spelerStaOpBeloning();
       this.spelerStaOpBom();
   }
@@ -101,14 +87,16 @@
     genereerBommen(){
       this.bommenArray = [];
       this.check = [];
-      var tweeOpeenPlek = false;
+      this.aantalBommen = this.level * 6;
+      this.staOpBom = false;
 
+      var tweeOpeenPlek = false;
       for (var b = 0; b < this.aantalBommen; b++) {
         this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte));
-        tweeOpeenPlek =  this.checkPlek(b);
+        tweeOpeenPlek =  this.checkPlekBom(b);
         while (tweeOpeenPlek) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
           this.bommenArray[b].kiesPlek();
-          tweeOpeenPlek =  this.checkPlek(b);
+          tweeOpeenPlek =  this.checkPlekBom(b);
           console.log('nieuwe plek gekozen');
         }
       }
@@ -117,7 +105,7 @@
       }
     }
 
-    checkPlek(b) {
+    checkPlekBom(b) {
       var antwoord = false;
       for(var bo = 0; bo < this.bommenArray.length - 1; bo++){
         if(this.bommenArray[b].x == this.bommenArray[bo].x && this.bommenArray[b].y == this.bommenArray[bo].y){
@@ -139,7 +127,34 @@
       }
       return antwoord;
     }
+      
     
+    genereerBeloningen(){
+      this.beloningenArray = [];
+      this.aantalBeloningen = this.level * 5;
+      this.staOpBeloning = false;
+
+      var tweeOpeenPlekB = false;
+      for (var bl = 0; bl < this.aantalBeloningen; bl++) {
+        this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte));
+        tweeOpeenPlekB =  this.checkPlekBeloning(bl);
+        while (tweeOpeenPlekB) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
+          this.beloningenArray[bl].kiesPlek();
+          tweeOpeenPlekB =  this.checkPlekBeloning(bl);
+        }
+      }
+    }
+
+    checkPlekBeloning(bl) {
+      var antwoordB = false;
+      for(var blo = 0; blo < this.beloningenArray.length - 1; blo++){
+        if(this.beloningenArray[bl].x == this.beloningenArray[blo].x && this.beloningenArray[bl].y == this.beloningenArray[blo].y){
+          antwoordB = true;         
+        }
+      }
+      return antwoordB;    
+    }
+
     tekenScorebord() {
       push();
       background(this.r,this.g,this.b);
