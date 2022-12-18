@@ -14,7 +14,7 @@ class Beloning {
       this.r = 255;
       this.g = 255;
       this.b = 255;
-      this.doorzichtig = 1;
+      this.doorzichtig = 0;
 
       this.xnr = null;
       this.x = null;
@@ -46,13 +46,13 @@ class Beloning {
     }
 
     beloningKleurKiezen(){
-      this.beloningKiezen = round(random(0,this.beloningPlaatjes.length));
+      this.beloningKiezen = floor(random(0,this.beloningPlaatjes.length));
     }
 
     toon() {
       push();
       noStroke();
-      // image(this.beloningPlaatjes[this.beloningKiezen],this.x,this.y,this.grootte,this.grootte);
+      image(this.beloningPlaatjes[this.beloningKiezen],this.x,this.y,this.grootte,this.grootte);
       fill(this.r,this.g,this.b,this.doorzichtig);
       rect(this.x,this.y,this.grootte);
       pop();

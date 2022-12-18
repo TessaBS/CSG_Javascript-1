@@ -1,7 +1,14 @@
-var groen,blauw,rood,geel;
-var beloningGr,beloningBl,beloningOr;
+var groen;
+var blauw;
+var rood;
+var geel;
+var beloningGr;
+var beloningBl;
+var beloningOr;
 var achtergrond;
 var bliksem;
+var kleuren;
+var spel;
 
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
@@ -26,7 +33,10 @@ var bliksem;
     textAlign(CENTER);  
     frameRate(10);
 
-    spel = new Levels(groen,blauw,rood,geel,beloningGr,beloningBl,beloningOr,achtergrond,bliksem); 
+    kleuren = new Array(groen,blauw,rood,geel);
+    beloningen = new Array(beloningGr,beloningBl,beloningOr);
+
+    spel = new Levels(kleuren,beloningen,achtergrond,bliksem); 
     spel.nieuwSpel();
   }
   

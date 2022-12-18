@@ -4,7 +4,7 @@
 
 
     class Levels {
-      constructor(gr,bl,ro,ge,bgr,bbl,bor,a,b) {
+      constructor(kleuren,beloningen,a,b) {
         this.r = 252;
         this.g = 202;
         this.b = 243;
@@ -38,10 +38,11 @@
         this.puntenArray = null;
         this.raster = null;
 
-        this.kleurenArray = [gr,bl,ro,ge];
-        this.plaatjesBeloningenArray = [bgr,bbl,bor];
+        this.kleurenArray = kleuren;
+        this.plaatjesBeloningenArray = beloningen;
+        this.bliksem = b;
         this.achtergrond = a;
-        this.bliksem = b;  
+        this.achtergrondX = null;
     }
 
     nieuwSpel() {
@@ -62,6 +63,7 @@
     nieuwLevel() {
       this.raster = new Raster(this.hoogte);
       this.raster.genereer();
+      this.achtergrondX = 0;
 
       this.level++;
       this.punten = 0;
@@ -69,6 +71,7 @@
       this.snelheid += 2.5;
       this.grootte += 0.05;
       this.breedte = windowWidth * (this.level * 1.25) / this.raster.celGrootte;
+
 
       this.genereerBommen();
       this.genereerBeloningen();
@@ -81,6 +84,7 @@
 
       this.spelerStaOpBeloning();
       this.spelerStaOpBom();
+
   }
     
     genereerBommen(){
@@ -157,7 +161,7 @@
 
     tekenScorebord() {
       push();
-      background(this.r,this.g,this.b);
+      noStroke();
       textSize(30);
       fill(137, 148, 217);
       rect(0,this.hoogte,windowWidth,100);
@@ -165,14 +169,24 @@
       textSize(25);
       textStyle(BOLD);
       text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten gehaald.',0,this.hoogte + 10,windowWidth);   
-      
       pop();
 
     }
     
+    tekenAchtergrond(){
+      push();
+      image(this.achtergrond,this.achtergrondX,0,windowWidth,windowHeight);
+      image(this.achtergrond,this.achtergrondX + windowWidth,0,windowWidth,windowHeight);
+      this.achtergrondX -= this.snelheid;
+      if (this.achtergrondX <= -windowWidth) {
+        this.achtergrondX = 0;
+      }
+      pop();
+    }
+
     spelerStaOpBom(){
       for(var d = 0; d < this.bommenArray.length; d++){
-        if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y < (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y ) {
+        if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y <= (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y - 1 ) {
           this.staOpBom = true;
           this.afgelopen = true;
         }
@@ -181,7 +195,7 @@
 
     spelerStaOpBeloning(){
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
-        if (this.beloningenArray[dl].x < this.speler.x + this.snelheid && this.beloningenArray[dl].x >= this.speler.x  && this.speler.y == this.beloningenArray[dl].y){
+        if (this.beloningenArray[dl].x < this.speler.x + this.snelheid && this.beloningenArray[dl].x >= this.speler.x  && this.speler.y >= this.beloningenArray[dl].y - 1 && this.speler.y <= this.beloningenArray[dl].y + 1 ){
           this.punten++;
 
           this.beloningenArray[dl].r = 105;
@@ -273,6 +287,7 @@
               this.levelScherm();
           }
           else {
+              this.tekenAchtergrond();
               this.tekenScorebord();
               // this.raster.teken();
               this.speler.teken();
@@ -287,7 +302,6 @@
                 this.bommenArray[c].toon();
                 this.bommenArray[c].beweeg();
               }
-
           }
                     
           if(this.staOpBom) {

@@ -7,9 +7,7 @@ class Speler {
         this.y = this.plek;
         this.hoogte = h;
         this.kleurenArray = kleuren;
-
         this.kleurNr = null;
-        this.kleurSpeler = null;
         this.spelerKiezen();
     }
 
@@ -30,15 +28,12 @@ class Speler {
     }
     
     spelerKiezen(){
-        this.kleurNr = round(random(0,this.kleurenArray.length));
+        this.kleurNr = floor(random(0,this.kleurenArray.length));
     }
 
     teken() {
         push();
-        noStroke();
-        // image(this.kleurenArray[this.kleurNr],this.x,this.y,this.grootte,this.grootte);
-        fill(230,186,186);
-        rect(this.x,this.y,this.grootte);
+        image(this.kleurenArray[this.kleurNr],this.x,this.y,this.grootte,this.grootte);
         pop();
     }
 }
