@@ -238,7 +238,7 @@
         textFont('Georgia');
         text('LEKKER',(windowWidth-1000)/2,50,1000);
         pop();
-        text('Je moet proberen om geen bliksem te raken, want dan ga je af. Je kan punten krijgen door een snoepje volledig aan te raken. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
+        text('Je moet proberen om geen bliksem te raken, want dan ga je af. Je kan punten verdienen door een snoepje volledig aan te raken. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
         'Als alle snoepjes voorbij zijn gegaan, heb je het level gehaald en ga je door naar het volgende level.' + '\nKlik op ENTER om het spel te starten.',(windowWidth-1000)/2,100,1000);
       pop();
     }
