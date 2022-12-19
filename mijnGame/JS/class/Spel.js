@@ -29,13 +29,9 @@
         this.aantalBeloningen = null;
         this.staOpBeloning = null;
         this.beloningenArray = null;
-        this.beloningKiezen = null;
 
         this.punten = null;
-        this.puntenArray = null;
-
         this.speler = null;
-        this.puntenArray = null;
         this.raster = null;
 
         this.kleurenArray = kleuren;
@@ -57,7 +53,6 @@
       this.nieuwLevel();
       
       this.punten = 0;
-      this.puntenArray = [];
     }
   
     nieuwLevel() {
@@ -101,7 +96,7 @@
         while (tweeOpeenPlek) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
           this.bommenArray[b].kiesPlek();
           tweeOpeenPlek =  this.checkPlekBom(b);
-          console.log('nieuwe plek gekozen');
+          // console.log('nieuwe plek gekozen');
         }
       }
       for(var cl = 0; cl < this.breedte; cl++){
@@ -283,7 +278,6 @@
       }
       else {
           if (this.levelGehaald) {
-              // this.puntenArray.push(this.punten);
               this.levelScherm();
           }
           else {
