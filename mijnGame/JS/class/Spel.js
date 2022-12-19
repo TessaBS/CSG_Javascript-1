@@ -30,9 +30,10 @@
         this.staOpBeloning = null;
         this.beloningenArray = null;
 
-        this.punten = null;
+        this.punten = 0;
         this.speler = null;
         this.raster = null;
+        this.puntenArray = null;
 
         this.kleurenArray = kleuren;
         this.plaatjesBeloningenArray = beloningen;
@@ -53,6 +54,7 @@
       this.nieuwLevel();
       
       this.punten = 0;
+      this.puntenArray = [];
     }
   
     nieuwLevel() {
@@ -61,6 +63,7 @@
       this.achtergrondX = 0;
 
       this.level++;
+      // this.puntenArray.push(this.punten);
       this.punten = 0;
       this.levelGehaald = false;
       this.snelheid += 2.5;
