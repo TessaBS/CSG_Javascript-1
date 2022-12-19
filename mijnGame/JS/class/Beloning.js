@@ -46,7 +46,7 @@ class Beloning {
     }
 
     beloningKleurKiezen(){
-      this.beloningKiezen = floor(random(0,this.beloningPlaatjes.length - 0,001));
+      this.beloningKiezen = floor(random(0,this.beloningPlaatjes.length));
     }
 
     toon() {

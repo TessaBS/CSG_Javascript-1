@@ -28,7 +28,7 @@ class Speler {
     }
     
     spelerKiezen(){
-        this.kleurNr = floor(random(0,this.kleurenArray.length - 0,001));
+        this.kleurNr = floor(random(0,this.kleurenArray.length));
     }
 
     teken() {
