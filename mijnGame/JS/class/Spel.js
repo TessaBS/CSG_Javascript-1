@@ -4,7 +4,7 @@
 
 
     class Levels {
-      constructor(kleuren,beloningen,a,b) {
+      constructor(kleuren,beloningen,a,b,aB,l) {
         this.r = 252;
         this.g = 202;
         this.b = 243;
@@ -40,6 +40,10 @@
         this.bliksem = b;
         this.achtergrond = a;
         this.achtergrondX = null;
+        this.achtergrondBegin = aB;
+        this.lekker = l;
+        this.achtergrondPlaatje = null;
+        // this.achtergrondPlaatje = image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
     }
 
     nieuwSpel() {
@@ -55,6 +59,7 @@
       
       this.punten = 0;
       this.puntenArray = [];
+      this.achtergrondPlaatje = image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
     }
   
     nieuwLevel() {
@@ -66,7 +71,7 @@
       // this.puntenArray.push(this.punten);
       this.punten = 0;
       this.levelGehaald = false;
-      this.snelheid += 2.5;
+      this.snelheid += 3;
       this.grootte += 0.05;
       this.breedte = windowWidth * (this.level * 1.25) / this.raster.celGrootte;
 
@@ -166,7 +171,7 @@
       fill(0);
       textSize(25);
       textStyle(BOLD);
-      text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten gehaald.',0,this.hoogte + 10,windowWidth);   
+      text('Dit is Level '+this.level+ '\nJe hebt ' + this.punten + ' punten gehaald.',0,this.hoogte + 15,windowWidth);   
       pop();
 
     }
@@ -210,6 +215,7 @@
       for(var e = 0; e < this.beloningenArray.length; e++){
         if (this.beloningenArray[e].x > 0 - this.beloningenArray[e].grootte + this.beloningenArray[e].plek) {
           this.levelGehaald = false;
+          achtergrondmuziek.stop();
           // spelafgelopen.loop();
         }
       }
@@ -229,21 +235,27 @@
 
     beginScherm() {
       push();
-        background(this.r,this.g,this.b);
+        // background(this.r,this.g,this.b);
+        this.achtergrondPlaatje;
+        // image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+        
         push();
         textSize(40);
         textStyle(BOLD);
-        textFont('Georgia');
         text('LEKKER',(windowWidth-1000)/2,50,1000);
+        image(this.lekker,(windowWidth - 410)/2,10,410,171);
         pop();
+        fill(243,142,232);
         text('Je moet proberen om geen bliksem te raken, want dan ga je af. Je kan punten verdienen door een snoepje volledig aan te raken. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
-        'Als alle snoepjes voorbij zijn gegaan, heb je het level gehaald en ga je door naar het volgende level.' + '\nKlik op ENTER om het spel te starten.',(windowWidth-1000)/2,100,1000);
+        'Als alle snoepjes voorbij zijn gegaan, heb je het level gehaald en ga je door naar het volgende level.' + '\nKlik op ENTER om het spel te starten.',(windowWidth-1000)/2,200,1000);
       pop();
     }
   
     levelScherm() {
       push();
       background(this.r,this.g,this.b);
+      image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+      this.achtergrondPlaatje;
       fill('black');
       text('Gefeliciteerd!\n\nJe hebt level '+this.level+' gehaald! \nJe hebt ' +this.punten + ' punten gehaald. \n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -252,6 +264,8 @@
     geraaktScherm(){
       push();
       background(this.r,this.g,this.b);
+      image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+      this.achtergrondPlaatje;
       fill('black');
       text('Helaas. \nJe bent af!\n\nKlik op ENTER om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -264,6 +278,8 @@
       }
       push();
       background(this.r,this.g,this.b);
+      image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+      this.achtergrondPlaatje;
       fill(0);
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();

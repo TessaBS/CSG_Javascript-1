@@ -9,6 +9,8 @@ var achtergrond;
 var bliksem;
 var kleuren;
 var spel;
+var achtergrondBegin;
+var lekker;
 
   function preload() {
     achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
@@ -22,21 +24,23 @@ var spel;
     beloningOr = loadImage("images/beloningOranje.png");
     achtergrond = loadImage("images/achtergrond.png");
     bliksem = loadImage("images/bliksem.png");
+    achtergrondBegin = loadImage("images/achtergrond2.png");
+    lekker = loadImage("images/lekker.png");
   }
 
 
   function setup() {
     createCanvas(windowWidth,windowHeight);
     colorMode(RGB,255,255,255,1);
-    textFont("Monospace");
-    textSize(30);
+    textFont('Georgia');
+    textSize(35);
     textAlign(CENTER);  
     frameRate(10);
 
     kleuren = new Array(groen,blauw,rood,geel);
     beloningen = new Array(beloningGr,beloningBl,beloningOr);
 
-    spel = new Levels(kleuren,beloningen,achtergrond,bliksem); 
+    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker); 
     spel.nieuwSpel();
   }
   

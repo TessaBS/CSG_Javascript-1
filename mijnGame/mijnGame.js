@@ -23,14 +23,19 @@ var geel;
 
     spel = new Levels(); 
     spel.nieuwSpel();
+
+
   }
   
   function draw() {
-    spel.update();
-    spel.spelerStaOpBom();
-    spel.spelerStaOpBeloning();
-    spel.teken();
-
+    // spel.update();
+    // spel.spelerStaOpBom();
+    // spel.spelerStaOpBeloning();
+    // spel.teken();
+    // if (spel.actief) {
+    //   achtergrondmuziek.play();
+    // }
+    achtergrondmuziek.play();
   }
   
   // function mousePressed() {
@@ -54,19 +59,18 @@ var geel;
     if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
       spel.actief = true;
-      achtergrondmuziek.play();
+      // achtergrondmuziek.play();
+      
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       // level gehaald tijdens het spel
-      achtergrondmuziek.pause();
       spel.nieuwLevel();
       // achtergrondmuziek.play();
     }
     if (spel.afgelopen ) {
       // einde spel, alle levels gehaald
-      // achtergrondmuziek.pause();
       spel.nieuwSpel();
-      // spelafgelopen.loop();
+     
 
     }  
   
