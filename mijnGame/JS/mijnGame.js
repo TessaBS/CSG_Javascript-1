@@ -62,7 +62,7 @@ var spelen;
     if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
       spel.actief = true;
-      achtergrondgeluid.play();
+      achtergrondgeluid.play();y
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       spel.nieuwLevel();
