@@ -2,12 +2,11 @@
     **             BEGIN klasse Spel met Levels             **
     ********************************************************** */
 
-
     class Levels {
-      constructor(kleuren,beloningen,a,b,aB,l,sg) {
-        this.r = 252;
-        this.g = 202;
-        this.b = 243;
+      constructor(kleuren,beloningen,a,b,aB,l,sa,ag,sp) {
+        this.r = 232;
+        this.g = 104;
+        this.b = 215;
 
         this.hoogte = windowHeight - 100;
         this.grootte = null;
@@ -33,7 +32,6 @@
         this.punten = 0;
         this.speler = null;
         this.raster = null;
-        this.puntenArray = null;
 
         this.kleurenArray = kleuren;
         this.plaatjesBeloningenArray = beloningen;
@@ -42,13 +40,18 @@
         this.achtergrondX = null;
         this.achtergrondBegin = aB;
         this.lekker = l;
-        this.spelafgelopen = sg;
-        this.spelen = false;
+
+        this.spelAfgelopenGeluid = sa;
+        this.achtergrondGeluid = ag;
+        this.spelPuntGeluid = sp;
+        this.bomGeluid = false;
+        this.beloningGeluid = false;
       }
 
     nieuwSpel() {
       this.level = 0;
-      this.spelen = false;
+      this.bomGeluid = false;
+      this.beloningGeluid = false;
 
       this.actief = false;
       this.gewonnen = false;
@@ -59,8 +62,6 @@
       this.nieuwLevel();
       
       this.punten = 0;
-      this.puntenArray = [];
-
     }
   
     nieuwLevel() {
@@ -69,7 +70,8 @@
       this.achtergrondX = 0;
 
       this.level++;
-      // this.puntenArray.push(this.punten);
+      this.bomGeluid = false;
+      this.beloningGeluid = false;
       this.punten = 0;
       this.levelGehaald = false;
       this.snelheid += 3;
@@ -96,6 +98,7 @@
       this.check = [];
       this.aantalBommen = this.level * 6;
       this.staOpBom = false;
+      this.staOpBeloning = false;
 
       var tweeOpeenPlek = false;
 
@@ -167,7 +170,7 @@
       push();
       noStroke();
       textSize(30);
-      fill(137, 148, 217);
+      fill(137,148,217);
       rect(0,this.hoogte,windowWidth,100);
       fill(0);
       textSize(25);
@@ -198,6 +201,8 @@
     }
 
     spelerStaOpBeloning(){
+      this.staOpBeloning = false;
+
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
         if (this.beloningenArray[dl].x < this.speler.x + this.snelheid && this.beloningenArray[dl].x >= this.speler.x  && this.speler.y >= this.beloningenArray[dl].y - 1 && this.speler.y <= this.beloningenArray[dl].y + 1 ){
           this.punten++;
@@ -206,8 +211,9 @@
           this.beloningenArray[dl].g = 245;
           this.beloningenArray[dl].b = 98;
           this.beloningenArray[dl].doorzichtig = 0.5;
-        }
 
+          this.staOpBeloning = true;
+        }
       }
     }
 
@@ -219,64 +225,59 @@
         }
       }
 
-      if (spel.level>spel.maxLevel) {
-        spel.afgelopen = true;
-        spel.gewonnen = true;
-        spel.actief = false;
+      if (this.level > this.maxLevel) {
+        this.afgelopen = true;
+        this.gewonnen = true;
+        this.actief = false;
       } 
+    }
 
-      if (this.afgelopen && this.spelafgelopen.isPlaying() == false && this.spelen == false) {
-        this.spelafgelopen.play(); 
-        this.spelen = true;
+    muziek(){
+      if (this.bomGeluid == false && this.staOpBom && !this.levelGehaald && this.spelAfgelopenGeluid.isPlaying() == false) {
+        this.spelAfgelopenGeluid.play(); 
+        this.bomGeluid = true;
+      }
+
+      if(this.levelGehaald || this.afgelopen) {
+        this.achtergrondGeluid.stop();
+      }
+
+      if(this.staOpBeloning && !this.afgelopen && !this.levelGehaald){
+        this.spelPuntGeluid.play();
       }
     }
 
     beginScherm() {
       push();
         image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-        push();
-        textSize(40);
-        textStyle(BOLD);
-        text('LEKKER',(windowWidth-1000)/2,50,1000);
         image(this.lekker,(windowWidth - 410)/2,10,410,171);
-        pop();
-        fill(243,142,232);
-        text('Je moet proberen om geen bliksem te raken, want dan ga je af. Je kan punten verdienen door een snoepje volledig aan te raken. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
+        fill(this.r,this.g,this.b);
+        text('Je kan punten verdienen door een snoepje volledig aan te raken. Je moet proberen om geen bliksem te raken, want dan ga je af. Door middel van het gebruik van de pijltjestoetsen kun je de speler naar boven en beneden bewegen. ' +
         'Als alle snoepjes voorbij zijn gegaan, heb je het level gehaald en ga je door naar het volgende level.' + '\nKlik op ENTER om het spel te starten.',(windowWidth-1000)/2,200,1000);
       pop();
     }
   
     levelScherm() {
       push();
-      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-
-      fill('black');
+      fill(this.r,this.g,this.b);
       text('Gefeliciteerd!\n\nJe hebt level '+this.level+' gehaald! \nJe hebt ' +this.punten + ' punten gehaald. \n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
     }   
   
     geraaktScherm(){
       push();
-      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-
-      fill('black');
+      fill(this.r,this.g,this.b);
       text('Helaas. \nJe bent af!\n\nKlik op ENTER om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
       pop();
     }
 
     eindScherm() {
-      var tekst = 'Je hebt het gehaald.';
-      if (this.gewonnen) {
-        tekst = 'Gefeliciteerd!';
-      }
       push();
-      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-
-      fill(0);
-      text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
+      fill(this.r,this.g,this.b);
+      text('Wat goed!!! Je hebt gewonnen!\n\nKlik op ENTER voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();
     }    
 

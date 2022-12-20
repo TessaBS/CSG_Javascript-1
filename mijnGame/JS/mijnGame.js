@@ -1,21 +1,10 @@
-var groen;
-var blauw;
-var rood;
-var geel;
-var beloningGr;
-var beloningBl;
-var beloningOr;
-var achtergrond;
-var bliksem;
-var kleuren;
 var spel;
-var achtergrondBegin;
-var lekker;
-var spelen;
 
   function preload() {
-    achtergrondgeluid = loadSound("sounds/achtergrondgeluid.mp3"); 
-    spelafgelopen = loadSound("sounds/spelafgelopen.mp3");
+    achtergrondGeluid = loadSound("sounds/achtergrondgeluid.mp3"); 
+    spelAfgelopenGeluid = loadSound("sounds/spelafgelopen.mp3");
+    spelPuntGeluid = loadSound("sounds/positive_beeps.mp3");
+
     groen = loadImage("images/groen.png");
     blauw = loadImage("images/blauw.png");
     rood = loadImage("images/rood.png");
@@ -41,20 +30,16 @@ var spelen;
     kleuren = new Array(groen,blauw,rood,geel);
     beloningen = new Array(beloningGr,beloningBl,beloningOr);
 
-    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker,spelafgelopen); 
+    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker,spelAfgelopenGeluid,achtergrondGeluid,spelPuntGeluid); 
     spel.nieuwSpel();
-    // spelen = false;
   }
   
   function draw() {
     spel.update();
+    spel.muziek();
     spel.spelerStaOpBom();
     spel.spelerStaOpBeloning();
     spel.teken();
-    if(spel.levelGehaald || spel.afgelopen) {
-      achtergrondgeluid.stop();
-      
-    }
   }
   
  
@@ -62,15 +47,17 @@ var spelen;
     if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
       spel.actief = true;
-      achtergrondgeluid.play();y
+      achtergrondGeluid.loop();
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
+      // level gehaald --> naar nieuw level
       spel.nieuwLevel();
+      achtergrondGeluid.play();
     }
-    if (spel.afgelopen ) {
+    if (spel.afgelopen && keyCode == ENTER) {
+      // spel gehaald --> nieuw spel maken
       spel.nieuwSpel();
-    }  
-  
+    }
   }
   
   /*  **********************************************************
