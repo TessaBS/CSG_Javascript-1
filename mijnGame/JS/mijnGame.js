@@ -11,10 +11,11 @@ var kleuren;
 var spel;
 var achtergrondBegin;
 var lekker;
+var spelen;
 
   function preload() {
-    achtergrondmuziek = loadSound("sounds/bensound-dance.mp3");
-    spelafgelopen = loadSound("sounds/afgelopen.mp3");
+    achtergrondgeluid = loadSound("sounds/achtergrondgeluid.mp3"); 
+    spelafgelopen = loadSound("sounds/spelafgelopen.mp3");
     groen = loadImage("images/groen.png");
     blauw = loadImage("images/blauw.png");
     rood = loadImage("images/rood.png");
@@ -40,8 +41,9 @@ var lekker;
     kleuren = new Array(groen,blauw,rood,geel);
     beloningen = new Array(beloningGr,beloningBl,beloningOr);
 
-    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker); 
+    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker,spelafgelopen); 
     spel.nieuwSpel();
+    // spelen = false;
   }
   
   function draw() {
@@ -49,7 +51,10 @@ var lekker;
     spel.spelerStaOpBom();
     spel.spelerStaOpBeloning();
     spel.teken();
-
+    if(spel.levelGehaald || spel.afgelopen) {
+      achtergrondgeluid.stop();
+      
+    }
   }
   
  
@@ -57,20 +62,13 @@ var lekker;
     if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
       // begin spel
       spel.actief = true;
-      achtergrondmuziek.play();
+      achtergrondgeluid.play();
     }
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
-      // level gehaald tijdens het spel
-      achtergrondmuziek.pause();
       spel.nieuwLevel();
-      // achtergrondmuziek.play();
     }
     if (spel.afgelopen ) {
-      // einde spel, alle levels gehaald
-      // achtergrondmuziek.pause();
       spel.nieuwSpel();
-      // spelafgelopen.loop();
-
     }  
   
   }

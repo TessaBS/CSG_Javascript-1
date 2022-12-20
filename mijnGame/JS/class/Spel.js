@@ -4,7 +4,7 @@
 
 
     class Levels {
-      constructor(kleuren,beloningen,a,b,aB,l) {
+      constructor(kleuren,beloningen,a,b,aB,l,sg) {
         this.r = 252;
         this.g = 202;
         this.b = 243;
@@ -44,10 +44,13 @@
         this.lekker = l;
         this.achtergrondPlaatje = null;
         // this.achtergrondPlaatje = image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-    }
+        this.spelafgelopen = sg;
+        this.spelen = false;
+      }
 
     nieuwSpel() {
       this.level = 0;
+      this.spelen = false;
 
       this.actief = false;
       this.gewonnen = false;
@@ -215,8 +218,6 @@
       for(var e = 0; e < this.beloningenArray.length; e++){
         if (this.beloningenArray[e].x > 0 - this.beloningenArray[e].grootte + this.beloningenArray[e].plek) {
           this.levelGehaald = false;
-          achtergrondmuziek.stop();
-          // spelafgelopen.loop();
         }
       }
 
@@ -226,21 +227,16 @@
         spel.actief = false;
       } 
 
-      if (this.afgelopen && spelafgelopen.isPlaying() == false) {
-        spelafgelopen.play(); 
-        // hier nog naar kijken, 
-        // als alle levels zijn gehaald speelt hij ook!!
-        
+      if (this.afgelopen && this.spelafgelopen.isPlaying() == false && this.spelen == false) {
+        this.spelafgelopen.play(); 
+        this.spelen = true;
       }
-
     }
 
     beginScherm() {
       push();
-        // background(this.r,this.g,this.b);
-        this.achtergrondPlaatje;
-        // image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-        
+        // background(this.achtergrondPlaatje);
+        image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
         push();
         textSize(40);
         textStyle(BOLD);
