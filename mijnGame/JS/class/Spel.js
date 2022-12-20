@@ -62,7 +62,7 @@
       
       this.punten = 0;
       this.puntenArray = [];
-      this.achtergrondPlaatje = image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+      this.achtergrondPlaatje = image(this.achtergrond,0,0,windowWidth,windowHeight);
     }
   
     nieuwLevel() {
@@ -236,7 +236,7 @@
     beginScherm() {
       push();
         background(this.achtergrondPlaatje);
-        image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+        // image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
         push();
         textSize(40);
         textStyle(BOLD);
