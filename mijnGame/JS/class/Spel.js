@@ -227,7 +227,9 @@
       } 
 
       if (this.afgelopen && spelafgelopen.isPlaying() == false) {
-        spelafgelopen.play();
+        spelafgelopen.play(); 
+        // hier nog naar kijken, 
+        // als alle levels zijn gehaald speelt hij ook!!
         
       }
 

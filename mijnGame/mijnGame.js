@@ -28,14 +28,13 @@ var geel;
   }
   
   function draw() {
-    // spel.update();
-    // spel.spelerStaOpBom();
-    // spel.spelerStaOpBeloning();
-    // spel.teken();
-    // if (spel.actief) {
-    //   achtergrondmuziek.play();
-    // }
-    achtergrondmuziek.play();
+    spel.update();
+    spel.spelerStaOpBom();
+    spel.spelerStaOpBeloning();
+    spel.teken();
+    if (spel.actief) {
+      achtergrondmuziek.play();
+    }
   }
   
   // function mousePressed() {
