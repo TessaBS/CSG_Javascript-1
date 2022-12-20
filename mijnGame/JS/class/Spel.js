@@ -235,7 +235,7 @@
 
     beginScherm() {
       push();
-        // background(this.achtergrondPlaatje);
+        background(this.achtergrondPlaatje);
         image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
         push();
         textSize(40);
