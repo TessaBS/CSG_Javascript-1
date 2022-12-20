@@ -42,8 +42,6 @@
         this.achtergrondX = null;
         this.achtergrondBegin = aB;
         this.lekker = l;
-        this.achtergrondPlaatje = null;
-        // this.achtergrondPlaatje = image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
         this.spelafgelopen = sg;
         this.spelen = false;
       }
@@ -62,7 +60,7 @@
       
       this.punten = 0;
       this.puntenArray = [];
-      this.achtergrondPlaatje = image(this.achtergrond,0,0,windowWidth,windowHeight);
+
     }
   
     nieuwLevel() {
@@ -235,8 +233,7 @@
 
     beginScherm() {
       push();
-        background(this.achtergrondPlaatje);
-        // image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
+        image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
         push();
         textSize(40);
         textStyle(BOLD);
@@ -251,9 +248,9 @@
   
     levelScherm() {
       push();
-      background(this.r,this.g,this.b);
+      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-      this.achtergrondPlaatje;
+
       fill('black');
       text('Gefeliciteerd!\n\nJe hebt level '+this.level+' gehaald! \nJe hebt ' +this.punten + ' punten gehaald. \n\nDruk ENTER om naar level '+(this.level+1)+' te gaan.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -261,9 +258,9 @@
   
     geraaktScherm(){
       push();
-      background(this.r,this.g,this.b);
+      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-      this.achtergrondPlaatje;
+
       fill('black');
       text('Helaas. \nJe bent af!\n\nKlik op ENTER om opnieuw te beginnen.',(windowWidth-1000)/2,100,1000);
       pop();
@@ -275,9 +272,9 @@
         tekst = 'Gefeliciteerd!';
       }
       push();
-      background(this.r,this.g,this.b);
+      // background(this.r,this.g,this.b);
       image(this.achtergrondBegin,0,0,windowWidth,windowHeight);
-      this.achtergrondPlaatje;
+
       fill(0);
       text(tekst + '\n\nDruk SPATIE voor nieuw spel.',(windowWidth-1000)/2,100,1000);
       pop();
