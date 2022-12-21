@@ -22,6 +22,7 @@ class Levels {
       this.staOpBom = false;
       this.bommenArray = null;
       this.check = null;
+      this.checkB = null;
       this.bliksem = b;
       this.bomGeluid = false;
 
@@ -48,9 +49,8 @@ class Levels {
     }
 
     nieuwSpel() {
-
-      // this.bomGeluid = false;
-      // this.beloningGeluid = false;
+      this.bomGeluid = false;
+      this.beloningGeluid = false;
 
       this.actief = false;
       this.gewonnen = false;
@@ -61,6 +61,7 @@ class Levels {
       this.grootte = 0.65;
       this.punten = 0;
       this.text = null;
+      this.staOpBom = false;
       this.nieuwLevel();
     }
 
@@ -75,6 +76,7 @@ class Levels {
       this.punten = 0;
       this.breedte = windowWidth * (this.level * 1.25) / this.raster.celGrootte;
       this.achtergrondX = 0;
+      this.staOpBom = false;
       this.bomGeluid = false;
       this.beloningGeluid = false;
       this.text = null;
@@ -84,6 +86,10 @@ class Levels {
 
       while(this.controleerBommen()) {
         this.genereerBommen();
+      }
+
+      while(this.controleerBelongingen()){
+        this.genereerBeloningen();
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte,this.kleurenArray);
@@ -139,9 +145,11 @@ class Levels {
 
     genereerBeloningen(){
       this.beloningenArray = [];
+      this.checkB = [];
       this.aantalBeloningen = this.level * 5;
 
       var tweeOpeenPlekB = false;
+
       for (var bl = 0; bl < this.aantalBeloningen; bl++) {
         this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte,this.plaatjesBeloningenArray));
         tweeOpeenPlekB =  this.checkPlekBeloning(bl);
@@ -149,6 +157,10 @@ class Levels {
           this.beloningenArray[bl].kiesPlek();
           tweeOpeenPlekB =  this.checkPlekBeloning(bl);
         }
+      }
+
+      for(var cb = 0; cb < this.breedte; cb++){
+        this.checkB[cb] = 0;
       }
     }
 
@@ -162,8 +174,20 @@ class Levels {
       return antwoordB;
     }
 
+    controleerBelongingen(){
+      var antwoordC = false;
+      for(var v = 0; v < this.aantalBeloningen; v++){
+        this.checkB[this.beloningenArray[v].xnr] ++; 
+      }
+      for (var h = 0;h < this.checkB.length; h++) {
+        if (this.checkB[h] >= 2) {
+          antwoordC = true;
+        }
+      }
+      return antwoordC;
+    }
+
     spelerStaOpBom() {
-      this.staOpBom = false;
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y <= (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y - 1 ) {
           this.staOpBom = true;
@@ -278,8 +302,8 @@ class Levels {
       push();
         image(this.achtergrondEind,0,0,windowWidth,windowHeight);
         textStyle(BOLD);
-        fill(0);
-        text('Klik op ENTER om het spel opnieuw te spelen.',(windowWidth-1000)/2,100,1000);
+        fill(221,255,240);
+        text('Klik op ENTER om het spel opnieuw te spelen.',(windowWidth-1000)/2,windowHeight - 100,1000);
       pop();
     }    
 

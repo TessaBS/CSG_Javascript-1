@@ -39,7 +39,7 @@ class Beloning {
     
     beloningStaOpBom(x,y){
       for(var d = 0; d < this.bommenLijst.length; d++){
-        if(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y){
+        while(this.x == this.bommenLijst[d].x && this.y == this.bommenLijst[d].y){
           this.x = floor(random(1,x)) * this.stapGrootte + this.plek;
           this.y = floor(random(1,y)) * this.stapGrootte + this.plek;    
         }
