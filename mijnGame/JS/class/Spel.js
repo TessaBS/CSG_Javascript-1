@@ -101,7 +101,7 @@ class Levels {
         tweeOpeenPlek =  this.checkPlekBom(b);
         while (tweeOpeenPlek) {
           this.bommenArray[b].kiesPlek();
-          // tweeOpeenPlek =  this.checkPlekBom(b);
+          tweeOpeenPlek =  this.checkPlekBom(b);
         }
       }
 
@@ -144,7 +144,7 @@ class Levels {
         tweeOpeenPlekB =  this.checkPlekBeloning(bl);
         while (tweeOpeenPlekB) {
           this.beloningenArray[bl].kiesPlek();
-          // tweeOpeenPlekB =  this.checkPlekBeloning(bl);
+          tweeOpeenPlekB =  this.checkPlekBeloning(bl);
         }
       }
     }
