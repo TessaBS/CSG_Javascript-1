@@ -87,6 +87,9 @@ class Levels {
       }
 
       this.speler = new Speler(this.raster.celGrootte,this.hoogte,this.grootte,this.kleurenArray);
+
+      this.spelerStaOpBeloning();
+      this.spelerStaOpBom();
     }
 
     genereerBommen(){
@@ -160,6 +163,7 @@ class Levels {
     }
 
     spelerStaOpBom() {
+      this.staOpBom = false;
       for(var d = 0; d < this.bommenArray.length; d++){
         if (this.bommenArray[d].x <= (this.speler.x + this.speler.grootte) && this.bommenArray[d].x > (this.speler.x - this.bommenArray[d].grootte) && this.bommenArray[d].y <= (this.speler.y + this.speler.grootte) && this.bommenArray[d].y >= this.speler.y - 1 ) {
           this.staOpBom = true;
