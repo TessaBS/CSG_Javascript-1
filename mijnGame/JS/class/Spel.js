@@ -258,7 +258,7 @@ class Levels {
 
     levelScherm() {
     push();
-    if(this.afgelopen && !this.actief){
+    if(this.level == this.maxLevel){
       this.text = 'Wat goed!!! \n\nKlik op ENTER voor het einde.';
     }
     else{
