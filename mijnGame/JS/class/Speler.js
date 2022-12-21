@@ -21,10 +21,6 @@ class Speler {
         }
     
         this.y = constrain(this.y,0 + this.plek,this.hoogte - this.stapGrootte + this.plek);
-    
-        if (this.y == 0) {
-            spel.Levelgehaald = true;
-        }
     }
     
     spelerKiezen(){

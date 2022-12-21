@@ -60,12 +60,14 @@ class Levels {
     this.nieuwLevel();
 
     this.punten = 0;
+    this.text = null;
     }
 
     nieuwLevel() {
     this.raster = new Raster(this.hoogte);
     this.raster.genereer();
     this.achtergrondX = 0;
+    this.text = null;
 
     this.level++;
     this.bomGeluid = false;
@@ -103,7 +105,7 @@ class Levels {
     for (var b = 0; b < this.aantalBommen; b++) {
       this.bommenArray.push(new Bom(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.grootte,this.bliksem));
       tweeOpeenPlek =  this.checkPlekBom(b);
-      while (tweeOpeenPlek) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
+      while (tweeOpeenPlek) {
         this.bommenArray[b].kiesPlek();
         tweeOpeenPlek =  this.checkPlekBom(b);
       }
@@ -147,7 +149,7 @@ class Levels {
     for (var bl = 0; bl < this.aantalBeloningen; bl++) {
       this.beloningenArray.push(new Beloning(this.breedte,this.raster.aantalRijen,this.raster.celGrootte,this.snelheid,this.hoogte,this.bommenArray,this.grootte,this.plaatjesBeloningenArray));
       tweeOpeenPlekB =  this.checkPlekBeloning(bl);
-      while (tweeOpeenPlekB) { // zolang het waar is dat er twee op één plek zitten, moet je kiesplek uitvoeren
+      while (tweeOpeenPlekB) {
         this.beloningenArray[bl].kiesPlek();
         tweeOpeenPlekB =  this.checkPlekBeloning(bl);
       }
@@ -300,7 +302,6 @@ class Levels {
         else {
             this.tekenAchtergrond();
             this.tekenScorebord();
-            // this.raster.teken();
             this.speler.teken();
             this.speler.beweeg();
 
@@ -318,6 +319,6 @@ class Levels {
         if(this.staOpBom) {
           this.geraaktScherm();
         }
-    }
-    }
+      }
+     }
     }

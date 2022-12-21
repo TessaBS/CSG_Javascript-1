@@ -9,7 +9,7 @@ class Raster {
     
     genereer(){
       this.celGrootte = this.hoogte / this.aantalRijen;
-      this.aantalKolommen = floor(windowWidth/ this.celGrootte) +1;
+      this.aantalKolommen = floor(windowWidth / this.celGrootte) +1;
     }
 
 

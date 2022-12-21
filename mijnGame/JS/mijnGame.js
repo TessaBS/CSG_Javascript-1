@@ -50,11 +50,13 @@ var spel;
       spel.actief = true;
       achtergrondGeluid.loop();
     }
+    
     if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
       // level gehaald --> naar nieuw level
       spel.nieuwLevel();
       achtergrondGeluid.play();
     }
+
     if (spel.afgelopen && keyCode == ENTER) {
       // spel gehaald --> nieuw spel maken
       spel.nieuwSpel();
