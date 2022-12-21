@@ -16,7 +16,7 @@ var spel;
     bliksem = loadImage("images/bliksem.png");
     achtergrondBegin = loadImage("images/achtergrond2.png");
     lekker = loadImage("images/lekker.png");
-    achtergrondEind = loadImage("images/WooHoo.png");
+    achtergrondEind = loadImage("images/winner.png");
   }
 
 

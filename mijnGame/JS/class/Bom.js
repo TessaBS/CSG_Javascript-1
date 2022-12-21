@@ -25,8 +25,8 @@ class Bom {
     
     toon() {
       push();
-      fill('black');
-      image(this.bliksem,this.x,this.y,this.grootte,this.grootte);
+        fill('black');
+        image(this.bliksem,this.x,this.y,this.grootte,this.grootte);
       pop();
     }
 

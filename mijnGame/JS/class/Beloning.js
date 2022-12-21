@@ -8,8 +8,6 @@ class Beloning {
 
       this.plek = (this.stapGrootte - this.grootte) * 0.5;
 
-      this.bommenLijst = bommenlijst;
-      this.beloningStaOpBom(x,y);
 
       this.r = 255;
       this.g = 255;
@@ -24,6 +22,9 @@ class Beloning {
       this.xMax = x;
       this.yMax = y;
       this.kiesPlek();
+
+      this.bommenLijst = bommenlijst;
+      this.beloningStaOpBom(x,y);
 
       this.beloningPlaatjes = bl;
       this.beloningKleurKiezen();
@@ -51,10 +52,10 @@ class Beloning {
 
     toon() {
       push();
-      noStroke();
-      image(this.beloningPlaatjes[this.beloningKiezen],this.x,this.y,this.grootte,this.grootte);
-      fill(this.r,this.g,this.b,this.doorzichtig);
-      rect(this.x,this.y,this.grootte);
+        noStroke();
+        image(this.beloningPlaatjes[this.beloningKiezen],this.x,this.y,this.grootte,this.grootte);
+        fill(this.r,this.g,this.b,this.doorzichtig);
+        rect(this.x,this.y,this.grootte);
       pop();
     }
 
