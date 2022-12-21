@@ -170,7 +170,6 @@ class Levels {
 
     spelerStaOpBeloning() {
       this.staOpBeloning = false;
-
       for(var dl = 0; dl < this.beloningenArray.length; dl++){
         if (this.beloningenArray[dl].x < this.speler.x + this.snelheid && this.beloningenArray[dl].x >= this.speler.x  && this.speler.y >= this.beloningenArray[dl].y - 1 && this.speler.y <= this.beloningenArray[dl].y + 1 ){
           this.punten++;
@@ -309,7 +308,7 @@ class Levels {
                 this.bommenArray[c].beweeg();
               }
           }
-                    
+                
           if(this.staOpBom) {
             this.geraaktScherm();
           }
