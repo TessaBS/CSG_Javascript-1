@@ -16,6 +16,7 @@ var spel;
     bliksem = loadImage("images/bliksem.png");
     achtergrondBegin = loadImage("images/achtergrond2.png");
     lekker = loadImage("images/lekker.png");
+    achtergrondEind = loadImage("images/WooHoo.png");
   }
 
 
@@ -30,7 +31,7 @@ var spel;
     kleuren = new Array(groen,blauw,rood,geel);
     beloningen = new Array(beloningGr,beloningBl,beloningOr);
 
-    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker,spelAfgelopenGeluid,achtergrondGeluid,spelPuntGeluid); 
+    spel = new Levels(kleuren,beloningen,achtergrond,bliksem,achtergrondBegin,lekker,spelAfgelopenGeluid,achtergrondGeluid,spelPuntGeluid,achtergrondEind); 
     spel.nieuwSpel();
   }
   
@@ -60,16 +61,3 @@ var spel;
     }
   }
   
-  /*  **********************************************************
-      **               EINDE hoofdprogramma                   **
-      ********************************************************** */
-
-
-
-
-      // herinnering Nori: p5js.org <-- kijken naar "stop" https://p5js.org/reference/#/libraries/p5.sound
-      // regels 130,131
-      // het geluid voor als je af bent mag maar 1 keer worden afgespeeld
-      // begin geluid moet weer terug
-      // geluiden: https://pixabay.com/sound-effects/search/game/
-    

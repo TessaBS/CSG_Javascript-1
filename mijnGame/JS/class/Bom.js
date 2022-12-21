@@ -27,7 +27,6 @@ class Bom {
       push();
       fill('black');
       image(this.bliksem,this.x,this.y,this.grootte,this.grootte);
-      // rect(this.x,this.y,this.grootte);
       pop();
     }
 
@@ -37,4 +36,4 @@ class Bom {
       this.x = constrain(this.x,0 - (2 * this.stapGrootte),this.breedte * this.stapGrootte);
       this.y = constrain(this.y,0,this.hoogte - this.stapGrootte + this.plek);
     }
-}
+  }

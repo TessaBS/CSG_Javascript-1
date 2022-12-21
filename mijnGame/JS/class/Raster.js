@@ -6,11 +6,6 @@ class Raster {
       this.hoogte = hoogte;
     }
     
-    // genereer() {
-    //   this.aantalKolommen = floor(window.width/ this.celGrootte) +1;
-    //   this.aantalRijen = floor(window.height / this.celGrootte) +1;
-
-    // }
     
     genereer(){
       this.celGrootte = this.hoogte / this.aantalRijen;
