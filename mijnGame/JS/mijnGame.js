@@ -23,13 +23,14 @@ var LED;
 
   function setup() {
     createCanvas(windowWidth,windowHeight);
+    // canvas.parent('processing');
     colorMode(RGB,255,255,255,1);
     textFont('Georgia');
     textSize(35);
     textAlign(CENTER);  
     frameRate(10);
     background(251, 226, 219);
-
+    fill('white');
     //kleuren = new Array(groen,blauw,rood,geel);
     //beloningen = new Array(beloningGr,beloningBl,beloningOr);
 
@@ -45,7 +46,17 @@ var LED;
   //  spel.teken();
 
 
-    
+  for (var rij = 0;rij < 450;rij += 50) {
+    for (var kolom = 0;kolom < 450;kolom += 50) {
+      if (rij == 150 && kolom == 300) {
+        fill('orange');
+      }
+      else {
+        fill('white');
+      }
+      rect(kolom,rij,50,50);
+    }
   }
-  mouseIsPressed
-  
+  }
+
+ // mouseIsPressed
