@@ -1,4 +1,5 @@
 var spel;
+var LED;
 
   function preload() {
     //achtergrondGeluid = loadSound("sounds/achtergrondgeluid.mp3"); 
@@ -27,6 +28,7 @@ var spel;
     textSize(35);
     textAlign(CENTER);  
     frameRate(10);
+    background(251, 226, 219);
 
     //kleuren = new Array(groen,blauw,rood,geel);
     //beloningen = new Array(beloningGr,beloningBl,beloningOr);
@@ -42,26 +44,8 @@ var spel;
   //  spel.spelerStaOpBeloning();
   //  spel.teken();
 
-    background(251, 226, 219);
-  }
-  
- 
-  function keyTyped() {
-    if (!spel.actief && !spel.levelGehaald && keyCode == ENTER) {
-      // begin spel
-      spel.actief = true;
-      achtergrondGeluid.loop();
-    }
-    
-    if ((spel.levelGehaald && !spel.afgelopen) && keyCode == ENTER) {
-      // level gehaald --> naar nieuw level
-      spel.nieuwLevel();
-      achtergrondGeluid.play();
-    }
 
-    if (spel.afgelopen && keyCode == ENTER) {
-      // spel gehaald --> nieuw spel maken
-      spel.nieuwSpel();
-    }
+    
   }
+  mouseIsPressed
   
