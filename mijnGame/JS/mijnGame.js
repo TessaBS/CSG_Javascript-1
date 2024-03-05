@@ -43,7 +43,7 @@ var LED;
   }
   
   function draw() {
-    beginscherm.lampjes();
+    beginscherm.start();
 
   //  spel.update();
   //  spel.muziek();
