@@ -43,6 +43,7 @@ var LED;
   }
   
   function draw() {
+    clear
     beginscherm.start();
     klikken.plaatsen();
   //  spel.update();
