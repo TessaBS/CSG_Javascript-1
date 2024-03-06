@@ -27,7 +27,6 @@ var LED;
     colorMode(RGB,255,255,255,1);
     textFont('Georgia');
     textSize(35);
-    textAlign(CENTER);  
     frameRate(10);
     background(252, 153, 110);
 
@@ -38,13 +37,14 @@ var LED;
     //spel.nieuwSpel();
 
     beginscherm = new Beginscherm();
+    klikken = new Klikken();
 
-
+    muisPlaats = new Array();
   }
   
   function draw() {
-    beginscherm.start();
-
+    beginscherm.start(muisPlaats);
+    klikken.plaatsen();
   //  spel.update();
   //  spel.muziek();
   //  spel.spelerStaOpBom();
