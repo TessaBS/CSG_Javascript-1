@@ -39,12 +39,12 @@ var LED;
     beginscherm = new Beginscherm();
     klikken = new Klikken();
 
+    beginscherm.start();
 
   }
   
   function draw() {
-    clear
-    beginscherm.start();
+
     klikken.plaatsen();
   //  spel.update();
   //  spel.muziek();

@@ -19,7 +19,7 @@ class Beginscherm {
               //   fill('orange');
               // }
               // else {
-                fill('white');
+                fill(255, 255, 255);
               // }
               rect(kolom + 20,rij + 20,50,50);
             }
@@ -38,7 +38,7 @@ class Beginscherm {
         textSize(20);
         fill(255, 255, 255);
         text('Op deze website kun je je eigen design voor je nieuwe powerbankhoesje maken!' + '\nRechts op het scherm ziet u vakjes staan, als u op een van de vakjes klikt zal er links op het scherm een keuze menu komen te staan. Hier kunt u een keuze voor een kleur maken.' + 
-        '\n Als u op de knop KLAAR drukt zal de code tevoorschijn komen die u kunt kopiëren en plakken naar uw project op de website van microbit.',50,500, windowWidth/3);
+        '\n Als u op de knop KLAAR drukt zal de code tevoorschijn komen die u kunt kopiëren en plakken naar uw project op de website van microbit.',50,450, windowWidth/3);
         pop();
     }
 
