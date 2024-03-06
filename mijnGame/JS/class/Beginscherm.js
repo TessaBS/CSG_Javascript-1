@@ -1,7 +1,7 @@
 class Beginscherm {
-    constructor (l){
-        this.lijst = new Array();
-        this.N = 0;
+    constructor (){
+
+
     }
 
     start (){
@@ -24,11 +24,7 @@ class Beginscherm {
               rect(kolom + 20,rij + 20,50,50);
             }
         }
-        if (this.N < 64){
 
-          this.lijst.push(this.N);
-          this.N++ ;
-        }
 
         pop();
     }
