@@ -31,7 +31,7 @@ class Klikken {
     // }
 
     plaatsen(){
-      this.kleurKiezen();
+
       if(this.klaar == true){
         if(this.vakY < 8){
           if(this.vakX < 8){
@@ -42,7 +42,6 @@ class Klikken {
             pop();
             this.vakX++;
             this.N++;
-
             this.klaar = false;
 
 
@@ -57,7 +56,9 @@ class Klikken {
         }
       }
 
-
+      if(this.klaar == false){
+        this.kleurKiezen();
+      }
 
     }
 
@@ -129,28 +130,8 @@ class Klikken {
         }
     }
 
-      // fill(kleur1);
-      // rect(600,70,100,50);
-      // fill(kleur2);
-      // rect(750,70,100,50);
-      // fill(kleur3);
-      // rect(900,70,100,50);
-      // fillkleur4);
-      // rect(600,140,100,50);
-      // fill(kleur5);
-      // rect(750,140,100,50);
-      // fill(kleur6);
-      // rect(900,140,100,50);
-      // this.kleur1 = 255, 255, 0;
-      // this.kleur2 = 255, 150, 0;
-      // this.kleur3 = 255, 0, 0;
-      // this.kleur4 = 0, 255, 0;
-      // this.kleur5 = 0, 0, 255;
-      // this.kleur6 = 255, 255, 255; 
-    
-
     codeSchrijven(){
-
+      text('test',50,50,50,50)
     }
 
   }

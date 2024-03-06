@@ -7,10 +7,4 @@
 //         this.kleur5 = 0, 0, 255;
 //         this.kleur6 = 255, 255, 255;
 //     }
-//     push();
-//     fill(this.kleur1);
-//     rect(windowWidth - (20+50),windowWidth - (20 + 50),50,50);
-//     Pop();
-
-
 // }
