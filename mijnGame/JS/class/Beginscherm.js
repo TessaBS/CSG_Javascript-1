@@ -1,6 +1,6 @@
 class Beginscherm {
     constructor (){
-
+ 
 
     }
 
@@ -8,6 +8,7 @@ class Beginscherm {
       push();
         this.lampjes();
         this.tekst();
+        this.kleurKeuzes();
       pop();
     }
 
@@ -15,17 +16,10 @@ class Beginscherm {
         push();
         for (var rij = 0;rij < 400;rij += 50) {
             for (var kolom = 0;kolom < 400;kolom += 50) {
-              // if (rij == 150 && kolom == 300) {
-              //   fill('orange');
-              // }
-              // else {
                 fill(255, 255, 255);
-              // }
               rect(kolom + 20,rij + 20,50,50);
             }
         }
-
-
         pop();
     }
 
@@ -42,6 +36,23 @@ class Beginscherm {
         pop();
     }
 
+    kleurKeuzes(){
+      push();
+      noStroke();
+      fill(255, 255, 0);
+      rect(600,70,100,50);
+      fill(255, 150, 0);
+      rect(750,70,100,50);
+      fill(255, 0, 0);
+      rect(900,70,100,50);
+      fill(0, 255, 0);
+      rect(600,140,100,50);
+      fill(0, 0, 255);
+      rect(750,140,100,50);
+      fill(255, 255, 255);
+      rect(900,140,100,50);
+      pop();
+    }
 }
-
+ 
 // De lampjes zijn 50 bij 50

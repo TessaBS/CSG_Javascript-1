@@ -27,7 +27,7 @@ var LED;
     colorMode(RGB,255,255,255,1);
     textFont('Georgia');
     textSize(35);
-    frameRate(10);
+    frameRate(7);
     background(252, 153, 110);
 
     //kleuren = new Array(groen,blauw,rood,geel);
@@ -46,6 +46,7 @@ var LED;
   function draw() {
 
     klikken.plaatsen();
+
   //  spel.update();
   //  spel.muziek();
   //  spel.spelerStaOpBom();
