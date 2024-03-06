@@ -131,7 +131,25 @@ class Klikken {
     }
 
     codeSchrijven(){
-      text('test',50,50,50,50)
-    }
+      text('test',50,50,50,50);
 
+
+
+    //   input.onButtonPressed(Button.A, function () {
+    //     strip.clear()
+    //     strip.setPixelColor(0, neopixel.rgb(255, 255, 255))
+    //     strip.setPixelColor(1, neopixel.rgb(255, 255, 255))
+    //     strip.setPixelColor(2, neopixel.rgb(255, 255, 255))
+    //     strip.show()
+    // })
+    // input.onButtonPressed(Button.B, function () {
+    //     strip.clear()
+    //     strip.show()
+    // })
+    // let strip: neopixel.Strip = null
+    // strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB)
+    // }
+
+    // ALLES leeg maken
+    // Knop dat je de code kunct kopiëren? ipv hele code laten zien.
   }
