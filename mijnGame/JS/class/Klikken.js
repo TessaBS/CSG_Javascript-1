@@ -32,6 +32,8 @@ class Klikken {
     // }
 
     plaatsen(){
+this.codeSchrijven();
+
       if(this.klaar == true){
         if(this.vakY < 8){
           if(this.vakX < 8){
@@ -78,7 +80,7 @@ class Klikken {
           this.lijst.push(this.oranje);
 
           push();
-          fill(255, 150, 0);
+          fill(255, 130, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
 
@@ -141,12 +143,48 @@ class Klikken {
       text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB) \n }',10,this.codeY + 100,windowWidth - 20);
       
       for(this.vakNr = 0;this.vakNr < 64; this.vakNr +=1){
-        this.codeY += 20;
-        text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 255))',10,this.codeY,windowWidth - 20);
+        this.codeY = this.codeY + 200;
+
+        if(this.lijst[this.vakNr] = 1){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 0))',10,this.codeY,windowWidth - 20);
+        }
+
+        if(this.lijst[this.vakNr] = 2){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 130, 0))',10,this.codeY,windowWidth - 20);
+        }
+
+        if(this.lijst[this.vakNr] = 3){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 0, 0))',10,this.codeY,windowWidth - 20);
+        }
+
+        if(this.lijst[this.vakNr] = 4){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 255, 0))',10,this.codeY,windowWidth - 20);
+        }
+
+        if(this.lijst[this.vakNr] = 5){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 0, 255))',10,this.codeY,windowWidth - 20);
+        }
+
+        if(this.lijst[this.vakNr] = 6){
+          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 255))',10,this.codeY,windowWidth - 20);
+        }
+
       }
 
+        // this.geel = 1;
+        // this.oranje = 2;
+        // this.rood = 3;
+        // this.groen = 4;
+        // this.blauw = 5;
+        // this.wit = 6;  
 
 
+//         this.kleur1 = 255, 255, 0;
+//         this.kleur2 = 255, 130, 0;
+//         this.kleur3 = 255, 0, 0;
+//         this.kleur4 = 0, 255, 0;
+//         this.kleur5 = 0, 0, 255;
+//         this.kleur6 = 255, 255, 255;
 
           //   input.onButtonPressed(Button.A, function () {
           //     strip.clear()

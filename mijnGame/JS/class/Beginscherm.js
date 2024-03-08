@@ -41,7 +41,7 @@ class Beginscherm {
       noStroke();
       fill(255, 255, 0);
       rect(600,70,100,50);
-      fill(255, 150, 0);
+      fill(255, 130, 0);
       rect(750,70,100,50);
       fill(255, 0, 0);
       rect(900,70,100,50);
