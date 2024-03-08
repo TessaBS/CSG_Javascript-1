@@ -4,7 +4,7 @@ class Klikken {
         this.code = new Array();
         this.N = 0;
         this.vakNr = 0;
-        this.codeY = 0;
+        this.codeY = 20;
         this.vakX = 0;
         this.vakY = 0;
         this.geel = 1;
@@ -134,48 +134,51 @@ class Klikken {
     }
 
     codeSchrijven(){
-
+      // push();
+      noLoop();
       fill(252, 153, 110);
       rect(0,0,windowWidth,windowHeight);
       fill(0, 0, 0);
-      textSize(20);
+      textSize(5);
       text('input.onButtonPressed(Button.A, function () { \n strip.clear()',10,10,windowWidth - 20);
-      text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB) \n }',10,this.codeY + 100,windowWidth - 20);
+
 
       for(this.vakNr = 0;this.vakNr < 64; this.vakNr +=1 ){
 
-        if(this.lijst[this.vakNr] = 1){
+        if(this.lijst[this.vakNr] == 1){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 0))',10,this.codeY,windowWidth - 20);
         }
 
-        if(this.lijst[this.vakNr] = 2){
+        if(this.lijst[this.vakNr] == 2){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 130, 0))',10,this.codeY,windowWidth - 20);
         }
 
-        if(this.lijst[this.vakNr] = 3){
+        if(this.lijst[this.vakNr] == 3){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 0, 0))',10,this.codeY,windowWidth - 20);
         }
 
-        if(this.lijst[this.vakNr] = 4){
+        if(this.lijst[this.vakNr] == 4){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 255, 0))',10,this.codeY,windowWidth - 20);
         }
 
-        if(this.lijst[this.vakNr] = 5){
+        if(this.lijst[this.vakNr] == 5){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 0, 255))',10,this.codeY,windowWidth - 20);
         }
 
-        if(this.lijst[this.vakNr] = 6){
+        if(this.lijst[this.vakNr] == 6){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 255))',10,this.codeY,windowWidth - 20);
         }
 
-        text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB) \n }',10,this.codeY + 100,windowWidth - 20);
 
-        this.codeY +=20; 
+        this.codeY +=5; 
       
       }
+      text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB)',10,this.codeY + 5,windowWidth - 20);
+
 
     }
 
+    // pop();
 
 
           // ALLES leeg maken
