@@ -36,6 +36,8 @@ var geel;
       achtergrondmuziek.play();
     }
   }
+
+
   
   // function mousePressed() {
   //   if(!this.actief && !this.afgelopen){
