@@ -46,6 +46,11 @@
   function draw() {
 
     klikken.plaatsen();
+    if(this.klikken.plaatsen.opnieuw == true){
+      noLoop();
+      beginscherm.start();
+      klikken.plaatsen();
+    }
 
   }
 

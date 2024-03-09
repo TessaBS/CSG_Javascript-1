@@ -4,7 +4,7 @@ class Klikken {
         this.code = new Array();
         this.N = 0;
         this.vakNr = 0;
-        this.codeY = 20;
+        this.codeY = 25;
         this.vakX = 0;
         this.vakY = 0;
         this.geel = 1;
@@ -14,6 +14,7 @@ class Klikken {
         this.blauw = 5;
         this.wit = 6;  
         this.klaar = true;
+        this.opnieuw = false;
     }
 
     
@@ -54,18 +55,24 @@ class Klikken {
             this.vakY++ ;
           }
         }
-        else{
-          this.codeSchrijven();
-        }
+        // else{
+        //   if (mouseX <= 700 && mouseX >= 600 && mouseY <= 120 && mouseY >= 70 && mouseIsPressed == true){
+        //     this.codeSchrijven();
+        //   }
+        // }
       }
 
       if(this.klaar == false){
         this.kleurKiezen();
       }
 
+      if (mouseX <= 550 && mouseX >= 450 && mouseY <= 70 && mouseY >= 20 && mouseIsPressed == true){
+          this.codeSchrijven();
+        }
     }
 
     kleurKiezen(){
+
         if (mouseX <= 700 && mouseX >= 600 && mouseY <= 120 && mouseY >= 70 && mouseIsPressed == true){
           this.lijst.push(this.geel);
 
@@ -143,7 +150,7 @@ class Klikken {
       text('input.onButtonPressed(Button.A, function () { \n strip.clear()',10,10,windowWidth - 20);
 
 
-      for(this.vakNr = 0;this.vakNr < 64; this.vakNr +=1 ){
+      for(this.vakNr = 0;this.vakNr < this.N - 1; this.vakNr +=1 ){
 
         if(this.lijst[this.vakNr] == 1){
           text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 0))',10,this.codeY,windowWidth - 20);
@@ -174,7 +181,18 @@ class Klikken {
       
       }
       text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB)',10,this.codeY + 5,windowWidth - 20);
-
+      
+      push();
+      noStroke();
+      fill(198, 200, 237);
+      rect(windowWidth - 200, 20, 100, 50);
+      fill(2, 1, 69);
+      textSize(20);
+      text('Opnieuw',windowWidth - 190,52);
+      pop();
+      if (mouseX <= (windowWidth - 100) && mouseX >= (windowWidth - 200) && mouseY <= 70 && mouseY >= 20 && mouseIsPressed == true){
+        this.opnieuw = true;
+      }
 
     }
 

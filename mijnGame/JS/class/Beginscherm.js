@@ -9,6 +9,7 @@ class Beginscherm {
         this.lampjes();
         this.tekst();
         this.kleurKeuzes();
+        this.klaarKnop();
       pop();
     }
 
@@ -51,6 +52,17 @@ class Beginscherm {
       rect(750,140,100,50);
       fill(255, 255, 255);
       rect(900,140,100,50);
+      pop();
+    }
+
+    klaarKnop(){
+      push();
+      noStroke();
+      fill(198, 200, 237);
+      rect(450, 20, 100, 50);
+      fill(2, 1, 69);
+      textSize(20);
+      text('Klaar', 460, 50);
       pop();
     }
 }
