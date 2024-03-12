@@ -6,3 +6,7 @@ html,body {
 body {
     overflow: hidden;
 }
+
+#code {
+    font-size: 0.0001;
+}

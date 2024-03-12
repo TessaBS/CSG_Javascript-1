@@ -43,6 +43,8 @@
 
   }
   
+
+
   function draw() {
 
     klikken.plaatsen();
@@ -52,7 +54,13 @@
       klikken.plaatsen();
     }
 
+    if(this.klikken.codeSchrijvenKlaar == true){
+      document.getElementById('code').innerHTML = this.klikken.codeText;
+    }
+
   }
+
+  
 
   
 
