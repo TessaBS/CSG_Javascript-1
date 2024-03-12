@@ -4,12 +4,12 @@ class Beginscherm {
 
     }
 
-    start (){
+    teken (){
       push();
         this.lampjes();
         this.tekst();
         this.kleurKeuzes();
-        this.klaarKnop();
+        this.knoppen();
       pop();
     }
 
@@ -40,29 +40,43 @@ class Beginscherm {
     kleurKeuzes(){
       push();
       noStroke();
-      fill(255, 255, 0);
-      rect(600,70,100,50);
-      fill(255, 130, 0);
-      rect(750,70,100,50);
-      fill(255, 0, 0);
-      rect(900,70,100,50);
       fill(0, 255, 0);
+      rect(600,70,100,50);
+
+      fill(255, 255, 0);
+      rect(750,70,100,50);
+
+      fill(255, 130, 0);
       rect(600,140,100,50);
-      fill(0, 0, 255);
+
+      fill(255, 0, 0);
       rect(750,140,100,50);
+
+      fill(130, 0, 255);
+      rect(600,210,100,50);
+
+      fill(0, 0, 255);
+      rect(750,210,100,50);
+
       fill(255, 255, 255);
-      rect(900,140,100,50);
+      rect(600,280,100,50);
+
+      fill(0, 0, 0);
+      rect(750,280,100,50);
+      
       pop();
     }
 
-    klaarKnop(){
+    knoppen(){
       push();
       noStroke();
       fill(198, 200, 237);
       rect(450, 20, 100, 50);
+      rect(450, 90, 100, 50);
       fill(2, 1, 69);
       textSize(20);
       text('Klaar', 460, 50);
+      text('Opnieuw',460,120);
       pop();
     }
 }
