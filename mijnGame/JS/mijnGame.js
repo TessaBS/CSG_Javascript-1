@@ -1,10 +1,3 @@
-
-
-  function preload() {
-
-  }
-
-
   function setup() {
     createCanvas(windowWidth,windowHeight);
 
@@ -29,12 +22,10 @@
     klikken.plaatsen();
     if(klikken.opnieuw == true){
       setup();
-      klikken.plaatsen();
     }
 
     if(klikken.codeSchrijvenKlaar == true){
       document.getElementById('code').innerHTML = klikken.codeText;
-      
     }
 
   }
