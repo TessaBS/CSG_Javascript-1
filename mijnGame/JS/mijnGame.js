@@ -48,7 +48,7 @@
   function draw() {
 
     klikken.plaatsen();
-    if(this.klikken.plaatsen.opnieuw == true){
+    if(this.klikken.opnieuw == true){
       noLoop();
       beginscherm.start();
       klikken.plaatsen();
@@ -58,6 +58,7 @@
       document.getElementById('code').innerHTML = this.klikken.codeText;
     }
 
+
   }
 
   
@@ -66,7 +67,7 @@
 
   // function myFunction() {
   //   // Get the text field
-  //   var copyText = document.getElementById();
+  //   var copyText = document.getElementById('code');
   
   //   // Select the text field
   //   copyText.select();
@@ -78,4 +79,3 @@
   //   // Alert the copied text
   //   // alert("Copied the text: " + copyText.value);
   // } 
-

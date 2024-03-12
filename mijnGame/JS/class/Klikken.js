@@ -146,11 +146,12 @@ class Klikken {
     codeSchrijven(){
       // push();
       noLoop();
-      fill(252, 153, 110);
+      fill(255, 255, 255);
+      noStroke();
       rect(0,0,windowWidth,windowHeight);
       fill(0, 0, 0);
       textSize(5);
-      text('input.onButtonPressed(Button.A, function () { \n strip.clear()',10,10,windowWidth - 20);
+      // text('input.onButtonPressed(Button.A, function () { \n strip.clear()',10,10,windowWidth - 20);
       this.codeText += "input.onButtonPressed(Button.A, function () { <br> strip.clear()";
       this.codeSchrijvenKlaar = true;
 
@@ -158,32 +159,32 @@ class Klikken {
       for(this.vakNr = 0;this.vakNr < this.N; this.vakNr +=1 ){
 
         if(this.lijst[this.vakNr] == 1){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 0))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 0))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 0))";
         }
 
         if(this.lijst[this.vakNr] == 2){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 130, 0))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 130, 0))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 130, 0))";
         }
 
         if(this.lijst[this.vakNr] == 3){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 0, 0))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 0, 0))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 0, 0))";
         }
 
         if(this.lijst[this.vakNr] == 4){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 255, 0))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 255, 0))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 255, 0))";
         }
 
         if(this.lijst[this.vakNr] == 5){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 0, 255))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(0, 0, 255))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 0, 255))";
         }
 
         if(this.lijst[this.vakNr] == 6){
-          text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 255))',10,this.codeY,windowWidth - 20);
+          // text('strip.setPixelColor(' + this.vakNr + ', neopixel.rgb(255, 255, 255))',10,this.codeY,windowWidth - 20);
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 255))";
         }
 
@@ -194,7 +195,7 @@ class Klikken {
 
       this.aantalLampjes = this.N - 1;
 
-      text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0,' + this.aantalLampjes + ', NeoPixelMode.RGB)',10,this.codeY + 5,windowWidth - 20);
+      // text('strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0,' + this.aantalLampjes + ', NeoPixelMode.RGB)',10,this.codeY + 5,windowWidth - 20);
       this.codeText +="<br> strip.show() <br> }) <br><br> input.onButtonPressed(Button.B, function () { <br> strip.clear() <br> strip.show() <br> }) <br> let strip: neopixel.Strip = null <br> strip = neopixel.create(DigitalPin.P0, " + this.aantalLampjes + ", NeoPixelMode.RGB)";
 
       push();
