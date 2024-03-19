@@ -52,7 +52,10 @@ class Klikken {
           this.eindScherm = true;
 
       }
+      if (klikken.eindScherm == true){
+        klikken.lampjesOpnieuw();
 
+      }
        if (mouseX <= 550 && mouseX >= 450 && mouseY <= 140 && mouseY >= 50 && mouseIsPressed == true){
         this.opnieuw = true;
       }
@@ -65,6 +68,7 @@ class Klikken {
           this.lijst.push(this.groen);
 
           push();
+          stroke(0,0,0);
           fill(0, 255, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20, 50, 50);
           pop();
@@ -76,6 +80,7 @@ class Klikken {
           this.lijst.push(this.geel);
 
           push();
+          stroke(0,0,0);
           fill(255, 255, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -87,6 +92,7 @@ class Klikken {
           this.lijst.push(this.oranje);
 
           push();
+          stroke(0,0,0);
           fill(255, 130, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -98,6 +104,7 @@ class Klikken {
           this.lijst.push(this.rood);
 
           push();
+          stroke(0,0,0);
           fill(255, 0, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -109,6 +116,7 @@ class Klikken {
           this.lijst.push(this.paars);
 
           push();
+          stroke(0,0,0);
           fill(130, 0, 255);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -120,6 +128,7 @@ class Klikken {
           this.lijst.push(this.blauw);
 
           push();
+          stroke(0,0,0);
           fill(0, 0, 255);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -131,6 +140,7 @@ class Klikken {
           this.lijst.push(this.wit);
 
           push();
+          stroke(0,0,0);
           fill(255, 255, 255);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -142,6 +152,7 @@ class Klikken {
           this.lijst.push(this.zwart);
 
           push();
+          stroke(0,0,0);
           fill(0, 0, 0);
           rect((this.vakX - 1)*50 + 20, this.vakY*50 + 20,50,50);
           pop();
@@ -206,7 +217,7 @@ class Klikken {
 
     lampjesOpnieuw(){
       push();
-      this.codeText = null;
+
       noStroke();
       fill(198, 200, 237);
       rect(100, 0, 100, 50);
@@ -218,8 +229,6 @@ class Klikken {
       if (mouseX <= 200 && mouseX >= 100 && mouseY <= 50 && mouseY >= 0 && mouseIsPressed == true){
         this.opnieuw = true;
       }
-      // LUKT NIET!!
-      this.waar += 1;
 
     }
 

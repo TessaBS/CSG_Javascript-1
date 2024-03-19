@@ -10,7 +10,7 @@
     beginscherm = new Beginscherm();
     klikken = new Klikken();
 
-    beginscherm.teken();
+    beginscherm.teken(0,0);
   }
   
 
@@ -20,13 +20,12 @@
     klikken.plaatsen();
     if(klikken.opnieuw == true){
       setup();
+      document.getElementById('code').innerHTML = null;
     }
 
     if(klikken.codeSchrijvenKlaar == true){
       document.getElementById('code').innerHTML = klikken.codeText;
     }
     
-    if (klikken.eindScherm == true){
-      klikken.lampjesOpnieuw();
-    }
+
   }
