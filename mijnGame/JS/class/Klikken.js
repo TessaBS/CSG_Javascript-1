@@ -15,9 +15,10 @@ class Klikken {
         this.zwart = 8;
         this.klaar = true;
         this.opnieuw = false;
+        this.eindScherm = false;
         this.codeText = "";
         this.codeSchrijvenKlaar = false;
-
+      this.waar = 0;
     }
 
     plaatsen(){
@@ -48,16 +49,17 @@ class Klikken {
 
       if (mouseX <= 550 && mouseX >= 450 && mouseY <= 70 && mouseY >= 20 && mouseIsPressed == true){ 
           this.codeSchrijven();
-          this.lampjesOpnieuw();
+          this.eindScherm = true;
 
-       }
+      }
+
        if (mouseX <= 550 && mouseX >= 450 && mouseY <= 140 && mouseY >= 50 && mouseIsPressed == true){
         this.opnieuw = true;
       }
+      
     }
 
     kleurKiezen(){
-
 
         if (mouseX <= 700 && mouseX >= 600 && mouseY <= 120 && mouseY >= 70 && mouseIsPressed == true){
           this.lijst.push(this.groen);
@@ -151,14 +153,14 @@ class Klikken {
 
     codeSchrijven(){
 
-      noLoop();
       fill(255, 255, 255);
       noStroke();
       rect(0,0,windowWidth,windowHeight);
       fill(0, 0, 0);
       textSize(5);
-      this.codeText += "input.onButtonPressed(Button.A, function () { <br> strip.clear()";
       this.codeSchrijvenKlaar = true;
+      this.codeText += "input.onButtonPressed(Button.A, function () { <br> strip.clear()";
+
 
 
       for(this.vakNr = 0;this.vakNr < this.N; this.vakNr +=1 ){
@@ -204,6 +206,7 @@ class Klikken {
 
     lampjesOpnieuw(){
       push();
+      this.codeText = null;
       noStroke();
       fill(198, 200, 237);
       rect(100, 0, 100, 50);
@@ -211,10 +214,13 @@ class Klikken {
       textSize(20);
       text('Opnieuw',110,30);
       pop();
+
       if (mouseX <= 200 && mouseX >= 100 && mouseY <= 50 && mouseY >= 0 && mouseIsPressed == true){
         this.opnieuw = true;
       }
       // LUKT NIET!!
+      this.waar += 1;
+
     }
 
 

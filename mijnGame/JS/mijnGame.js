@@ -11,8 +11,6 @@
     klikken = new Klikken();
 
     beginscherm.teken();
-
-
   }
   
 
@@ -27,5 +25,8 @@
     if(klikken.codeSchrijvenKlaar == true){
       document.getElementById('code').innerHTML = klikken.codeText;
     }
-
+    
+    if (klikken.eindScherm == true){
+      klikken.lampjesOpnieuw();
+    }
   }
