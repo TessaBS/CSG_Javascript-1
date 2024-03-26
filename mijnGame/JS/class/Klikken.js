@@ -17,8 +17,9 @@ class Klikken {
         this.opnieuw = false;
         this.eindScherm = false;
         this.codeText = "";
+        this.codeTextKopie = "";
         this.codeSchrijvenKlaar = false;
-      this.waar = 0;
+        this.waar = 0;
     }
 
     plaatsen(){
@@ -28,7 +29,7 @@ class Klikken {
             push();
             fill(0, 0, 0);
             textSize(20);
-            text(this.N, this.vakX*50 + 30, this.vakY*50 + 50);
+            text(this.N + 1, this.vakX*50 + 30, this.vakY*50 + 50);
             pop();
             this.vakX++;
             this.N++;
@@ -171,47 +172,56 @@ class Klikken {
       textSize(5);
       this.codeSchrijvenKlaar = true;
       this.codeText += "input.onButtonPressed(Button.A, function () { <br> strip.clear()";
-
+      this.codeTextKopie += "input.onButtonPressed(Button.A, function () { \n strip.clear()";
 
 
       for(this.vakNr = 0;this.vakNr < this.N; this.vakNr +=1 ){
 
         if(this.lijst[this.vakNr] == 1){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 255, 0))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 255, 0))";
         }
 
         if(this.lijst[this.vakNr] == 2){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 0))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 0))";
         }
 
         if(this.lijst[this.vakNr] == 3){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 130, 0))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 130, 0))";
         }
 
         if(this.lijst[this.vakNr] == 4){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 0, 0))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 0, 0))";
         }
 
         if(this.lijst[this.vakNr] == 5){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(130, 0, 255))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(130, 0, 255))";
         }
 
         if(this.lijst[this.vakNr] == 6){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 0, 255))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 0, 255))";
         }
 
         if(this.lijst[this.vakNr] == 7){
           this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 255))";
+          this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 255))";
         }
 
         if(this.lijst[this.vakNr] == 8){
           this.codeText;
+          this.codeTextKopie;
         }
 
       }
 
 
       this.codeText +="<br> strip.show() <br> }) <br><br> input.onButtonPressed(Button.B, function () { <br> strip.clear() <br> strip.show() <br> }) <br> let strip: neopixel.Strip = null <br> strip = neopixel.create(DigitalPin.P0, " + (this.N - 1) + ", NeoPixelMode.RGB)";
+      this.codeTextKopie += "\n strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, " + (this.N - 1) + ", NeoPixelMode.RGB)";
 
     }
 
