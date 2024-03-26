@@ -36,7 +36,7 @@ class Beginscherm {
         textSize(20);
         fill(255, 255, 255);
         text('Op deze website kunt u uw eigen design voor uw nieuwe powerbankhoesje maken!' + '\nRechts op het scherm ziet u vakjes met verschillende kleuren staan. Als u op een van de vakjes klikt, zal er links op het scherm het eerste vakje deze kleur krijgen. (Zwart betekent dat het lampje uit zal blijven.) Als u vervolgens op nog een vakje klikt, zal het volgende vakje deze kleur krijgen. Dit gaat zo door totdat u klaar bent. Dan kunt op op het vakje KLAAR drukken. Dit moet u echter niet te snel doen, omdat het programma even de tijd moet krijgen om de laatste kleur te verwerken. ' + 
-        '\n Er zal nadat u op KLAAR heeft geklikt code verschijnen die u kunt kopiëren en plakken naar uw project op de website van microbit.',50,450, windowWidth - 100);
+        '\n Er zal nadat u op KLAAR heeft geklikt code verschijnen die u kunt kopiëren (alles selecteren Ctrl + A en dan Ctrl + C) en plakken naar uw project op de website van microbit.',50,450, windowWidth - 100);
         pop();
     }
 
