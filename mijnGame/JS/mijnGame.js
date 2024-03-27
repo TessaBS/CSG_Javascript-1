@@ -7,7 +7,7 @@
     frameRate(5);
     background(252, 153, 110);
 
-    // this.copyText = null;
+    // klikken.copyText = null;
 
     beginscherm = new Beginscherm();
     klikken = new Klikken();
@@ -49,58 +49,111 @@
       klikken.eindScherm = true;
   }
 
-  for(this.vakNr = 0;this.vakNr < this.N; this.vakNr +=1 ){
+  if(klikken.klaar == false){
+    if (mouseX <= 700 && mouseX >= 600 && mouseY <= 120 && mouseY >= 70){
+      klikken.lijst.push(klikken.groen);
 
-    if(this.lijst[this.vakNr] == 1){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 255, 0))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 255, 0))";
+      push();
+      stroke(0,0,0);
+      fill(0, 255, 0);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20, 50, 50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 2){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 0))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 0))";
+    if(mouseX <= 850 && mouseX >=750 && mouseY <= 120 && mouseY >= 70){
+      klikken.lijst.push(klikken.geel);
+
+      push();
+      stroke(0,0,0);
+      fill(255, 255, 0);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 3){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 130, 0))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 130, 0))";
+    if(mouseX <= 700 && mouseX >=600 && mouseY <= 190 && mouseY >= 140){
+      klikken.lijst.push(klikken.oranje);
+
+      push();
+      stroke(0,0,0);
+      fill(255, 130, 0);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 4){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 0, 0))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 0, 0))";
+    if(mouseX <= 850 && mouseX >=750 && mouseY <= 190 && mouseY >= 140){
+      klikken.lijst.push(klikken.rood);
+
+      push();
+      stroke(0,0,0);
+      fill(255, 0, 0);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 5){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(130, 0, 255))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(130, 0, 255))";
+    if(mouseX <= 700 && mouseX >=600 && mouseY <= 260 && mouseY >= 210){
+      klikken.lijst.push(klikken.paars);
+
+      push();
+      stroke(0,0,0);
+      fill(130, 0, 255);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 6){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 0, 255))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(0, 0, 255))";
+    if(mouseX <= 850 && mouseX >=750 && mouseY <= 260 && mouseY >= 210){
+      klikken.lijst.push(klikken.blauw);
+
+      push();
+      stroke(0,0,0);
+      fill(0, 0, 255);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+    
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 7){
-      this.codeText += "<br> strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 255))";
-      // this.codeTextKopie += "\n strip.setPixelColor(" + this.vakNr + ", neopixel.rgb(255, 255, 255))";
+    if(mouseX <= 700 && mouseX >=600 && mouseY <= 330 && mouseY >= 280){
+      klikken.lijst.push(klikken.wit);
+
+      push();
+      stroke(0,0,0);
+      fill(255, 255, 255);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+
+      klikken.klaar = true;
     }
 
-    if(this.lijst[this.vakNr] == 8){
-      this.codeText;
-      // this.codeTextKopie;
+    if(mouseX <= 850 && mouseX >=750 && mouseY <= 330 && mouseY >= 280){
+      klikken.lijst.push(klikken.zwart);
+
+      push();
+      stroke(0,0,0);
+      fill(0, 0, 0);
+      rect((klikken.vakX - 1)*50 + 20, klikken.vakY*50 + 20,50,50);
+      pop();
+    
+      klikken.klaar = true;
     }
-    if(klikken.vakNr >= klikken.N)
   }
 
-
-
   }
+
 // function copyOnClick() {  
-//   this.copyTextKopie = document.getElementById('codeKopie').innerHTML;
+//   klikken.copyTextKopie = document.getElementById('codeKopie').innerHTML;
 //   var tempInput = document.createElement("input");
 //   tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-//   tempInput.value = this.copyTextKopie;
+//   tempInput.value = klikken.copyTextKopie;
 //   document.body.appendChild(tempInput);
 //   tempInput.select();
 //   document.execCommand("copy");
