@@ -213,7 +213,7 @@ class Klikken {
       }
 
 
-        this.codeText +="<br> strip.show() <br> }) <br><br> input.onButtonPressed(Button.B, function () { <br> strip.clear() <br> strip.show() <br> }) <br> let strip: neopixel.Strip = null <br> strip = neopixel.create(DigitalPin.P0, " + (this.N) + ", NeoPixelMode.RGB)";
+        this.codeText +="<br> strip.show() <br> }) <br><br> input.onButtonPressed(Button.B, function () { <br> strip.clear() <br> strip.show() <br> }) <br> let strip: neopixel.Strip = null <br> strip = neopixel.create(DigitalPin.P0, 64, NeoPixelMode.RGB)";
         // this.codeTextKopie += "\n strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, " + (this.N - 1) + ", NeoPixelMode.RGB)";
   
 
@@ -228,10 +228,14 @@ class Klikken {
       rect(0,0,windowWidth,windowHeight);
 
       fill(198, 200, 237);
-      rect(100, 50, 100, 50);
+      rect(100, 10, 100, 50);
       fill(2, 1, 69);
       textSize(20);
-      text('Opnieuw',110,80);
+      text('Opnieuw',110,40);
+
+      fill(255, 255, 255);
+      text('Alles selecteren [Ctrl + A] en kopiëren [Ctrl + C].',50,80, windowWidth - 100);
+
       pop();
 
       // if (mouseX <= 200 && mouseX >= 100 && mouseY <= 50 && mouseY >= 0 && mouseIsPressed == true){

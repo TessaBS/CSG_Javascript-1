@@ -42,7 +42,7 @@
     if (klikken.eindScherm == false && mouseX <= 550 && mouseX >= 450 && mouseY <= 140 && mouseY >= 50){
       klikken.opnieuw = true;
     }
-    if (klikken.eindScherm == true && mouseX <= 200 && mouseX >= 100 && mouseY <= 100 && mouseY >= 50){
+    if (klikken.eindScherm == true && mouseX <= 200 && mouseX >= 100 && mouseY <= 60 && mouseY >= 10){
       klikken.opnieuw = true;
     }
 
