@@ -36,20 +36,18 @@
 
   function mouseReleased() {
 
-
+    if (klikken.eindScherm == false && mouseX <= 550 && mouseX >= 450 && mouseY <= 70 && mouseY >= 20){
+      klikken.codeSchrijven();
+    }
     if (klikken.eindScherm == false && mouseX <= 550 && mouseX >= 450 && mouseY <= 140 && mouseY >= 50){
       klikken.opnieuw = true;
     }
-    if(klikken.eindScherm == true && mouseX <= 200 && mouseX >= 100 && mouseY <= 50 && mouseY >= 0){
+    if (klikken.eindScherm == true && mouseX <= 200 && mouseX >= 100 && mouseY <= 100 && mouseY >= 50){
       klikken.opnieuw = true;
     }
-    if (klikken.eindScherm == false && mouseX <= 550 && mouseX >= 450 && mouseY <= 70 && mouseY >= 20){ 
 
-      klikken.codeSchrijven();
-      klikken.eindScherm = true;
-  }
 
-  if(klikken.klaar == false){
+  if (klikken.klaar == false){
     if (mouseX <= 700 && mouseX >= 600 && mouseY <= 120 && mouseY >= 70){
       klikken.lijst.push(klikken.groen);
 

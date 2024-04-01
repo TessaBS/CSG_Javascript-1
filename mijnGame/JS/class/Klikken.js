@@ -2,7 +2,7 @@ class Klikken {
     constructor (){
         this.lijst = new Array();
         this.N = 0;
-        this.vakNr;
+        this.vakNr = 0;
         this.vakX = 0;
         this.vakY = 0;
         this.groen = 1;
@@ -20,6 +20,7 @@ class Klikken {
         this.codeTextKopie = "";
         this.codeSchrijvenKlaar = false;
         this.waar = 0;
+
     }
 
     plaatsen(){
@@ -49,8 +50,8 @@ class Klikken {
       //     this.eindScherm = true;
       // }
 
-      if (klikken.eindScherm == true){
-        klikken.lampjesOpnieuw();
+      if (this.eindScherm == true){
+        this.lampjesOpnieuw();
 
       }
 
@@ -162,16 +163,11 @@ class Klikken {
 
     codeSchrijven(){
 
-      fill(255, 255, 255);
-      noStroke();
-      rect(0,0,windowWidth,windowHeight);
       fill(0, 0, 0);
-      textSize(5);
-      this.codeSchrijvenKlaar = true;
       this.codeText += "input.onButtonPressed(Button.A, function () { <br> strip.clear()";
       // this.codeTextKopie += "input.onButtonPressed(Button.A, function () { \n strip.clear()";
 
-
+      
       for(this.vakNr = 0;this.vakNr < this.N; this.vakNr +=1 ){
 
         if(this.lijst[this.vakNr] == 1){
@@ -221,18 +217,21 @@ class Klikken {
         // this.codeTextKopie += "\n strip.show() \n }) \n \n input.onButtonPressed(Button.B, function () { \n strip.clear() \n strip.show() \n }) \n let strip: neopixel.Strip = null \n strip = neopixel.create(DigitalPin.P0, " + (this.N - 1) + ", NeoPixelMode.RGB)";
   
 
-
+        this.codeSchrijvenKlaar = true;
+        this.eindScherm = true;
     }
 
     lampjesOpnieuw(){
       push();
-
       noStroke();
+      fill(252, 153, 110);
+      rect(0,0,windowWidth,windowHeight);
+
       fill(198, 200, 237);
-      rect(100, 0, 100, 50);
+      rect(100, 50, 100, 50);
       fill(2, 1, 69);
       textSize(20);
-      text('Opnieuw',110,30);
+      text('Opnieuw',110,80);
       pop();
 
       // if (mouseX <= 200 && mouseX >= 100 && mouseY <= 50 && mouseY >= 0 && mouseIsPressed == true){
