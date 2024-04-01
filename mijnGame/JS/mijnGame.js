@@ -4,7 +4,7 @@
     colorMode(RGB,255,255,255,1);
     textFont('Georgia');
     textSize(35);
-    frameRate(5);
+    frameRate(20);
     background(252, 153, 110);
 
     // klikken.copyText = null;

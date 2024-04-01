@@ -35,8 +35,10 @@ class Beginscherm {
         textAlign(LEFT);
         textSize(20);
         fill(255, 255, 255);
-        text('Op deze website kunt u uw eigen design voor uw nieuwe powerbankhoesje maken!' + '\nRechts op het scherm ziet u vakjes met verschillende kleuren staan. Als u op een van de vakjes klikt, zal er links op het scherm het eerste vakje deze kleur krijgen. (Zwart betekent dat het lampje uit zal blijven.) Als u vervolgens op nog een vakje klikt, zal het volgende vakje deze kleur krijgen. Dit gaat zo door totdat u klaar bent. Dan kunt op op het vakje KLAAR drukken. ' + 
-        '\n Er zal nadat u op KLAAR heeft geklikt code verschijnen die u kunt kopiëren (alles selecteren [Ctrl + A] en dan kopiëren [Ctrl + C]) en plakken naar uw project op de website van microbit.',50,450, windowWidth - 100);
+        text('Op deze website kunt u uw eigen design voor uw nieuwe powerbankhoesje maken!' + '\nRechts op het scherm ziet u vakjes met verschillende kleuren staan. Als u op een van de vakjes klikt, zal links op het scherm het eerste vakje deze kleur krijgen. (Zwart betekent dat het lampje uit zal blijven.) Als u vervolgens op nog een vakje klikt, zal het volgende vakje deze kleur krijgen. Dit gaat zo door totdat u klaar bent. Dan kunt op op het vakje KLAAR drukken. ' + 
+        '\nEr zal nadat u op KLAAR heeft geklikt, een code verschijnen die u kunt kopiëren (alles selecteren [Ctrl + A] en dan kopiëren [Ctrl + C]) en plakken naar uw project op de website van micro:bit.' + 
+        '\n \nTip: Het is handig als u eerst een patroon op papier uitwerkt, zodat u daarna makkelijk de kleuren op volgorde aan kunt klikken. Het patroon kan uit 8x8 vakjes bestaan.',50,450, windowWidth - 100);
+              
         pop();
     }
 
