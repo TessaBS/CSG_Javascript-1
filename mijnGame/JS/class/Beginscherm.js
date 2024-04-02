@@ -85,5 +85,3 @@ class Beginscherm {
       pop();
     }
 }
- 
-// De lampjes zijn 50 bij 50
